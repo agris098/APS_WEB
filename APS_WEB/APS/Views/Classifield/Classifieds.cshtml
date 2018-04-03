@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "My Classifieds";
+}
+
+<h2>My Classifieds</h2>
+
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li status="draft" class="active"><a data-toggle="tab" href="#draft">Draft<span></span></a></li>
+        <li status="public"><a data-toggle="tab" href="#public">Publiced<span></span></a></li>
+        <li status="expired"><a data-toggle="tab" href="#expired">Expired<span></span></a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="draft" class="tab-pane fade in active">
+            <table id="draftTable" class="table table-responsive table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="public" class="tab-pane fade">
+            <table id="publicTable" class="table table-responsive table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="expired" class="tab-pane fade">
+            <table id="expiredTable" class="table table-responsive table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    a {
+        cursor:pointer;
+    }
+</style>
+@section scripts{
+    <script src="@Url.Content("~/Scripts/Classifields/classifieds.js")"></script>
+}

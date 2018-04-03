@@ -1,0 +1,31 @@
+﻿@model APS.Models.Section
+@{
+    ViewBag.Title = "Classifield";
+}
+
+<h2>@ViewBag.Title</h2>
+<h1>@ViewBag.PathId</h1>
+<div class="classifields-table table-responsive">
+</div>
+
+@section scripts{
+    <script>
+        var section = @Html.Raw(Json.Encode(Model))
+    </script>
+    <script src="@Url.Content("~/Scripts/Classifields/classifields-manager.js")"></script>
+}
+<style>
+    table thead th i {
+        font-size:15px;
+        margin-left:20px;
+    }
+    table thead th[data-sort='asc'] i:before {
+        content: '\003c';
+    }
+    table thead th[data-sort='desc'] i:before {
+        content: '\003e';
+    }
+    table thead th {
+        cursor:pointer;
+    }
+</style>

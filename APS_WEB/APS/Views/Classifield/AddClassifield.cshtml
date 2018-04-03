@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "AddSection";
+}
+
+<h2>AddClassifield</h2>
+
+<div class="row">
+    <div class="col-md-4 section-selector">
+        <select class="form-control" data-load-section="classifields" data-section-path>
+            <option>Select section</option>
+        </select>
+    </div>
+</div>
+<div class="row" id="SelectedSectionRow" style="display:none">
+    <div class="col-md-12" style="text-align:center;">
+        <span>Selected section</span><br />
+        <span id="SelectedPath"></span>
+    </div>
+</div>
+<div class="row" id="ClassifiedRow" style="display:none">
+    <div class="col-md-12">
+        @Html.Partial("_ClassifieldForm");
+    </div>
+</div>
+
+@section scripts{
+    <script src="@Url.Content("~/Scripts/Classifields/add-classifield.js")"></script>
+}

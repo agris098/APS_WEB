@@ -1,0 +1,52 @@
+﻿@model APS.Models.ClassifiedViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Classifield</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        Pictures
+    </div>
+    <div class="col-xs-12">
+        Description
+        @Html.Raw(Model.S_description)
+    </div>
+    <div class="col-xs-12">
+        Price: @Html.Raw(Model.S_price)
+    </div>
+    <div class="col-xs-12">
+        <table>
+            <tr>
+                <td>Phone number</td>
+                <td>@Html.Raw(Model.U_number)</td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td>@Html.Raw(Model.U_email)</td>
+            </tr>
+            <tr>
+                <td>Vieta</td>
+                <td>@Html.Raw(Model.U_location)</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <span><span>Date:</span><span>@Html.Raw(Model.S_dateCreated)</span></span>
+    </div>
+</div>
+<!--
+<table>
+    @foreach (var property in ViewData.ModelMetadata.Properties)
+    {
+        <tr>
+            <td>
+            @Html.Raw(property.PropertyName)
+            </td>
+            <td>
+            @Html.Raw(property.Model != null ? property.Model.ToString() :  "");
+            </td>
+        </tr>
+    }
+</table>-->

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<APS.Models.Section>
+@{
+    ViewBag.Title = "Section";
+}
+
+<h2>Section</h2>
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col">
+            @Html.ActionLink(item.Child, "Section", new { tags = item.Path +"/"+ item.Child }, new { style = "font-size:30px; " })
+        </div>
+    </div>
+
+}

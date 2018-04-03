@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Publiced classifieds";
+}
+@Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
+<h2>Publiced classifieds</h2>
+<div class="row">
+    <div id="summary-classifieds" class="col-xs-6 summary-classifieds">
+        <table>
+            <tr>
+                <td>Not Approved</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Approved</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>Assigned</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>Not Assigned</td>
+                <td>15</td>
+            </tr>
+        </table>
+    </div>
+    <div id="summary-users" class="col-xs-6 summary-workers">
+
+    </div>
+</div>
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li status="not-approved" class="active"><a data-toggle="tab" href="#not-approved">Not approved<span></span></a></li>
+        <li status="approved"><a data-toggle="tab" href="#approved">Approved<span></span></a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="not-approved" class="tab-pane fade in active">
+            <table id="not-approved-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody></tbody> 
+            </table>
+        </div>
+        <div id="approved" class="tab-pane fade">
+            <table id="approved-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Admin/pclassifieds.js")"></script>
+}

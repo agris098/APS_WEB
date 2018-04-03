@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/main")
+    @Styles.Render("~/Content/fontawesome")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("APS", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Classifields", "", "Classifields")</li>
+                    <li>@Html.ActionLink("My Classifields", "classifieds", "Classifield")</li>
+                    <li>@Html.ActionLink("Add", "addclassifield", "Classifield")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Notif.", "Index", "notifications")</li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    @if (ViewBag.AdministrationPage != null && ViewBag.AdministrationPage == true)
+    {
+        <div class=" admin-menu" style="padding: 5px 0 5px 0;">
+            <div class="container" style="text-align:center;">
+                <div class="col-xs-3">
+                    @Html.ActionLink("Section", "addsection", "Admin")
+                </div>
+                <div class="col-xs-3">
+                    @Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")
+                </div>
+                <div class="col-xs-3">
+                    @Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")
+                </div>
+                <div class="col-xs-3">
+                    @Html.ActionLink("Classifieds", "pclassifieds", "admin")
+                </div>
+            </div>
+         </div>
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="row">
+                <div class="col-sm-3 text-center">
+                    <div class="dropdown dropup">
+                        <label class="dropdown-toggle" type="button" data-toggle="dropdown">
+                            Choose language
+                            <span class="caret"></span>
+                        </label>
+                        <ul class="dropdown-menu text-center">
+                            <li class="text-center">@Html.ActionLink(APS.Resources.Main.EN, "Change", "Language", new { LanguageAttribute = "en" }, null)</li>
+                            <li class="text-center">@Html.ActionLink(APS.Resources.Main.LV, "Change", "Language", new { LanguageAttribute = "lv" }, null)</li>
+                            <li class="text-center">@Html.ActionLink(APS.Resources.Main.RU, "Change", "Language", new { LanguageAttribute = "ru" }, null)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    Regulation
+                    
+                </div>
+                <div class="col-sm-3">
+                    Zinot Par kludu
+                </div>
+                <div class="col-sm-3">
+                    &copy; @DateTime.Now.Year - APS
+                </div>
+            </div>
+        </footer>
+        @Html.Partial("Chat")
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/main")
+    @Scripts.Render("~/bundles/chat")
+    @Scripts.Render("/signalr/hubs")
+    @Styles.Render("~/Content/chat")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
