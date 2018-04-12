@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -189,20 +190,47 @@ namespace APS.Models
 
             return classifieds;
         }
-        public ClassifiedViewModel GetClassifiedViewModel(string id) {
+        public ClassifiedViewModel GetClassifiedViewModel(string id, string ipAdress) {
             ClassifieldModel c = GetClassifield(id);
 
+            # region Update Viewers
+            try
+            {
+                bool hasVisied = false;
+                c.Viewers = c.Viewers == null ? new List<string>() : c.Viewers;
+                foreach (string viewer in c.Viewers)
+                {
+                    if (viewer == ipAdress)
+                    {
+                        hasVisied = true;
+                    }
+                }
+                if (!hasVisied)
+                {
+                    c.Viewers.Add(ipAdress);
+                    var ress = Query<ClassifieldModel>.EQ(pd => pd.Id, ObjectId.Parse(id));
+                    var update = Update<ClassifieldModel>.Set(p => p.Viewers, c.Viewers);
+                    _db.GetCollection<ClassifieldModel>("Classifields").Update(ress, update);
+                }
+            }
+            catch { }
+
             //var res = Query<ClassifieldModel>.EQ(p => p.S_userId, userId);
+            # endregion
             var res = Query<ApplicationUser>.EQ(p => p.Id, c.S_userId);
             var user = _db.GetCollection<ApplicationUser>("users").FindOne(res);
 
             ClassifiedViewModel result = new ClassifiedViewModel() {
+                Id = c.Id.ToString(),
                 S_price = c.S_price,
                 S_dateCreated = c.S_dateCreated,
                 S_description = c.S_description,
+                S_viewsCount = c.Viewers.Count,
                 U_email = user.Email,
                 U_number = user.PhoneNumber,
                 U_location = user.UserName
+
+
             };
             return result;
         }
@@ -225,9 +253,108 @@ namespace APS.Models
 
             return response;
         }
-        #endregion
-        #region Users
-        public List<UserModel> GetUsers()
+        public List<CommentModel> GetClassifiedComments(string id) {
+            var classified = GetClassifield(id);
+            if (classified.Comments == null)
+            {
+                return new List<CommentModel>();
+            }
+
+            var comments = classified.Comments;
+            var users = GetUsers();
+
+            var result = from c in comments
+                         join u in users on c.UserId equals u.ID
+                         select new CommentModel
+                         {
+                             Id = c.Id,
+                             Text = c.Text,
+                             UserId = u.ID,
+                             Date = c.Date,
+                             Likes = c.Likes,
+                             DisLikes = c.DisLikes,
+                             UserName = u.UserName,
+                             UserPicture = ""
+                         };
+            return result.OrderBy(d => d.Date).ToList();
+        }
+        public CommentModel AddClassifiedComment(CommentNew newC)
+        {
+            var classified = GetClassifield(newC.ClassifiedId);
+            // Add comment Id
+            if (classified.Comments == null)
+            {
+                classified.Comments = new List<Comment>();
+            }
+            var comment = new Comment
+            {
+                Text = newC.Text,
+                UserId = newC.UserId,
+                Date = DateTime.Now,
+                Id = Guid.NewGuid().ToString()
+            };
+
+            classified.Comments.Add(comment);
+            // Update DataBase
+            var res = Query<ClassifieldModel>.EQ(pd => pd.Id, classified.Id);
+            var update = Update<ClassifieldModel>.Set(p => p.Comments, classified.Comments);
+            _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+
+            // -------------- return Commentmodel
+            var user = GetUsers().Where(u=>u.ID == comment.UserId).First();
+
+            var commentModel = new CommentModel()
+            {
+                Id = comment.Id,
+                Text = comment.Text,
+                UserId = comment.UserId,
+                Likes = new List<string>(),
+                DisLikes = new List<string>(),
+                Date = comment.Date,
+                UserPicture = "",
+                UserName = user.UserName,
+            };
+
+            return commentModel;//Cmodel;
+        }
+        public CommentResponse AddClassifiedCommentLike(CommentLike newL)
+        {
+            var classified = GetClassifield(newL.ClassifiedId);
+
+            var comment = classified.Comments.Where(c=>c.Id == newL.CommentId).First();
+            int index = classified.Comments.IndexOf(comment);
+            if (comment.DisLikes == null) { comment.DisLikes = new List<string>(); }
+            if (comment.Likes == null) { comment.Likes = new List<string>(); }
+
+            var likeList = comment.DisLikes.Concat(comment.Likes);
+
+            var check = likeList.FirstOrDefault(u => u == newL.UserId);
+
+            if (check == null && newL.UserId != comment.UserId) {
+                if (newL.Like)
+                {
+                    comment.Likes.Add(newL.UserId);
+                }
+                else
+                {
+                    comment.DisLikes.Add(newL.UserId);
+                }
+                classified.Comments[index] = comment;
+                var res = Query<ClassifieldModel>.EQ(pd => pd.Id, classified.Id);
+                var update = Update<ClassifieldModel>.Set(p => p.Comments, classified.Comments);
+                _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+            }
+            return new CommentResponse
+            {
+                Likes = comment.Likes.ToList().Count(),
+                Dislikes = comment.DisLikes.ToList().Count(),
+                CommentId = comment.Id
+            };
+
+        }
+            #endregion
+            #region Users
+            public List<UserModel> GetUsers()
         {
             var users = _db.GetCollection<UserModel>("users").FindAll();
 

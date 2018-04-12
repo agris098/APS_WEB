@@ -36,17 +36,105 @@
         <span><span>Date:</span><span>@Html.Raw(Model.S_dateCreated)</span></span>
     </div>
 </div>
-<!--
-<table>
-    @foreach (var property in ViewData.ModelMetadata.Properties)
-    {
-        <tr>
-            <td>
-            @Html.Raw(property.PropertyName)
-            </td>
-            <td>
-            @Html.Raw(property.Model != null ? property.Model.ToString() :  "");
-            </td>
-        </tr>
-    }
-</table>-->
+
+
+<div class="classified-image-container">
+    <div class="ubislider-image-container" data-ubislider="#slider" id="imageSlider"></div>
+    <div class="ubislider" id="slider">
+        <ul class="ubislider-inner">
+            <li>
+                <img src="http://spi3uk.itvnet.lv/upload/articles/41/413354/images/Dazadi-atteli-1.jpg">
+            </li>
+            <li>
+                <img src="http://1280x1024-darba-virsmas-fonus.free-online.gratis/pictures/Skaistas-autoratl%C4%ABdz%C4%ABbas-att%C4%93li-1349.jpg">
+            </li>
+            <li>
+                <img src="http://spi4.itvnet.lv/upload2/articles/83/834660/images/Skaisti-atteli-dienai-1.jpg">
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="classified-information-container">
+    <div class="row">
+        <ul class="nav nav-tabs">
+            <li status="description" class="active"><a data-toggle="tab" href="#description-content">Description<span></span></a></li>
+            <li status="information"><a data-toggle="tab" href="#information-content">Information<span></span></a></li>
+            <li status="Video"><a data-toggle="tab" href="#video-content">Video<span></span></a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="description-content" class="tab-pane fade in active">
+    Description
+            </div>
+            <div id="information-content" class="tab-pane fade">
+               Information
+            </div>
+            <div id="video-content" class="tab-pane fade">
+               Video
+            </div>
+        </div>
+    </div>
+</div>
+<div class="comments-container">
+
+    <div class="c-title">
+    </div>
+    <div class="c-header">
+        <div class="upper">
+            <div class="c-picture">
+                <img src="https://app.viima.com/static/media/user_profiles/user-icon.png" class="profile-picture round"/>
+            </div>
+            <div class="c-addcoment-container">
+                <textarea placeholder="Enter comment ..." rows="3" id="addText"></textarea>
+            </div>
+        </div>
+        <div class="lower">
+            <div class="c-header-buttons">
+                <button id="clearButton" class="btn btn-primary">Clear</button>
+                <button id="addButton" class="btn btn-primary">Add comment</button>
+            </div>
+        </div>
+    </div>
+    <div class="c-body">
+        <div class="comment" comment-id commentTemplate>
+            <div class="upper">
+                <div class="c-picture">
+                    <img src="https://app.viima.com/static/media/user_profiles/user-icon.png" id="c-picture-user" class="profile-picture round" />
+                </div>
+                <div class="c-user-comment-container">
+                    <div class="title">
+                        <span c-user-info></span><span c-time></span>
+                    </div>
+                    <div c-text class="text">
+                    </div>
+                    <div class="c-actions">
+                        <i c-like-button class="fa fa-thumbs-up c-like"></i>
+                        <span c-like></span>
+                        <i c-like-button class="fa fa-thumbs-down c-dislike">
+                        </i><span c-dislike></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Styles.Render("~/Content/slider/ubislider.min.css")
+@Styles.Render("~/Content/comments")
+@section scripts{  
+    <script type="text/javascript">
+        var classified = @Html.Raw(Json.Encode(Model));
+    </script>
+    <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
+    <script>
+        $(document).ready(function () {
+            $('#slider').ubislider({
+                arrowsToggle: true,
+                type: 'ecommerce',
+                autoSlideOnLastClick: true,
+                modalOnClick: true,
+                position: 'vertical'
+            });
+        });
+    </script>
+    @Scripts.Render("~/bundles/classified-comments")
+}

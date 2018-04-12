@@ -30,6 +30,9 @@ namespace APS
             bundles.Add(new ScriptBundle("~/bundles/Classifields").Include(
                         "~/Scripts/classifields-manager.js",
                         "~/Scripts/section.js"));
+            bundles.Add(new ScriptBundle("~/bundles/classified-comments").Include(
+            "~/Scripts/Classified/comments.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
             "~/Scripts/main.js"));
 
@@ -46,6 +49,8 @@ namespace APS
 
             bundles.Add(new StyleBundle("~/Content/main").Include(
             "~/Content/main.css"));
+            bundles.Add(new StyleBundle("~/Content/comments").Include(
+            "~/Content/comments/classified-comments.css"));
         }
     }
 }

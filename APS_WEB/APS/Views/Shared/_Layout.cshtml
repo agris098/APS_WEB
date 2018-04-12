@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using APS.Extensions
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,6 +24,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    
                     <li>@Html.ActionLink("Classifields", "", "Classifields")</li>
                     <li>@Html.ActionLink("My Classifields", "classifieds", "Classifield")</li>
                     <li>@Html.ActionLink("Add", "addclassifield", "Classifield")</li>
@@ -91,7 +93,9 @@
         </footer>
         @Html.Partial("Chat")
     </div>
-    
+    <script>
+        var currentUser = @Html.Raw(Json.Encode(Html.CurrentUser()));
+    </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/main")

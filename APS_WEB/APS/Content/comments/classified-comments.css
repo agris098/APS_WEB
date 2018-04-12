@@ -1,0 +1,73 @@
+.comments-container .c-header .upper,
+.comments-container .c-body .upper {
+    display: flex;
+}
+.comments-container .c-header .c-addcoment-container,
+.comments-container .c-header .c-addcoment-container #addText {
+    width: 100%;
+    max-width: 100%;
+}
+.comments-container .c-picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right:10px;
+}
+.comments-container .profile-picture {
+    width:60px;
+    height:60px;
+}
+.comments-container .profile-picture.round {
+    border-radius: 50%;
+}
+    
+.comments-container .c-header .c-header-buttons {
+    padding-top:5px;
+    text-align: right;
+}
+.comments-container .c-body .comment {
+    margin: 20px 0 0 0;
+}
+.comments-container .c-body .comment[commentTemplate] {
+    display: none;
+}
+.comments-container .c-body .comment .c-user-comment {
+    width: 100px;
+}
+.comments-container .c-body .comment [c-user-info] {
+    font-weight: bold;
+}
+.comments-container .c-body .comment [c-time] {
+    float: right;
+}
+.comments-container .c-body .comment .c-actions [c-like] {
+    padding-right:20px;
+}
+.comments-container .c-body .comment .c-actions [c-dislike] {
+    padding-left: 5px;
+        
+}
+.comments-container .c-body .comment .c-actions .fa {
+    font-size: 23px;
+
+}
+.comments-container .c-body .comment .c-actions [c-like-button]:hover{
+    color: #3276b1;
+    cursor: pointer;
+}
+.comments-container .c-body .comment .c-actions .selected[c-like-button] {
+    color: #3276b1;
+}
+.comments-container .c-body .comment .c-actions .selected[c-like-button]:hover {
+    cursor: not-allowed;
+}
+.comments-container .c-body .comment .c-actions .disabled[c-like-button] {
+    color: grey;
+}
+.comments-container .c-body .comment .c-actions .disabled[c-like-button]:hover {
+    color: grey;
+    cursor: not-allowed;
+}
+.comments-container .c-body .comment .c-user-comment-container {
+    width: 100%;
+}

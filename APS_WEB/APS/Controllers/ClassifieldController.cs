@@ -19,8 +19,10 @@ namespace APS.Controllers
 
         [Route("{id}")]
         public ActionResult Index(string id)
-        {       
-            return View(objds.GetClassifiedViewModel(id));
+        {
+            var ipAdress = Request.UserHostAddress;
+
+            return View(objds.GetClassifiedViewModel(id, ipAdress));
         }
         [Route("addclassifield")]
         public ActionResult AddClassifield()

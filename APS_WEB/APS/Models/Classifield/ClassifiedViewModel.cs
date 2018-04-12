@@ -19,6 +19,7 @@ namespace APS.Models
         public string S_condition { get; set; }
         public DateTime S_endDate { get; set; }
         public Status Status { get; set; }
+        public int S_viewsCount { get; set; }
         public string U_email { get; set; }
         public string U_number { get; set; }
         public string U_location { get; set; }

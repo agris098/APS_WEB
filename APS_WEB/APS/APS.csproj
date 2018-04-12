@@ -235,6 +235,7 @@
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="CustomUserIdProvider.cs" />
+    <Compile Include="Extensions\Helpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -249,6 +250,7 @@
     <Compile Include="Models\Classifield\ClassifiedViewModel.cs" />
     <Compile Include="Models\Classifield\ClassifieldModel.cs" />
     <Compile Include="Models\Classifield\MyClassifieds.cs" />
+    <Compile Include="Models\Extensions\CurrentUser.cs" />
     <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\Section\SectionNew.cs" />
     <Compile Include="Models\DataAccess.cs" />
@@ -292,9 +294,11 @@
     <Content Include="Content\chat\chat.css" />
     <Content Include="Content\fontawesome\font-awesome.css" />
     <Content Include="Content\fontawesome\font-awesome.min.css" />
+    <Content Include="Content\comments\classified-comments.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\section.css" />
     <Content Include="Content\classifields.css" />
+    <Content Include="Content\slider\ubislider.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
@@ -312,6 +316,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chat\chat.js" />
+    <Content Include="Scripts\Classified\comments.js" />
     <Content Include="Scripts\Classifields\add-classifield.js" />
     <Content Include="Scripts\Classifields\classifields-manager.js" />
     <Content Include="Scripts\Classifields\classifieds.js" />
@@ -319,6 +324,9 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-comments\comments-data.js" />
+    <Content Include="Scripts\jquery-comments\jquery-comments.js" />
+    <Content Include="Scripts\jquery-comments\jquery-comments.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.3.js" />
     <Content Include="Scripts\jquery.signalR-2.2.3.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -329,6 +337,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\slider\ubislider.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -337,7 +346,9 @@
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

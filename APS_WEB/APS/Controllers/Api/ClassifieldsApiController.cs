@@ -117,5 +117,49 @@ namespace APS.Controllers
                 return InternalServerError(new Exception(e.Message));
             }
         }
+        [Route("comments/{id}")]
+        [HttpGet]
+        public IHttpActionResult GetClassifiedComments(string id) {
+            try
+            {
+                var comments = objds.GetClassifiedComments(id);
+
+                return Ok(comments);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(new Exception(e.Message));
+            }
+        }
+        [Route("comments/add")]
+        [HttpPost]
+        public IHttpActionResult AddClassifiedComments([FromBody] CommentNew newC)
+          {
+            try
+            {
+                  var comment = objds.AddClassifiedComment(newC);
+
+                  return Ok(comment);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(new Exception(e.Message));
+            }
+        }
+        [Route("comments/like")]
+        [HttpPost]
+        public IHttpActionResult AddClassifiedCommentsLike([FromBody] CommentLike newL)
+        {
+            try
+            {
+                var response = objds.AddClassifiedCommentLike(newL);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(new Exception(e.Message));
+            }
+        }
     }
 }
