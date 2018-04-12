@@ -252,6 +252,8 @@
     <Compile Include="Models\Classifield\MyClassifieds.cs" />
     <Compile Include="Models\Extensions\CurrentUser.cs" />
     <Compile Include="Models\Filter.cs" />
+    <Compile Include="Models\Home\HomeSections.cs" />
+    <Compile Include="Models\Section\SectionViewModel.cs" />
     <Compile Include="Models\Section\SectionNew.cs" />
     <Compile Include="Models\DataAccess.cs" />
     <Compile Include="Models\Account\IdentityModels.cs" />
@@ -399,6 +401,7 @@
     <Content Include="Views\Notification\Index.cshtml" />
     <Content Include="Views\Admin\Classifieds.cshtml" />
     <Content Include="Views\Admin\PClassifieds.cshtml" />
+    <Content Include="Views\Home\Index - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -168,6 +168,10 @@ namespace APS.Models
             var res = Query<ClassifieldModel>.EQ(e => e.Id, ObjectId.Parse(id));
             var operation = _db.GetCollection<ClassifieldModel>("Classifields").Remove(res);
         }
+        public IEnumerable<ClassifieldModel> GetClassifieldAll()
+        {
+            return _db.GetCollection<ClassifieldModel>("Classifields").FindAll();
+        }
         public IEnumerable<ClassifieldModel> GetClassifieldsById(string id) {
             var res = Query<ClassifieldModel>.EQ(c => c.SectionId, id);
             var classifields = _db.GetCollection<ClassifieldModel>("Classifields").Find(res);
