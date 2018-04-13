@@ -1,9 +1,34 @@
 ﻿@model IEnumerable<APS.Models.Section>
 @{
     ViewBag.Title = "Section";
-}
+    var _pagetitle = Model.FirstOrDefault().Parent;
+    var _path = Model.FirstOrDefault().Path;
+    string[] _backOptions = _path.Split('/');
 
-<h2>Section</h2>
+}
+<div class="row back-container">
+    <div class="col-xs-12">
+        <span class="back-button">
+            @Html.ActionLink("Home", "", "Home")
+        </span>
+        @if (_backOptions != null && _backOptions.Length > 0)
+        {
+            var temp = "";
+            _backOptions = _backOptions.Take(_backOptions.Count() - 1).ToArray();
+            foreach (var op in _backOptions)
+            {
+                temp += '/' + op;
+                <i class="fa fa-chevron-right back-button"></i>
+                <span class="back-button">
+                    @Html.ActionLink(op, temp, "classifields")
+                </span>
+            }
+        }
+
+    </div>
+</div>
+<h3 style="text-align:center;">@_pagetitle</h3>
+
 
 @foreach (var item in Model)
 {
@@ -12,5 +37,17 @@
             @Html.ActionLink(item.Child, "Section", new { tags = item.Path +"/"+ item.Child }, new { style = "font-size:30px; " })
         </div>
     </div>
-
 }
+<style>
+    .back-button {
+        font-size: 15px;
+    }
+    i.back-button {
+        margin-left:10px;
+        margin-right:10px;
+    }
+    .back-container {
+        margin-top:20px;
+    }
+
+</style>
