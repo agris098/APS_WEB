@@ -1,0 +1,33 @@
+﻿.profile .actions .btn{
+    background-color:white;
+}
+.profile .actions .btn:hover {
+    background-color: lightgray;
+}
+.profile .actions .fa {
+    font-size: 20px;
+    padding-right: 5px;
+}
+.profile-information .FullName {
+    font-size:20px;
+}
+.profile .title {
+    font-size: 15px;
+    color:grey;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.profile .sub-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.profile-navigation .icon {
+    font-size:15px;
+    padding-right:10px;
+}
+.profile-information .main{
+    margin-bottom:20px;
+}
+.profile {
+    margin-top:30px;
+}

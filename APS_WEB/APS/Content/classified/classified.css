@@ -1,0 +1,46 @@
+﻿.header-container .main-info .section {
+    border-bottom: 1px solid #d3d3d3;
+    padding:20px 0 20px 0;
+}
+.header-container .main-info .price {
+    font-size: 30px;
+    color:limegreen;
+}
+.header-container .main-info .section .title {
+    font-weight:bold;
+    padding-bottom:10px;
+}
+.header-container .main-info .section .fa {
+    font-size:15px;
+    width:30px;
+}
+.header-container .main-info .section .fa-mobile {
+    font-size: 20px;
+}
+.header-container .main-info .section.created-by img {
+    border-radius:50%;
+    height:50px;
+    width:50px;
+}
+.header-container .main-info .section.created-by .user .fullname {
+    display: inline-block;
+    padding-left:15px;
+    font-weight:bold;
+    font-size:15px;
+}
+.header-container .main-info .section.created-by .user .fullname:hover{
+    cursor:pointer;
+}
+.header-container {
+    margin-top: 20px;
+}
+.ubislider-inner {
+    height:auto !important;
+    top:0 !important;
+}
+.ubislider.ecommerce {
+    width:100%;
+}
+.tab-pane {
+    padding-top: 20px;
+}

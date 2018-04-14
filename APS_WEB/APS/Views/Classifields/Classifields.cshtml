@@ -1,8 +1,31 @@
 ﻿@model APS.Models.Section
 @{
     ViewBag.Title = "Classifield";
-}
+    var _path = Model.Path;
+    string[] _backOptions = _path.Split('/');
 
+}
+<div class="row back-container">
+    <div class="col-xs-12">
+        <span class="back-button">
+            @Html.ActionLink("Home", "", "Home")
+        </span>
+        @if (_backOptions != null && _backOptions.Length > 0)
+        {
+            var temp = "";
+            _backOptions = _backOptions.Take(_backOptions.Count() - 1).ToArray();
+            foreach (var op in _backOptions)
+            {
+                temp += '/' + op;
+                <i class="fa fa-chevron-right back-button"></i>
+                <span class="back-button">
+                    @Html.ActionLink(op, temp, "classifields")
+                </span>
+            }
+        }
+
+    </div>
+</div>
 <h2>@ViewBag.Title</h2>
 <h1>@ViewBag.PathId</h1>
 <div class="classifields-table table-responsive">
@@ -27,5 +50,17 @@
     }
     table thead th {
         cursor:pointer;
+    }
+    .back-button {
+        font-size: 15px;
+    }
+
+    i.back-button {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .back-container {
+        margin-top: 20px;
     }
 </style>

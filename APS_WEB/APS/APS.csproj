@@ -241,6 +241,7 @@
     </Compile>
     <Compile Include="Models\Account\AccountViewModels.cs" />
     <Compile Include="Models\Account\AdminViewModel.cs" />
+    <Compile Include="Controllers\Account\ProfileController.cs" />
     <Compile Include="Models\Admin\PClassifiedGroupModel.cs" />
     <Compile Include="Models\Admin\UserModel.cs" />
     <Compile Include="Models\Chat\ChatMessageHistoryModel.cs" />
@@ -294,10 +295,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\chat\chat.css" />
+    <Content Include="Content\classified\classified.css" />
     <Content Include="Content\fontawesome\font-awesome.css" />
     <Content Include="Content\fontawesome\font-awesome.min.css" />
     <Content Include="Content\comments\classified-comments.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\profile\profile.css" />
     <Content Include="Content\section.css" />
     <Content Include="Content\classifields.css" />
     <Content Include="Content\slider\ubislider.min.css" />
@@ -402,6 +405,7 @@
     <Content Include="Views\Admin\Classifieds.cshtml" />
     <Content Include="Views\Admin\PClassifieds.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,5 +23,6 @@ namespace APS.Models
         public string U_email { get; set; }
         public string U_number { get; set; }
         public string U_location { get; set; }
+        public string S_Path { get; set; }
     }
 }

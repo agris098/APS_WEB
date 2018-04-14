@@ -223,7 +223,7 @@ namespace APS.Models
             # endregion
             var res = Query<ApplicationUser>.EQ(p => p.Id, c.S_userId);
             var user = _db.GetCollection<ApplicationUser>("users").FindOne(res);
-
+            var section = GetSection(ObjectId.Parse(c.SectionId));
             ClassifiedViewModel result = new ClassifiedViewModel() {
                 Id = c.Id.ToString(),
                 S_price = c.S_price,
@@ -232,7 +232,8 @@ namespace APS.Models
                 S_viewsCount = c.Viewers.Count,
                 U_email = user.Email,
                 U_number = user.PhoneNumber,
-                U_location = user.UserName
+                U_location = user.UserName,
+                S_Path = section.Path
 
 
             };
@@ -364,8 +365,15 @@ namespace APS.Models
 
             return users.ToList();
         }
+        public UserModel GetUser(string id)
+        {
+            var res = Query<UserModel>.EQ(p => p.Id, ObjectId.Parse(id));
+            var user = _db.GetCollection<UserModel>("users").FindOne(res);
+
+            return user;
+        }
         #endregion
-#region Chat
+        #region Chat
         public List<ChatMessageModel> GetHistoryMessages(string userId, string toUserId) {
             var messages = _db.GetCollection<ChatMessageModel>("chatMessages").FindAll()
                 .Where(i=> (i.UserId == userId && i.ToUserId == toUserId) || (i.UserId == toUserId && i.ToUserId == userId)).OrderBy(i => i.Created).ToList();

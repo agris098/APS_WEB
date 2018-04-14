@@ -1,0 +1,81 @@
+﻿@model APS.Models.UserModel
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "View";
+    var userId = User.Identity.GetUserId();
+    var Owner = User.Identity.GetUserId() == Model.ID ? true : false;
+}
+<div class="row profile">
+    <div class="col-md-4">
+        <img />
+    </div>
+    <div class="col-md-8 profile-information">
+        <div class="row main">
+            <div class="col-xs-12">
+                <div class="FullName">
+                    @Model.UserName
+                </div>
+                <div class="ranking title">
+                    Rankings
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-light"><span><i class="fa fa-envelope"></i>Send Message</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="nav nav-tabs profile-navigation">
+                    <li status="profile-about" class="active"><a data-toggle="tab" href="#profile-about"><i class="fa fa-user icon"></i>About<span></span></a></li>
+                    <li status="profile-classifieds"><a data-toggle="tab" href="#profile-classifieds"><i class="fa fa-list icon"></i>publiced classifieds<span></span></a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="profile-about" class="tab-pane fade in active">
+                        <div class="contact-information">
+                            <div class="title">Contact information</div>
+                            <div class="row">
+                                <div class="col-xs-5 sub-title">
+                                    Phone number
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    @Model.PhoneNumber
+                                </div>
+                                <div class="col-xs-5 sub-title">
+                                    E-mail
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    @Model.Email
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basic-information">
+                            <div class="title">Basic information</div>
+                            <div class="row">
+                                <div class="col-xs-5 sub-title">
+                                    Birthday
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    Date
+                                </div>
+                                <div class="col-xs-5 sub-title">
+                                    Gender
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    Male
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profile-classifieds" class="tab-pane fade">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Styles.Render("~/Content/profile")
+
+

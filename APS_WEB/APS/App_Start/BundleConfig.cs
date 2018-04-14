@@ -42,6 +42,8 @@ namespace APS
 
             bundles.Add(new StyleBundle("~/Content/chat").Include(
             "~/Content/chat/chat.css"));
+            bundles.Add(new StyleBundle("~/Content/classified").Include(
+            "~/Content/classified/classified.css"));
 
             bundles.Add(new StyleBundle("~/Content/Classifields").Include(
                         "~/Content/classifields.css",
@@ -51,6 +53,8 @@ namespace APS
             "~/Content/main.css"));
             bundles.Add(new StyleBundle("~/Content/comments").Include(
             "~/Content/comments/classified-comments.css"));
+            bundles.Add(new StyleBundle("~/Content/profile").Include(
+                    "~/Content/profile/profile.css"));
         }
     }
 }
