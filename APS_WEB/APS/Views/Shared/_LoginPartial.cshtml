@@ -1,15 +1,20 @@
 @using Microsoft.AspNet.Identity
+@using APS.Extensions
+@{ 
+    var user = Html.CurrentUser();
+
+}
 @if (Request.IsAuthenticated) {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })) {
         @Html.AntiForgeryToken()
-
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right profile-header">
             <li>
-                @Html.ActionLink(User.Identity.GetUserName(), User.Identity.GetUserId(), "Profile")
-                @{//Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                }
+                <div class="profile-header-info">
+                    <img id="user_img" src="@String.Format("data:image/jpg;base64,{0}", user.ImageSmall)" height="300" width="250" style="border:solid" />
+                    @Html.ActionLink(user.FullName == null ? user.Email : user.FullName, User.Identity.GetUserId(), "Profile")
+                </div>         
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            <li class="log-out"><a href="javascript:document.getElementById('logoutForm').submit()"><i style="font-size:20px;" class="fa fa-sign-out"></i></a></li>
         </ul>
     }
 }
@@ -19,3 +24,26 @@ else {
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
+<style>
+    .profile-header-info img{
+        border-radius:50%;
+        width: 40px;
+        height: 40px;
+    }
+    .profile-header {
+        display: flex;
+        align-items: center;
+        height:50px;
+    }
+    .profile-header-info a {
+        text-decoration: none;
+        color: #999999;
+    }
+    .profile-header-info a:hover {
+        color: white;
+    }
+    .profile-header .log-out a{
+        padding:0px;
+        padding-left:20px;
+    }
+</style>

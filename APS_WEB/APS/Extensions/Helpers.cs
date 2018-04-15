@@ -19,16 +19,15 @@ namespace APS.Extensions
             }
             DataAccess db = new DataAccess();
 
-            var user = db.GetUsers().Where(u => u.ID == userId).First();
-
+            var user = db.GetUserDetailsFull(userId);
 
             return new CurrentUser
             {
-                Id = user.ID,
+                Id = user.UserId,
                 Email = user.Email,
-                ImageLarge = "",
-                ImageSmall = "",
-                FullName = user.UserName
+                ImageLarge = user.lg_image,
+                ImageSmall = user.sm_image,
+                FullName = user.FullName
             };
         }
     }

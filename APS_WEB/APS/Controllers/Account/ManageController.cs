@@ -183,6 +183,7 @@ namespace APS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
         {
+            var id = User.Identity.GetUserId();
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -195,11 +196,12 @@ namespace APS.Controllers
                 {
                     await SignInAsync(user, isPersistent: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
+
+                return RedirectToAction("Edit", "Profile", new { id = id });
             }
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "Failed to verify phone");
-            return View(model);
+            return RedirectToAction("Edit","Profile",new { id = id });
         }
 
         //
@@ -207,16 +209,17 @@ namespace APS.Controllers
         public async Task<ActionResult> RemovePhoneNumber()
         {
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
+            var id = User.Identity.GetUserId();
             if (!result.Succeeded)
             {
-                return RedirectToAction("Index", new {Message = ManageMessageId.Error});
+                return RedirectToAction("Edit", "Profile", new { id = id });
             }
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user != null)
             {
                 await SignInAsync(user, isPersistent: false);
             }
-            return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
+            return RedirectToAction("Edit", "Profile", new { id = id });
         }
 
         //

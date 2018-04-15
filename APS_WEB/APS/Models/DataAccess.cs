@@ -358,7 +358,7 @@ namespace APS.Models
 
         }
             #endregion
-            #region Users
+#region Users
             public List<UserModel> GetUsers()
         {
             var users = _db.GetCollection<UserModel>("users").FindAll();
@@ -371,6 +371,63 @@ namespace APS.Models
             var user = _db.GetCollection<UserModel>("users").FindOne(res);
 
             return user;
+        }
+        public UserDetails GetUserDetails(string id)
+        {
+            var res = Query<UserDetails>.EQ(p => p.UserId, id);
+            var details = _db.GetCollection<UserDetails>("UserDetails").FindOne(res);
+
+            return details;
+        }
+        public UserEditViewModel GetUserDetailsFull(string id)
+        {
+            var user = GetUser(id);
+            var details = GetUserDetails(id);
+            var result = new UserEditViewModel();
+            result.UserId = user.ID;
+            result.Email = user.Email;
+            result.PhoneNumber = user.PhoneNumber;
+            if (details != null)
+            {
+                result.FullName = details.FullName;
+                result.City = details.City;
+                result.Skype = details.Skype;
+                result.sm_image = details.sm_image;
+                result.lg_image = details.lg_image;
+                result.DOB = details.DOB;
+                result.WebAddress = details.WebAddress;
+                result.Gender = details.Gender;
+            }
+            
+
+            return result;
+        }
+        public void UpdateUserDetails(string id, string picture, UserDetails u)
+        {
+            var dbUser = GetUserDetails(id);
+
+            if (dbUser == null)
+            {
+                u.UserId = id;
+                _db.GetCollection<UserDetails>("UserDetails").Insert(u);
+            }
+            else
+            {
+                dbUser.Skype = u.Skype;
+                dbUser.WebAddress = u.WebAddress;
+                dbUser.FullName = u.FullName;
+                dbUser.City = u.City;
+                dbUser.DOB = u.DOB;
+                dbUser.Gender = u.Gender;
+                if (!string.IsNullOrEmpty(picture))
+                {
+                    dbUser.lg_image = picture;
+                    dbUser.sm_image = picture;
+                }
+                var res = Query<UserDetails>.EQ(p => p.UserId, id);
+                var operation = Update<UserDetails>.Replace(dbUser);
+                _db.GetCollection<UserDetails>("UserDetails").Update(res, operation);
+            }
         }
         #endregion
         #region Chat
@@ -391,5 +448,25 @@ namespace APS.Models
             return _db.GetCollection<StaticData>("StaticData").FindOne();
         }
 #endregion
+#region Notifications
+        public IEnumerable<NotificationModel> GetNotifications(string Userid)
+        {
+            var res = Query<NotificationModel>.EQ(p => p.UserId, Userid);
+            var notifications = _db.GetCollection<NotificationModel>("Notifications").Find(res);
+            return notifications.OrderBy(n=>n.DateTime);
+        }
+        public void AddNotification(NotificationModel notification)
+        {
+            _db.GetCollection<NotificationModel>("Notifications").Save(notification);
+        }
+        public bool NotificationUpdateStatus(string id)
+        {
+
+            var ress = Query<NotificationModel>.EQ(pd => pd.Id, ObjectId.Parse(id));
+            var update = Update<NotificationModel>.Set(p => p.Active, false);
+            _db.GetCollection<NotificationModel>("Notifications").Update(ress, update);
+            return false;
+        }
+        #endregion
     }
 }

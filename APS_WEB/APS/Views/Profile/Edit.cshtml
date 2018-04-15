@@ -1,0 +1,108 @@
+﻿@model APS.Models.UserEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+       @using (Html.BeginForm("Update", "Profile", FormMethod.Post, new { @class = "form-horizontal profile-edit", role = "form", enctype = "multipart/form-data" }))
+       {
+        @Html.ValidationSummary(true)
+        <div class="row">
+           <div class="col-md-5">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FullName)<span class="star">*</span>
+                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", type = "text", required = "required", placeholder = "Full name" })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                </div>
+               <div class="form-group">
+                   @Html.LabelFor(model => model.Gender)<span class="star">*</span>
+                   @Html.DropDownListFor(model => model.Gender, new SelectList(new string[] { "","Male", "Female" }, Model.Gender), htmlAttributes: new { @class = "form-control" })
+                   @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+               </div>
+               <div class="form-group">
+                   @Html.LabelFor(model => model.DOB)<span class="star">*</span>
+                   @Html.TextBoxFor(model => model.DOB, new { @class = "form-control", type = "text", required = "required", placeholder = "Date of birth" })
+                   @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+               </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.City)<span class="star">*</span>
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control", type = "text", required = "required", placeholder = "City" })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+               <div class="form-group">
+                   <div>
+                       <span>@Html.LabelFor(model => model.PhoneNumber)</span>
+                       <span class="star">*</span>
+                       <span>
+                           @if (Model.PhoneNumber != null)
+                           {
+                               @Html.ActionLink("Change", "AddPhoneNumber", "Manage")
+                               @: &nbsp;|&nbsp;
+                               @Html.ActionLink("Remove", "RemovePhoneNumber","Manage")
+                           }
+                           else
+                           {
+                               @Html.ActionLink("Add", "AddPhoneNumber", "Manage")
+                           }
+                       </span>
+
+                   </div>
+                   
+                   @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", type = "text", required = "required", placeholder = "Phone Number", @readonly = true })
+                   @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+               </div>
+               <div class="form-group">
+                   @Html.LabelFor(model => model.Email)<span class="star">*</span>
+                   @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "text", required = "required", placeholder = "E-mail", @readonly = true })
+                   @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+               </div>
+               <div class="form-group">
+                   @Html.LabelFor(model => model.Skype)
+                   @Html.TextBoxFor(model => model.Skype, new { @class = "form-control", type = "text", placeholder = "Skype" })
+               </div>
+               <div class="form-group">
+                   @Html.LabelFor(model => model.WebAddress)
+                   @Html.TextBoxFor(model => model.WebAddress, new { @class = "form-control", type = "text", placeholder = "Web Address" })
+               </div>
+            </div>
+            <div class="col-md-6">
+                <div style="font-weight:bold;margin-bottom:10px; font-size:14px;">Profile picture:</div>
+                <div><img id="user_img2" src="@String.Format("data:image/jpg;base64,{0}", Model.lg_image)" height="300" width="250" style="border:solid" /></div>
+                <div style="margin-top:20px;"><input type="file" name="UserPhoto" id="fileUpload" onchange="show(this)" accept=".png,.jpg,.jpeg" /></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="display:flex; justify-content: center;">
+                <a href='@Url.Action("Index", "Profile", new { id = Model.UserId})' class="btn btn-primary form-action">Cancel</a>
+                <button type="submit" class="btn btn-primary form-action">Save</button>
+            </div>
+        </div>
+
+       }
+
+<style>
+    .profile-edit {
+        margin-top: 20px;
+    }
+    .star {
+        color:dodgerblue;
+        font-size:20px;
+    }
+    .form-action {
+        margin:10px;
+    }
+</style>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+
+   function show(input) {
+      if (input.files && input.files[0]) {
+      var filerdr = new FileReader();
+      filerdr.onload = function (e) {
+         $('#user_img2').attr('src', e.target.result);
+      }
+      filerdr.readAsDataURL(input.files[0]);
+   }
+}
+</script>

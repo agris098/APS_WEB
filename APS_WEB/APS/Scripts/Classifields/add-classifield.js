@@ -70,6 +70,9 @@ $(document).on("change", "select", function (e) {
         }
     });
 });
+$(document).on("ready", function () {
+    $("select").trigger("mousedown");
+});
 $(document).on("submit", "#ClassifieldForm", function (e) {
     e.preventDefault();
     var data = $(this).serialize();

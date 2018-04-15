@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using APS.Models;
+using Microsoft.AspNet.Identity;
 
 namespace APS.Controllers
 {
+    [Authorize]
     [RoutePrefix("notifications")]
     public class NotificationController : Controller
     {
+        DataAccess _objds;
+        public NotificationController(){
+            _objds = new DataAccess();
+        }
         // GET: Notification
         [Route("")]
         public ActionResult Index()
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var notifications = _objds.GetNotifications(userId);
+            return View(notifications);
         }
     }
 }

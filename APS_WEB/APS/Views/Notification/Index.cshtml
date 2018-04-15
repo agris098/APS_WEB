@@ -1,2 +1,32 @@
-﻿
+﻿@model IEnumerable<APS.Models.NotificationModel>
    <h1>Notifications</h1>
+
+<div class="row notification-container">
+    <div class="col-xs-12">
+        @foreach (var notification in Model)
+        {
+                var active = notification.Active == true ? "active" : "false";
+            
+            <div class="notification @active" id="@notification.Id">
+                <div class="header">
+                    <div class="title">
+                        @notification.Title
+                    </div>
+                    <div class="time">
+                        @notification.DateTime.ToString("dd/MM/yyyy HH:mm:ss")
+                    </div>
+                </div>
+                <div class="description" style="display:none;">
+                        @notification.Description
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+<script>
+    $(document).on("click", ".notification .header", function () {
+        $(this).slideDown();
+    })
+</script>
+}

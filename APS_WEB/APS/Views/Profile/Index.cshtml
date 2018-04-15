@@ -1,19 +1,22 @@
-﻿@model APS.Models.UserModel
+﻿@model APS.Models.UserEditViewModel
 @using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "View";
     var userId = User.Identity.GetUserId();
-    var Owner = User.Identity.GetUserId() == Model.ID ? true : false;
+    var Owner = User.Identity.GetUserId() == Model.UserId ? true : false;
 }
 <div class="row profile">
     <div class="col-md-4">
-        <img />
+        <div><img id="user_img" src="@String.Format("data:image/jpg;base64,{0}", Model.lg_image)" height="300" width="250" style="border:solid" /></div>
+        <ul class="profile-manage">
+            <li>@Html.ActionLink("Edit Profile", "Edit", "Profile")</li>
+        </ul>
     </div>
     <div class="col-md-8 profile-information">
         <div class="row main">
             <div class="col-xs-12">
                 <div class="FullName">
-                    @Model.UserName
+                    @Model.FullName
                 </div>
                 <div class="ranking title">
                     Rankings
@@ -57,13 +60,13 @@
                                     Birthday
                                 </div>
                                 <div class="col-xs-7 sub-title">
-                                    Date
+                                    @Model.DOBString
                                 </div>
                                 <div class="col-xs-5 sub-title">
                                     Gender
                                 </div>
                                 <div class="col-xs-7 sub-title">
-                                    Male
+                                    @Model.Gender
                                 </div>
                             </div>
                         </div>

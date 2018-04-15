@@ -239,9 +239,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ImageManager.cs" />
     <Compile Include="Models\Account\AccountViewModels.cs" />
     <Compile Include="Models\Account\AdminViewModel.cs" />
     <Compile Include="Controllers\Account\ProfileController.cs" />
+    <Compile Include="Models\Account\UserDetails.cs" />
+    <Compile Include="Models\Account\UserEditViewModel.cs" />
     <Compile Include="Models\Admin\PClassifiedGroupModel.cs" />
     <Compile Include="Models\Admin\UserModel.cs" />
     <Compile Include="Models\Chat\ChatMessageHistoryModel.cs" />
@@ -254,6 +257,7 @@
     <Compile Include="Models\Extensions\CurrentUser.cs" />
     <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\Home\HomeSections.cs" />
+    <Compile Include="Models\NotificationModel.cs" />
     <Compile Include="Models\Section\SectionViewModel.cs" />
     <Compile Include="Models\Section\SectionNew.cs" />
     <Compile Include="Models\DataAccess.cs" />
@@ -262,6 +266,7 @@
     <Compile Include="Models\Section\Section.cs" />
     <Compile Include="Models\Section\SectionPath.cs" />
     <Compile Include="Models\StaticData.cs" />
+    <Compile Include="NoficationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Main.ru.Designer.cs">
       <DependentUpon>Main.ru.resx</DependentUpon>
@@ -292,6 +297,8 @@
     <Compile Include="Controllers\AdminController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\main_logo_white.svg" />
+    <Content Include="Content\main_logo_black.svg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\chat\chat.css" />
@@ -406,6 +413,7 @@
     <Content Include="Views\Admin\PClassifieds.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
