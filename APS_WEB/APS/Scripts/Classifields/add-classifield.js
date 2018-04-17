@@ -55,13 +55,16 @@ $(document).on("change", "select", function (e) {
             } else {
                 var sections = $(".section-selector select"),
                     path = "";
+                    pathToForm = "";
 
                 sections.each(function () {
                     path += "<i class='fa fa-chevron-right arrow'></i>" + $(this).val();
+                    pathToForm += "/" + $(this).val();
                 });
 
                 selectedSectionRow.show();
                 selectedSectionRow.find("#SelectedPath").html(path);
+                classifieldForm.find("#path").val(pathToForm);
                 classifieldForm.show();
                 sectionSelectorContainer.hide();
             }
@@ -72,7 +75,7 @@ $(document).on("change", "select", function (e) {
         }
     });
 });
-$(document).on("ready", function () {
+$(document).ready( function () {
     $("select").trigger("mousedown");
 });
 $(document).on("click", ".selected-section-info .change", function () {
@@ -89,7 +92,7 @@ $(document).on("click", ".selected-section-info .change", function () {
 $(document).on("submit", "#ClassifieldForm", function (e) {
     e.preventDefault();
     var data = $(this).serialize();
-        data += "&Path=" + $("#SelectedPath").html().substring(1);
+    data += "&Path=" + $(this).find("#path").val().substring(1);
     var uri = "http://localhost:56616/api/classifields/add";
 
     $.ajax({

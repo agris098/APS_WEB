@@ -1,9 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "AddSection";
+    ViewBag.Title = "ADD SECTION";
 }
 
-<h3>AddSection</h3>
+<h3>ADD SECTION</h3>
 <div id="treeContainer" class="row">
     <hr />
     @Html.Hidden("sectionId")
@@ -38,6 +38,9 @@
     </div>
 </div>
 <style>
+    .tree ul {
+        border-left:1px solid white;
+    }
     .t-btn {
         border: 1px solid black;
         background-color: white;
@@ -141,15 +144,14 @@
     
     .tree-head > div {
         text-align: center;
-        position: absolute;
     }
-    .fa.fa-plus {
-        border:0;
-        background-color:lightgreen;
+    .tree .fa.fa-plus {
+        border: 0;
+        background-color: lightgreen;
         padding: 5px 5px 5px 5px;
-        margin: 10px;
+        margin: 0 10px 0 10px;
     }
-    .fa.fa-minus {
+    .tree .fa.fa-minus {
         border: 0;
         background-color: lightpink;
         padding: 5px 5px 5px 5px;
