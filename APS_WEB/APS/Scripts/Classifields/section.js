@@ -70,8 +70,8 @@
             var treeSections = _tree.find("li[data-child]");
             treeSections.each(function () {
                 $(this).prepend("<span><i></i>" + $(this).attr("data-child") + "</span>" +
-                    "<button class='icon-plus-sign btn btn-success btn-xs' add-section></button>" +
-                    "<button class='icon-minus-sign btn btn-danger btn-xs' delete-section></button>");
+                    "<button class='fa fa-plus btn btn-success btn-xs' add-section></button>" +
+                    "<button class='fa fa-minus btn btn-danger btn-xs' delete-section></button>");
             });
             $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch')
                 .find(' > i').addClass('icon-minus-sign');

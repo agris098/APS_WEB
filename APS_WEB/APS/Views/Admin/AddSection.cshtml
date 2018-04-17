@@ -10,8 +10,8 @@
     @Html.Hidden("sectionValue")
     <div class="row tree-head">
         <div class="col-xs-12">
-            <button type="button" class="btn btn-dark t-btn" collapse-sections>Collapse all</button>
-            <button type="button" class="btn btn-dark t-btn" expand-sections>Expend all</button>
+            <button type="button" class="btn t-btn" collapse-sections>Collapse all</button>
+            <button type="button" class="btn t-btn" expand-sections>Expend all</button>
 
         </div>
     </div>
@@ -20,6 +20,7 @@
 
         </div>
     </div>
+    <hr />
 </div>
 <div id="section-details" style="display:none">
     <div class="row">
@@ -30,14 +31,24 @@
     </div>
     <div class="row">
         <div class="col-md-2 col-md-offset-5">
-            <button confirm-section type="button" class="btn btn-block">
+            <button confirm-section type="button" class="btn btn-primary">
                 Confirm
             </button>
         </div>
     </div>
-    <hr />
 </div>
 <style>
+    .t-btn {
+        border: 1px solid black;
+        background-color: white;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+    }
+    .t-btn:hover {
+        color: #fff;
+        background-color: #343a40;
+        border-color: #343a40;
+    }
     .tree {
         padding-top: 0px;
         min-height: 20px;
@@ -132,6 +143,25 @@
         text-align: center;
         position: absolute;
     }
+    .fa.fa-plus {
+        border:0;
+        background-color:lightgreen;
+        padding: 5px 5px 5px 5px;
+        margin: 10px;
+    }
+    .fa.fa-minus {
+        border: 0;
+        background-color: lightpink;
+        padding: 5px 5px 5px 5px;
+    }
+    button[confirm-section] {
+        background-color:grey;
+        color:white;
+        border:0;
+    }
+        button[confirm-section]:hover {
+            background-color: #222222;
+        }
 </style>
 @section scripts{
     <script src="@Url.Content("~/Scripts/Classifields/section.js")"></script>
