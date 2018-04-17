@@ -45,7 +45,8 @@ $(document).on("change", "select", function (e) {
         data: data,
         success: function (data) {
             var selectedSectionRow = $("#SelectedSectionRow"),
-                classifieldForm = $("#ClassifiedRow");
+                classifieldForm = $("#ClassifiedRow"),
+                sectionSelectorContainer = $(".section-selector-container");
 
             selectedSectionRow.hide();
             classifieldForm.hide();
@@ -56,12 +57,13 @@ $(document).on("change", "select", function (e) {
                     path = "";
 
                 sections.each(function () {
-                    path += "/" + $(this).val();
+                    path += "<i class='fa fa-chevron-right arrow'></i>" + $(this).val();
                 });
 
                 selectedSectionRow.show();
                 selectedSectionRow.find("#SelectedPath").html(path);
                 classifieldForm.show();
+                sectionSelectorContainer.hide();
             }
 
         },
@@ -72,6 +74,17 @@ $(document).on("change", "select", function (e) {
 });
 $(document).on("ready", function () {
     $("select").trigger("mousedown");
+});
+$(document).on("click", ".selected-section-info .change", function () {
+    var sectionSelectorContainer = $(".section-selector-container"),
+        selectedSectionRow = $("#SelectedSectionRow"),
+        classifieldForm = $("#ClassifiedRow");
+
+    sectionSelectorContainer.show();
+    selectedSectionRow.hide();
+    classifieldForm.hide();
+    sectionSelectorContainer.find("select").first().trigger("change");
+    
 });
 $(document).on("submit", "#ClassifieldForm", function (e) {
     e.preventDefault();

@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿//$(function () {
 
     function TreeViewManager() {
         var _container;
@@ -262,4 +262,4 @@
 
     var treeV = new TreeViewManager();
     treeV.init($("#treeContainer"));
-});
+//});

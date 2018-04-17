@@ -1,0 +1,41 @@
+﻿.selected-section-info {
+    background-color:grey;
+    color:white;
+    padding: 20px 0 20px 0;
+}
+#SelectedSectionRow {
+display:contents;
+}
+#SelectedSectionRow .col-md-12 {
+    width: 100%;
+    padding: 0;
+    left: 0;
+    position: absolute;
+
+}
+h3 {
+    text-align:center;
+    font-weight:bold;
+    color:dimgrey;
+}
+#SelectedPath {
+    font-size:25px;
+}
+.selected-section-info .change {
+    color: lightcyan;
+    font-size: 25px;
+    padding-left: 30px;
+}
+.selected-section-info .change:hover {
+    color:white;
+    cursor:pointer;
+}
+.selected-section-info .arrow {
+    color: darkgrey;
+    font-size: 20px;
+    padding:0 10px 0 10px;
+}
+#ClassifiedRow{
+    margin-top:130px;
+}
+

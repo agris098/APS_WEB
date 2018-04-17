@@ -55,6 +55,8 @@ namespace APS
             "~/Content/comments/classified-comments.css"));
             bundles.Add(new StyleBundle("~/Content/profile").Include(
                     "~/Content/profile/profile.css"));
+            bundles.Add(new StyleBundle("~/Content/add_classified").Include(
+            "~/Content/classified/add_classified.css"));
         }
     }
 }

@@ -24,11 +24,13 @@ namespace APS.Controllers
 
             return View(objds.GetClassifiedViewModel(id, ipAdress));
         }
+        [Authorize]
         [Route("addclassifield")]
         public ActionResult AddClassifield()
         {
             return View();
         }
+        [Authorize]
         [Route("classifieds")]
         public ActionResult Classifieds()
         {
