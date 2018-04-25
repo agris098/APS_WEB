@@ -22,10 +22,13 @@
 </div>
 <div class="row" id="ClassifiedRow" style="display:none">
     <div class="col-md-12">
-        @Html.Partial("_ClassifieldForm");
+        @Html.Partial("_ClassifieldForm")
     </div>
 </div>
 @Styles.Render("~/Content/add_classified")
+@Styles.Render("~/Content/shared")
 @section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/shared")
     <script src="@Url.Content("~/Scripts/Classifields/add-classifield.js")"></script>
 }

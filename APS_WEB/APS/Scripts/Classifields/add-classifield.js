@@ -1,4 +1,4 @@
-﻿$(document).on("mousedown", "select", function () {
+﻿$(document).on("mousedown", ".section-selector-container select", function () {
     var selector = $(this);
     var uri = "http://localhost:56616/api/section/getall/parent/" + selector.attr("data-load-section");
 
@@ -20,7 +20,7 @@
         }
     });
 });
-$(document).on("change", "select", function (e) {
+$(document).on("change", ".section-selector-container select", function (e) {
     var selector = $(this),
         path = selector.find(":selected").attr("data-section-path"),
         value = selector.find(":selected").attr("value"),
@@ -64,9 +64,10 @@ $(document).on("change", "select", function (e) {
 
                 selectedSectionRow.show();
                 selectedSectionRow.find("#SelectedPath").html(path);
-                classifieldForm.find("#path").val(pathToForm);
+                classifieldForm.find("#Path").val(pathToForm);
                 classifieldForm.show();
                 sectionSelectorContainer.hide();
+                getSectionInfo(pathToForm);
             }
 
         },
@@ -76,7 +77,7 @@ $(document).on("change", "select", function (e) {
     });
 });
 $(document).ready( function () {
-    $("select").trigger("mousedown");
+    $(".section-selector-container select").trigger("mousedown");
 });
 $(document).on("click", ".selected-section-info .change", function () {
     var sectionSelectorContainer = $(".section-selector-container"),
@@ -89,6 +90,30 @@ $(document).on("click", ".selected-section-info .change", function () {
     sectionSelectorContainer.find("select").first().trigger("change");
     
 });
+function getSectionInfo(path) {
+    var uri = "http://localhost:56616/api/section/getbypath";
+    var data = { Path: path };
+    $.ajax({
+        method: "POST",
+        url: uri,
+        data: data,
+        success: function (data) {
+            console.log(data);
+            normalizeForm(data);
+        },
+        error: function () { }
+    });
+}
+function normalizeForm(fields) {
+    var form = $("#ClassifieldForm");
+
+    form.find(".data-field").hide();
+
+    $.each(fields, function (index, value) {
+        form.find(".data-field." + value).show();
+    });
+}
+/*
 $(document).on("submit", "#ClassifieldForm", function (e) {
     e.preventDefault();
     var data = $(this).serialize();
@@ -106,4 +131,4 @@ $(document).on("submit", "#ClassifieldForm", function (e) {
             alert("false");
         }
     });
-});
+});*/

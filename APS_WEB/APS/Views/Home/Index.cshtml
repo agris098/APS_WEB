@@ -54,7 +54,11 @@
                     <ul>
                         @foreach (var subitem in item.Childs)
                         {
-                            <li>@Html.ActionLink(subitem.Child, subitem.Parent + "/" + subitem.Child, "classifields")</li>
+                            if (subitem.Child != "none")
+                            {
+                                <li>@Html.ActionLink(subitem.Child, subitem.Parent + "/" + subitem.Child, "classifields")</li>
+                            }
+
                         }
                     </ul>
                 </dd>

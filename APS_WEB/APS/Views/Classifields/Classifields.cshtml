@@ -1,6 +1,6 @@
 ﻿@model APS.Models.Section
 @{
-    ViewBag.Title = "Classifield";
+    ViewBag.Title = "CLASSIFIEDS";
     var _path = Model.Path;
     string[] _backOptions = _path.Split('/');
 
@@ -26,41 +26,40 @@
 
     </div>
 </div>
-<h2>@ViewBag.Title</h2>
-<h1>@ViewBag.PathId</h1>
-<div class="classifields-table table-responsive">
+<h3>@ViewBag.Title</h3>
+@*<div class="classifields-table table-responsive">
 </div>
-
+    *@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="classifields-table">
+        </div>
+    </div>
+</div>
+@Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
 @section scripts{
     <script>
         var section = @Html.Raw(Json.Encode(Model))
     </script>
+    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Scripts/Classifields/classifields-manager.js")"></script>
 }
 <style>
-    table thead th i {
-        font-size:15px;
-        margin-left:20px;
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        color: dimgrey;
     }
-    table thead th[data-sort='asc'] i:before {
-        content: '\003c';
+    table tbody tr {
+        height:60px;
     }
-    table thead th[data-sort='desc'] i:before {
-        content: '\003e';
+        table tbody tr td {
+            vertical-align: middle !important;
+        }
+    table tbody tr td img{
+        height: 50px;
     }
-    table thead th {
-        cursor:pointer;
-    }
-    .back-button {
-        font-size: 15px;
-    }
-
-    i.back-button {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .back-container {
-        margin-top: 20px;
+    table tr td:first-child {
+        width: 200px;
     }
 </style>

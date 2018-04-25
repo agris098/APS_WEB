@@ -219,8 +219,8 @@
         function bindStaticData(data) {
             var columnContainer = $("#columns"),
                 fieldContainer = $("#fields"),
-                fields = data.Columns,
-                columns = data.Fields;
+                fields = data.Fields,
+                columns = data.Columns;
 
             columnContainer.empty();
             fieldContainer.empty();

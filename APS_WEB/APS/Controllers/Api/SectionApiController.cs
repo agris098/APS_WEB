@@ -71,5 +71,12 @@ namespace APS.Controllers
             objds.AddSection(s);
             return Ok();
         }
+        [Route("getbypath")]
+        [HttpPost]
+        public IHttpActionResult GetByPath(SectionPath s)
+        {
+            var sectionFields = objds.GetSectionByPath(s.Path.Substring(1)).Fields;
+            return Ok(sectionFields);
+        }
     }
 }

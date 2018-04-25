@@ -1,6 +1,6 @@
 ﻿.header-container .main-info .section {
     border-bottom: 1px solid #d3d3d3;
-    padding:20px 0 20px 0;
+    padding:10px 0 10px 0;
 }
 .header-container .main-info .price {
     font-size: 30px;
@@ -22,13 +22,13 @@
     height:50px;
     width:50px;
 }
-.header-container .main-info .section.created-by .user .fullname {
+.header-container .main-info .section.created-by .user a {
     display: inline-block;
     padding-left:15px;
     font-weight:bold;
     font-size:15px;
 }
-.header-container .main-info .section.created-by .user .fullname:hover{
+.header-container .main-info .section.created-by .user a:hover{
     cursor:pointer;
 }
 .header-container {

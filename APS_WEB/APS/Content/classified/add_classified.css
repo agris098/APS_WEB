@@ -38,4 +38,15 @@ h3 {
 #ClassifiedRow{
     margin-top:130px;
 }
+.profile-edit {
+    margin-top: 20px;
+}
 
+.star {
+    color: dodgerblue;
+    font-size: 20px;
+}
+
+.form-action {
+    margin: 10px;
+}

@@ -2,11 +2,13 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace APS.Models
 {
+    [BsonIgnoreExtraElements]
     public class ClassifieldModel
     {
         public ObjectId Id { get; set; }
@@ -14,14 +16,32 @@ namespace APS.Models
         public string SectionId { get; set; }
         [BsonElement("S_userId")]
         public string S_userId { get; set; }
+
+        [Required]
+        [Display(Name = "Price")]
         [BsonElement("S_price")]
         public decimal S_price { get; set; }
         [BsonElement("S_dateCreated")]
         public DateTime S_dateCreated { get; set; }
+        [Display(Name = "Pictures")]
         [BsonElement("S_pictures")]
         public string[] S_pictures { get; set; }
+
+        [BsonElement("S_mpicture")]
+        public string S_mpicture { get; set; }
+
+        [Required]
+        [Display(Name = "Year")]
+        [BsonElement("S_year")]
+        public int S_year { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
         [BsonElement("S_description")]
         public string S_description { get; set; }
+
+        [Required]
+        [Display(Name = "Condition")]
         [BsonElement("S_condition")]
         public string S_condition { get; set; }
         [BsonElement("S_endDate")]
@@ -34,6 +54,8 @@ namespace APS.Models
         public List<string> Viewers { get; set; }
         [BsonElement("Comments")]
         public List<Comment> Comments { get; set; }
+
+        public string Path { get; set; }
     }
     public class CommentNew
     {

@@ -31,10 +31,12 @@ namespace APS
                         "~/Scripts/classifields-manager.js",
                         "~/Scripts/section.js"));
             bundles.Add(new ScriptBundle("~/bundles/classified-comments").Include(
-            "~/Scripts/Classified/comments.js"));
+                "~/Scripts/Classified/comments.js"));
+            bundles.Add(new ScriptBundle("~/bundles/shared").Include(
+                "~/Scripts/shared/classifiedForm.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
-            "~/Scripts/main.js"));
+                "~/Scripts/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
@@ -56,7 +58,9 @@ namespace APS
             bundles.Add(new StyleBundle("~/Content/profile").Include(
                     "~/Content/profile/profile.css"));
             bundles.Add(new StyleBundle("~/Content/add_classified").Include(
-            "~/Content/classified/add_classified.css"));
+                "~/Content/classified/add_classified.css"));
+            bundles.Add(new StyleBundle("~/Content/shared").Include(
+                "~/Content/shared/classifiedForm.css"));
         }
     }
 }

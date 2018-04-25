@@ -315,6 +315,7 @@
     <Content Include="Content\profile\profile.css" />
     <Content Include="Content\section.css" />
     <Content Include="Content\classifields.css" />
+    <Content Include="Content\shared\classifiedForm.css" />
     <Content Include="Content\slider\ubislider.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -343,20 +344,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chat\chat.js" />
     <Content Include="Scripts\Classified\comments.js" />
     <Content Include="Scripts\Classifields\add-classifield.js" />
     <Content Include="Scripts\Classifields\classifields-manager.js" />
     <Content Include="Scripts\Classifields\classifieds.js" />
     <Content Include="Scripts\Classifields\section.js" />
-    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="Scripts\jquery-1.11.3.intellisense.js" />
+    <Content Include="Scripts\jquery-1.11.3.js" />
+    <Content Include="Scripts\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\jquery-1.11.3.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-comments\comments-data.js" />
     <Content Include="Scripts\jquery-comments\jquery-comments.js" />
@@ -375,12 +372,11 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\shared\classifiedForm.js" />
     <Content Include="Scripts\slider\ubislider.min.js" />
-    <Content Include="Scripts\umd\popper-utils.js" />
-    <Content Include="Scripts\umd\popper-utils.min.js" />
-    <Content Include="Scripts\umd\popper.js" />
-    <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -421,7 +417,7 @@
     <Content Include="Views\Classifields\Section.cshtml" />
     <Content Include="Views\Classifields\Classifields.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Classifield\AddClassifield.cshtml" />
+    <Content Include="Views\Classifield\Add.cshtml" />
     <Content Include="Views\Admin\AddSection.cshtml" />
     <Content Include="Views\Classifield\Index.cshtml" />
     <Content Include="Views\Shared\_ClassifieldForm.cshtml" />
@@ -444,10 +440,6 @@
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
-    <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Scripts\umd\popper.js.map" />
-    <Content Include="Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Scripts\README.md" />
     <Content Include="Scripts\popper.min.js.map" />
     <Content Include="Scripts\popper.js.map" />

@@ -1,0 +1,17 @@
+﻿#Pictures_container {
+    background-color: grey;
+    border-radius: 10px 10px 10px 10px;
+    padding: 0;
+    margin-top:10px !important;
+}
+#Pictures_container li{
+    display:inline-block;
+    list-style: none;
+    margin:5px;
+}
+#Pictures_container li img {
+    height: 150px;
+}
+div.add {
+    text-align: center;
+}

@@ -1,15 +1,41 @@
-﻿<form id="ClassifieldForm">
-    <input type="hidden" id="path">
-    <div class="form-group s_price">
-        <label for="S_price">Price</label>
+﻿@model APS.Models.ClassifieldModel
+@{
+
+ }
+@using (Html.BeginForm("addclassified", "classifield", FormMethod.Post, new { @id = "ClassifieldForm", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    //<input type="hidden" id="Path">
+    <input name="Path" type="text" class="form-control" id="Path" style="display:none;">
+    <div class="form-group data-field S_price">
+        @Html.LabelFor(model => model.S_price)<span class="star">*</span>
         <div class="input-group">
-            <span class="input-group-addon">$</span>
-            <input name="S_price" type="number" class="form-control" id="S_price" placeholder="0">
+            <span class="input-group-addon">€</span>
+            @Html.TextBoxFor(model => model.S_price, new { @class = "form-control", type = "number", required = "required", placeholder = "0" })           
         </div>
+        @Html.ValidationMessageFor(model => model.S_price, "", new { @class = "text-danger" })
     </div>
-    <div class="form-group s_description">
-        <label for="S_description">Description</label>
-        <textarea name="S_description" class="form-control" rows="5" id="S_description"></textarea>
+    <div class="form-group data-field S_condition">
+        @Html.LabelFor(model => model.S_condition)<span class="star">*</span>
+        @Html.DropDownListFor(model => model.S_condition, new SelectList(new string[] { "", "new", "slightly_used", "second_hand", "damaged"}, ""), htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.S_condition, "", new { @class = "text-danger" })
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
-</form>
+    <div class="form-group S_description">
+        @Html.LabelFor(model => model.S_description)<span class="star">*</span>
+        @Html.TextAreaFor(model => model.S_description, new { @class = "form-control", type = "text", rows=5, required = "required", placeholder = "Description" })
+        @Html.ValidationMessageFor(model => model.S_description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group data-field S_year">
+        @Html.LabelFor(model => model.S_year)<span class="star">*</span>
+        @Html.TextBoxFor(model => model.S_year, new { @class = "form-control", type = "number", required = "required", placeholder = "2000" })
+        @Html.ValidationMessageFor(model => model.S_year, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group data-field S_mpicture">
+        <label for="S_pictures">Pictures</label>
+        <input type="file" name="S_pictures" onchange="show(this)" class="form-control" id="S_pictures" multiple="multiple" accept=".jpg,.jpeg"/>
+        <ul id="Pictures_container">
+        </ul>
+    </div>
+    <div class="form-group add">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+}

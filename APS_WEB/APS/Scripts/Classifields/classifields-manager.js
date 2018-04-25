@@ -9,17 +9,23 @@
         createTable(section);
         _table = _tableContainer.find("table");
         updateTableRows(section.ID);
-        registerEvents();
+        registerEvents();    
     }
     function createTable(data) {
-        var table = $("<table class='table table-bordered' data-filter data-sort='asc'></table>").attr("data-id", data.ID);
+        var table = $("<table class='table table-bordered' id='draftTable'></table>").attr("data-id", data.ID);
         var thead = $("<thead></thead>");
         var theadtr = $("<tr></tr>");
         var tbody = $("<tbody></tbody>");
         var columns = data.Columns;
 
+        if (jQuery.inArray("S_mpicture", _tableColumns) !== -1) {
+            theadtr.append("<th></th>");
+        }
         for (var i = 0; i < columns.length; i++) {
-            theadtr.append("<th data-sort data-filter=" + columns[i] + ">" + columns[i] + "<i></i></th>");
+            if (columns[i] !== "S_mpicture") {
+                theadtr.append("<th>" + columns[i] + "</th>");
+            }
+            
         }
         thead.append(theadtr);
         table.append(thead);
@@ -28,30 +34,8 @@
     }
 
     function registerEvents() {
-        _table.on("click", "thead th", function () {
-            var filter = $(this);
-            _table.attr("data-filter", filter.attr("data-filter"));
-            if (filter.attr("data-sort") === "") {
-                _table.find("thead[data-filter]").attr("data-sort", "");
-                filter.attr("data-sort", "asc");
-                _table.attr("data-sort", "asc");
-            } else if (filter.attr("data-sort") === "asc") {
-                filter.attr("data-sort", "desc");
-                _table.attr("data-sort", "desc");
-            } else if (filter.attr("data-sort") === "desc") {
-                filter.attr("data-sort", "asc");
-                _table.attr("data-sort", "asc");
-            }
-            _table.find("thead th").each(function () {
-               if($(this).attr("data-filter") !== filter.attr("data-filter")){
-                    $(this).attr("data-sort", "");
-                }
-            });
-            updateTableRows(_table.attr("data-id"));
-        });
         _table.on("click", "tbody tr", function () {
             window.location.href = "http://localhost:56616/classifield/" + $(this).attr("data-id");
-
         });
 
     }
@@ -59,24 +43,31 @@
     function updateTableRows(id) {
         var tbody = _tableContainer.find("tbody");
             tbody.empty();
-            var filter = {
-                Column: _table.attr("data-filter"),
-                Order: _table.attr("data-sort")
-            };
 
             $.ajax({
                 url: "http://localhost:56616/api/classifields/all/" + id,
-                data: filter,
                 type: 'get',
                 success: function (data) {
-                    $.each(data, function () {
-                        var tr = $("<tr data-id='" + this.Id + "'></tr>");
-                        for (var i = 0; i < _tableColumns.length; i++) {
-                            var val = _tableColumns[i];
-                            tr.append("<td>" + this[val] + "</td>");
-                        }
-                        tbody.append(tr);
-                    });
+                    var aa = 0
+                    while (aa < 12) {
+                        $.each(data, function () {
+                            var tr = $("<tr data-id='" + this.Id + "'></tr>");
+                            var hasPicture = false;
+                            if (jQuery.inArray("S_mpicture", _tableColumns) !== -1) {
+                                tr.append("<td><img src='data:image/jpg;base64," + this.S_mpicture + "'/></td>");
+                                hasPicture = true;
+                            }                           
+                            for (var i = 0; i < _tableColumns.length; i++) {
+                                var val = _tableColumns[i];
+                                if (val !== "S_mpicture") {
+                                    tr.append("<td>" + this[val] + "</td>");
+                                }                             
+                            }
+                            tbody.append(tr);
+                        });
+                        aa++;
+                    }
+                    _table.DataTable();
                 }
             });
 
@@ -88,3 +79,5 @@
 }
 var classifieldManager = new ClassifieldManager();
 classifieldManager.init(".classifields-table", section);
+
+

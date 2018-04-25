@@ -26,7 +26,7 @@ function CommentsManager() {
     }
 
     function bindCommentValues(comment, data) {
-        //comment.find("#c-picture-user").attr("src", "");
+        comment.find("#c-picture-user").attr("src", "data:image/jpg;base64,"+data.UserPicture);
         comment.find("[c-user-info]").html(data.UserName);
         comment.find("[c-time]").html(data.DateTime);
         comment.find("[c-text]").html(data.Text);
@@ -43,12 +43,12 @@ function CommentsManager() {
         }
         var allowed = false;
         if (liked < 0 && disliked < 0) {
-            var allowed = true;
+             allowed = true;
         }
         if (currentUser.Id === data.UserId) {
             l.addClass("disabled");
             d.addClass("disabled");
-            var allowed = true;
+             allowed = true;
         }
         if (!allowed) {
             if (liked > -1) {

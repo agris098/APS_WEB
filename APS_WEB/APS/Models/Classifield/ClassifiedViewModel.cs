@@ -9,6 +9,9 @@ namespace APS.Models
 {
     public class ClassifiedViewModel
     {
+        public ClassifiedViewModel() {
+            S_pictures = new string[] { };
+        }
         public string Id { get; set; }
         public string SectionId { get; set; }
         public string S_userId { get; set; }
@@ -24,5 +27,8 @@ namespace APS.Models
         public string U_number { get; set; }
         public string U_location { get; set; }
         public string S_Path { get; set; }
+        public string U_FullName { get; set; }
+        public string U_Image { get; set; }
+        public string U_Id { get; set; }
     }
 }

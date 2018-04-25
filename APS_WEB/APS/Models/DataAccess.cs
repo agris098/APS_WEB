@@ -222,7 +222,9 @@ namespace APS.Models
             //var res = Query<ClassifieldModel>.EQ(p => p.S_userId, userId);
             # endregion
             var res = Query<ApplicationUser>.EQ(p => p.Id, c.S_userId);
+            var res2 = Query<UserDetails>.EQ(p => p.UserId, c.S_userId);
             var user = _db.GetCollection<ApplicationUser>("users").FindOne(res);
+            var userDetails = _db.GetCollection<UserDetails>("UserDetails").FindOne(res2);
             var section = GetSection(ObjectId.Parse(c.SectionId));
             ClassifiedViewModel result = new ClassifiedViewModel() {
                 Id = c.Id.ToString(),
@@ -230,11 +232,13 @@ namespace APS.Models
                 S_dateCreated = c.S_dateCreated,
                 S_description = c.S_description,
                 S_viewsCount = c.Viewers.Count,
+                S_pictures = c.S_pictures,
                 U_email = user.Email,
                 U_number = user.PhoneNumber,
-                U_location = user.UserName,
-                S_Path = section.Path
-
+                U_FullName = userDetails.FullName,
+                U_Image = userDetails.sm_image,
+                S_Path = section.Path,
+                U_Id = user.Id
 
             };
             return result;
@@ -278,8 +282,8 @@ namespace APS.Models
                              Date = c.Date,
                              Likes = c.Likes,
                              DisLikes = c.DisLikes,
-                             UserName = u.UserName,
-                             UserPicture = ""
+                             UserName = GetUserDetails(u.ID).FullName,
+                             UserPicture = GetUserDetails(u.ID).sm_image
                          };
             return result.OrderBy(d => d.Date).ToList();
         }
@@ -306,7 +310,7 @@ namespace APS.Models
             _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
 
             // -------------- return Commentmodel
-            var user = GetUsers().Where(u=>u.ID == comment.UserId).First();
+            var userDetails = GetUserDetails(comment.UserId);
 
             var commentModel = new CommentModel()
             {
@@ -316,8 +320,8 @@ namespace APS.Models
                 Likes = new List<string>(),
                 DisLikes = new List<string>(),
                 Date = comment.Date,
-                UserPicture = "",
-                UserName = user.UserName,
+                UserPicture = userDetails.sm_image,
+                UserName = userDetails.FullName,
             };
 
             return commentModel;//Cmodel;

@@ -1,4 +1,5 @@
 ﻿@model APS.Models.ClassifiedViewModel
+@using APS.Extensions
 @{
     ViewBag.Title = "Index";
     var _path = Model.S_Path;
@@ -30,15 +31,19 @@
             <div class="ubislider-image-container" data-ubislider="#slider" id="imageSlider"></div>
             <div class="ubislider" id="slider">
                 <ul class="ubislider-inner">
-                    <li>
-                        <img src="http://spi3uk.itvnet.lv/upload/articles/41/413354/images/Dazadi-atteli-1.jpg">
-                    </li>
-                    <li>
-                        <img src="http://1280x1024-darba-virsmas-fonus.free-online.gratis/pictures/Skaistas-autoratl%C4%ABdz%C4%ABbas-att%C4%93li-1349.jpg">
-                    </li>
-                    <li>
-                        <img src="http://spi4.itvnet.lv/upload2/articles/83/834660/images/Skaisti-atteli-dienai-1.jpg">
-                    </li>
+                    @foreach (var img in Model.S_pictures)
+                    {
+                        <li>
+                            <img src="@String.Format("data:image/jpg;base64,{0}", img)"/>
+                        </li>
+                    }
+                    @*
+    <li>
+        <img src="http://1280x1024-darba-virsmas-fonus.free-online.gratis/pictures/Skaistas-autoratl%C4%ABdz%C4%ABbas-att%C4%93li-1349.jpg">
+    </li>
+    <li>
+        <img src="http://spi4.itvnet.lv/upload2/articles/83/834660/images/Skaisti-atteli-dienai-1.jpg">
+    </li>*@
                 </ul>
             </div>
         </div>
@@ -52,17 +57,22 @@
             <div class="publiced section">
                 <div class="title">Date</div>
                 <div>@Html.Raw(Model.S_dateCreated)</div>
+                <div>@Html.Raw(Model.S_dateCreated)</div>
             </div>
             <div class="section">
-                <div class="title">Contract</div>
+                <div class="title">Views</div>
+                <div>@Html.Raw(Model.S_viewsCount)</div>
+            </div>
+            <div class="section">
+                <div class="title">Contact</div>
                 <div><i class="fa fa-mobile"></i>@Html.Raw(Model.U_number) </div>
                 <div><i class="fa fa-envelope"></i>@Html.Raw(Model.U_email) </div>
             </div>
             <div class="created-by section">
                 <div class="title">Created By </div>
                 <div class="user">
-                    <img src="https://i.pinimg.com/originals/4b/25/f0/4b25f0cfd22781f8e6864c389081c9a9.gif"/>
-                    <a class="fullname" href="/profile/5a85de7101778e36ac02164c">@Html.Raw(Model.U_number)</a>
+                    <img src="@String.Format("data:image/jpg;base64,{0}", Model.U_Image)"/>
+                    @Html.ActionLink(Model.U_FullName, Model.U_Id, "Profile")
                 </div>
             </div>
         </div>
@@ -96,7 +106,13 @@
                         <div class="c-header">
                             <div class="upper">
                                 <div class="c-picture">
-                                    <img src="https://app.viima.com/static/media/user_profiles/user-icon.png" class="profile-picture round" />
+                                    @{var commentImage = "https://app.viima.com/static/media/user_profiles/user-icon.png";
+                                        if (Html.CurrentUser().ImageSmall != null || Html.CurrentUser().ImageSmall != "")
+                                        {
+                                            commentImage = String.Format("data:image/jpg;base64,{0}", Html.CurrentUser().ImageSmall);
+                                        }
+                                    }
+                                    <img src="@commentImage" class="profile-picture round" />
                                 </div>
                                 <div class="c-addcoment-container">
                                     <textarea placeholder="Enter comment ..." rows="3" id="addText"></textarea>
@@ -155,21 +171,23 @@
 @Styles.Render("~/Content/slider/ubislider.min.css")
 @Styles.Render("~/Content/comments")
 @Styles.Render("~/Content/classified")
-@section scripts{  
+@section scripts{
+    <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
     <script type="text/javascript">
         var classified = @Html.Raw(Json.Encode(Model));
     </script>
-    <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
-    <script>
-        $(document).ready(function () {
-            $('#slider').ubislider({
-                arrowsToggle: true,
-                type: 'ecommerce',
-                autoSlideOnLastClick: true,
-                modalOnClick: true,
-                position: 'vertical'
+    @if (Model.S_pictures.Length > 0) {
+        <script>
+            $(document).ready(function () {
+                $('#slider').ubislider({
+                    arrowsToggle: true,
+                    type: 'ecommerce',
+                    autoSlideOnLastClick: true,
+                    modalOnClick: true,
+                    position: 'vertical'
+                });
             });
-        });
-    </script>
-    @Scripts.Render("~/bundles/classified-comments")
+        </script>
+    }
+   @Scripts.Render("~/bundles/classified-comments")
 }

@@ -21,19 +21,9 @@ namespace APS.Controllers
 
         [Route("all/{id}")]
         [HttpGet]
-        public IHttpActionResult GetClassifields(string id,[FromUri] Filter filter)
+        public IHttpActionResult GetClassifields(string id)
         {
             var classifields = objds.GetClassifieldsById(id);
-            if (!string.IsNullOrEmpty(filter.Column) && !string.IsNullOrEmpty(filter.Order)) {
-                if (filter.Order == "desc")
-                {
-                    classifields = classifields.OrderByDescending(s => s.GetType().GetProperty(filter.Column).GetValue(s, null));
-                }
-                else
-                {
-                    classifields = classifields.OrderBy(s => s.GetType().GetProperty(filter.Column).GetValue(s, null));
-                }
-            }
            // sections.OrderBy()
             return Ok(classifields);
         }
