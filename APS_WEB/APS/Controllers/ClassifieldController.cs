@@ -99,6 +99,11 @@ namespace APS.Controllers
                 return View("Classifieds");
             }
         }
-
+        [Route("getassigned")]
+        public ActionResult GetAssigned(string id)
+        {
+            var classified = objds.GetClassifiedViewModel(id);
+            return Json(classified);
+        }
     }
 }

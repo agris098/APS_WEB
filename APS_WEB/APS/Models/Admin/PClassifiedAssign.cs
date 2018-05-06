@@ -5,11 +5,9 @@ using System.Web;
 
 namespace APS.Models
 {
-    public enum Status
+    public class PClassifiedAssign
     {
-        Draft = 0,
-        Public = 1,
-        Expired = 2,
-        Rejected = 3
+        public string Id { get; set; }
+        public int Count { get; set; }
     }
 }

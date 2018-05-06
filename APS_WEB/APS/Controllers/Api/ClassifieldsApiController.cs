@@ -19,12 +19,29 @@ namespace APS.Controllers
             objds = new DataAccess();
         }
 
+        [Route("{id}")]
+        [HttpGet]
+        public IHttpActionResult GetClassifield(string id)
+        {
+            var classifield = objds.GetClassifield(id);
+            // sections.OrderBy()
+            return Ok(classifield);
+        }
+
         [Route("all/{id}")]
         [HttpGet]
         public IHttpActionResult GetClassifields(string id)
         {
             var classifields = objds.GetClassifieldsById(id);
            // sections.OrderBy()
+            return Ok(classifields);
+        }
+        [Route("allpublished/{id}")]
+        [HttpGet]
+        public IHttpActionResult GetClassifieldsPublished(string id)
+        {
+            var classifields = objds.GetClassifieldsPublishedById(id);
+            // sections.OrderBy()
             return Ok(classifields);
         }
         [Route("add")]
@@ -56,7 +73,13 @@ namespace APS.Controllers
         public IHttpActionResult GetClassifieldsByUserId()
         {
             var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            var classifields = objds.GetClassifieldsByUserId(userId);
+            var classifields = objds.GetClassifieldsByUserId(userId).Select(s =>  new MyClassifiedsModel() {
+                Id = s.Id.ToString(),
+                Description = s.S_description,
+                Picture = s.S_mpicture,
+                Price = s.S_price,
+                Status = s.Status
+            });
 
             List<MyClassifieds> mylist = new List<MyClassifieds>();
 
@@ -74,6 +97,17 @@ namespace APS.Controllers
             expired.Status = Status.Expired;
             expired.classifieds = classifields.Where(c => c.Status == Status.Expired).ToList();
             mylist.Add(expired);
+
+            MyClassifieds rejected = new MyClassifieds();
+            rejected.Status = Status.Rejected;
+            rejected.classifieds = classifields.Where(c => c.Status == Status.Rejected).ToList();
+            mylist.Add(rejected);
+
+            /*
+            MyClassifieds marked = new MyClassifieds();
+            marked.Status = Status.Rejected;
+            marked.classifieds = classifields.Where(c => c.Status == Status.Rejected).ToList();
+            mylist.Add(rejected);*/
 
             return Ok(mylist);
         }
@@ -98,7 +132,7 @@ namespace APS.Controllers
         {
             try
             {
-                objds.UpdateClassifiedStatus(cv.Id, cv.Status);
+                objds.UpdateClassifiedStatus(cv.Id, cv.Status, cv.Weeks);
 
                 return Ok();
             }

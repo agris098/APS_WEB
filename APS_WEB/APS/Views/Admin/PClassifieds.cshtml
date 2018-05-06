@@ -2,64 +2,74 @@
 @{
     ViewBag.Title = "Publiced classifieds";
 }
-@Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
-<h2>Publiced classifieds</h2>
+<h3>PUBLICED CLASSIFIEDS</h3>
 <div class="row">
     <div id="summary-classifieds" class="col-xs-6 summary-classifieds">
         <table>
             <tr>
                 <td>Not Approved</td>
-                <td>12</td>
+                <td id="notApproved"></td>
             </tr>
             <tr>
                 <td>Approved</td>
-                <td>13</td>
+                <td id="approved"></td>
             </tr>
             <tr>
                 <td>Assigned</td>
-                <td>14</td>
+                <td id="assigned"></td>
             </tr>
             <tr>
                 <td>Not Assigned</td>
-                <td>15</td>
+                <td id="notAssigned"></td>
             </tr>
         </table>
     </div>
-    <div id="summary-users" class="col-xs-6 summary-workers">
-
+    <div id="summary-users" class="col-xs-6">
+        <table id="summary-workers">
+        </table>
     </div>
 </div>
-<div class="row">
-    <ul class="nav nav-tabs">
-        <li status="not-approved" class="active"><a data-toggle="tab" href="#not-approved">Not approved<span></span></a></li>
-        <li status="approved"><a data-toggle="tab" href="#approved">Approved<span></span></a></li>
-    </ul>
+<button type="button" class="btn btn-primary" style="width:200px; margin:0 auto 0 auto;" data-toggle="modal" data-target="#assignModal">
+    Assign
+</button>
 
-    <div class="tab-content">
-        <div id="not-approved" class="tab-pane fade in active">
-            <table id="not-approved-table" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Section</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody></tbody> 
-            </table>
-        </div>
-        <div id="approved" class="tab-pane fade">
-            <table id="approved-table" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Section</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-            </table>
+<div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="text-align:center" class="modal-title">Assign classifieds</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-xs-8">
+                        <label for="workerList">User</label>
+                        <select id="workerList" class="form-control"></select>
+                    </div>      
+                    <div class="form-group col-xs-4">
+                        <label for="assingCount">Classified count</label>
+                        <input id="assingCount" type="number" class="form-control" value="30">
+                    </div>    
+                </div>
+                <div class="row addedCountContainer">
+                    <div class="col-xs-12" style="color:limegreen; font-size:15px;">
+                        <span> Assigned </span><span id="addedCount"></span> <span> classifieds to user.</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button style="float:left" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-classified-id onclick="assingClassifieds()">Assign</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<style>
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        color: dimgrey;
+    }
+</style>
 @section scripts{
-    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Scripts/Admin/pclassifieds.js")"></script>
 }

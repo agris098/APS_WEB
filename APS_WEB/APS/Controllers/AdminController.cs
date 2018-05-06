@@ -29,5 +29,11 @@ namespace APS.Controllers
             ViewBag.AdministrationPage = true;
             return View();
         }
+        [Route("work")]
+        public ActionResult Work()
+        {
+            ViewBag.AdministrationPage = true;
+            return View();
+        }
     }
 }

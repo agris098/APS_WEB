@@ -30,5 +30,6 @@ namespace APS.Models
         public string U_FullName { get; set; }
         public string U_Image { get; set; }
         public string U_Id { get; set; }
+        public int? Weeks { get; set; }
     }
 }

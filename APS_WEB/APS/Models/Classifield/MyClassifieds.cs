@@ -8,6 +8,6 @@ namespace APS.Models
     public class MyClassifieds
     {
         public Status Status { get; set; }
-        public List<ClassifieldModel> classifieds {get;set;}
+        public List<MyClassifiedsModel> classifieds {get;set;}
     }
 }

@@ -247,6 +247,10 @@
     <Compile Include="Controllers\Account\ProfileController.cs" />
     <Compile Include="Models\Account\UserDetails.cs" />
     <Compile Include="Models\Account\UserEditViewModel.cs" />
+    <Compile Include="Models\Account\UserBaseInfo.cs" />
+    <Compile Include="Models\Account\UserWorkInfo.cs" />
+    <Compile Include="Models\Admin\PClassifiedAssign.cs" />
+    <Compile Include="Models\Admin\PClassifiedCountModel.cs" />
     <Compile Include="Models\Admin\PClassifiedGroupModel.cs" />
     <Compile Include="Models\Admin\UserModel.cs" />
     <Compile Include="Models\Chat\ChatMessageHistoryModel.cs" />
@@ -256,6 +260,7 @@
     <Compile Include="Models\Classifield\ClassifiedViewModel.cs" />
     <Compile Include="Models\Classifield\ClassifieldModel.cs" />
     <Compile Include="Models\Classifield\MyClassifieds.cs" />
+    <Compile Include="Models\Classifield\MyClassifiedsModel.cs" />
     <Compile Include="Models\Extensions\CurrentUser.cs" />
     <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\Home\HomeSections.cs" />
@@ -331,6 +336,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\Admin\work.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -445,6 +451,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Admin\Work.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

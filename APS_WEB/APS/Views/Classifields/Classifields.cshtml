@@ -36,13 +36,70 @@
         </div>
     </div>
 </div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prevClassified">
+    Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="prevClassified" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input id="c-id" type="hidden" />
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>*@
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 main-c">
+                        <div class="classified-image-container">
+                            <div class="ubislider-image-container" data-ubislider="#slider" id="imageSlider"></div>
+                            <div class="ubislider" id="slider">
+                                <ul class="ubislider-inner">
+                                    <li>
+                                        <img src="http://1280x1024-darba-virsmas-fonus.free-online.gratis/pictures/Skaistas-autoratl%C4%ABdz%C4%ABbas-att%C4%93li-1349.jpg">
+                                    </li>
+                                    <li>
+                                        <img src="http://spi4.itvnet.lv/upload2/articles/83/834660/images/Skaisti-atteli-dienai-1.jpg">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="text-align:center;">
+                        <span id="price" style="text-align:center; color:limegreen; font-size:20px;"></span>
+                    </div>
+                </div>
+                <div class="row description">
+                    <div class="col-xs-12 description-head" style="text-align:center; cursor:pointer;">
+                        <span>Description</span>
+                    </div>
+                    <div class="col-xs-12 description-content" style="display:none;">
+                        <hr/>
+                        <span id="description"></span>
+                    </div>
+                </div> 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-prev" onclick="classifieldManager.previousClassified()"><i class="fa fa-angle-double-left"></i></button>
+                <button type="button" class="btn btn-primary toRight" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-primary toRight btn-next" onclick="classifieldManager.nextClassified()"><i class="fa fa-angle-double-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
 @Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
+@Styles.Render("~/Content/slider/ubislider.min.css")
+
 @section scripts{
     <script>
         var section = @Html.Raw(Json.Encode(Model))
     </script>
     <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
     <script src="@Url.Content("~/Scripts/Classifields/classifields-manager.js")"></script>
+    <script>
+    </script>
 }
 <style>
     h3 {
@@ -61,5 +118,24 @@
     }
     table tr td:first-child {
         width: 200px;
+    }
+    .prevClassified {
+        font-size:25px;
+        color:black;
+    }
+    .prevClassified:hover {
+        color: deepskyblue;
+    }
+    .modal-footer {
+        display:flex;
+    }
+        .modal-footer .toRight {
+            margin-left: auto !important;
+        }
+    .ubislider-inner {
+        height:auto !important;
+    }
+    .ubislider-inner {
+        top:0 !important;
     }
 </style>

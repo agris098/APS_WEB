@@ -50,6 +50,10 @@ namespace APS.Models
         public bool? Deleted { get; set; }
         [BsonElement("Status")]
         public Status Status { get; set; }
+        [BsonElement("Approved")]
+        public bool Approved { get; set; } 
+        [BsonElement("OverWatch")]
+        public string OverWatch { get; set; }
         [BsonElement("Viewers")]
         public List<string> Viewers { get; set; }
         [BsonElement("Comments")]

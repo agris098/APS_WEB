@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Work";
+}
+
+<h3>Work</h3>
+
+<div class="row classified-overwatch">
+    <div class="col-xs-12">
+        <div class="row header-container">
+            <div class="col-md-8">
+                <div class="classified-image-container">
+                    <div class="ubislider-image-container" data-ubislider="#slider" id="imageSlider"></div>
+                    <div class="ubislider" id="slider">
+                        <ul class="ubislider-inner classified-pictures-container">
+                           
+                                @*<li>
+                                    <img src="@String.Format("data:image/jpg;base64,{0}", img)" />
+                                </li>*@
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="main-info">
+                    <div class="section">
+                        <div class="title">Price:</div>
+                        <div><span class="S_price"></span> €</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="classified-information-container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="nav nav-tabs">
+                        <li status="description" class="active"><a data-toggle="tab" href="#description-content">Description<span></span></a></li>
+                        <li status="information"><a data-toggle="tab" href="#information-content">Information<span></span></a></li>
+                        <li status="Video"><a data-toggle="tab" href="#video-content">Video<span></span></a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="description-content" class="tab-pane fade in active S_description">
+                        </div>
+                        <div id="information-content" class="tab-pane fade Information">
+                            Information
+                        </div>
+                        <div id="video-content" class="tab-pane fade video">
+                            Video
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/work")    
+}
+
+
+

@@ -34,7 +34,6 @@ namespace APS.Controllers
                 if (objds.HasChildren(path))
                 {
                     return View(objds.GetSectionsByPath(path));
-
                 }
                 else
                 {

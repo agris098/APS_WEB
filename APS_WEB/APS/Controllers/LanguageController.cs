@@ -10,7 +10,6 @@ namespace APS.Controllers
 {
     public class LanguageController : Controller
     {
-        // GET: Language
         public ActionResult Change(String LanguageAttribute)
         {
             if (LanguageAttribute != null) {

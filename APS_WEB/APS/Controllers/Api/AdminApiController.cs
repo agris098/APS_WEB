@@ -27,12 +27,35 @@ namespace APS.Controllers.Api
             var users = objds.GetUsers();
             return Ok(users);
         }
-        [Route("pclassifieds")]
+
+        [Route("pclassifiedscount")]
         [HttpGet]
         public IHttpActionResult PublicedClassifieds()
         {
-            var classifieds = objds.GetPublicedClassifieds();
+            var classifieds = objds.GetPublicedClassifiedsCount();
             return Ok(classifieds);
+        }
+
+        [Route("workerlist")]
+        [HttpGet]
+        public IHttpActionResult WorkerList()
+        {
+            var classifieds = objds.GetWorkerList();
+            return Ok(classifieds);
+        }
+        [Route("assign")]
+        [HttpPost]
+        public IHttpActionResult Assign([FromBody]PClassifiedAssign a)
+        {
+            var count = objds.AssignClassifieds(a.Id ,a.Count );
+            return Ok(count);
+        }
+        [Route("workerinfo")]
+        [HttpGet]
+        public IHttpActionResult WorkerInfo()
+        {
+            var info = objds.GetWorkerInfo();
+            return Ok(info);
         }
     }
 }
