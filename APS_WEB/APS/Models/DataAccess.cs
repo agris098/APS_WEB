@@ -10,9 +10,9 @@ namespace APS.Models
 {
     public class DataAccess
     {
-        public MongoClient _client;
-        public MongoServer _server;
-        public MongoDatabase _db;
+        private MongoClient _client;
+        private MongoServer _server;
+        private MongoDatabase _db;
 
         public DataAccess()
         {
@@ -422,7 +422,7 @@ namespace APS.Models
             return result;
         }
         #endregion
-        #region Users
+#region Users
         public List<UserModel> GetUsers()
         {
             var users = _db.GetCollection<UserModel>("users").FindAll();
