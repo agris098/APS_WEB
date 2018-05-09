@@ -36,7 +36,14 @@ namespace APS.Controllers.Account
 
             return View(user);
         }
-        
+        [HttpGet]
+        [Route("publicedclassifieds")]
+        public ActionResult PublicedClassifiedsForUser(string id)
+        {
+            var classifieds = _objds.GetPublicedClassifiedsForUser(id);
+            return Json(classifieds, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         [Route("update")]
         public ActionResult Update([Bind(Exclude = "UserPhoto")]UserDetails model)

@@ -4,7 +4,11 @@
 
 <h3>Work</h3>
 
-<div class="row classified-overwatch">
+<div class="row classified-overwatch" data-wId>
+    <div class="col-xs-12">
+        <button class="btn btn-primary" onclick="rejectWorkItem()">Reject</button>
+        <button class="btn btn-primary" onclick="approveWorkItem()">Approve</button>
+    </div>
     <div class="col-xs-12">
         <div class="row header-container">
             <div class="col-md-8">
@@ -54,7 +58,9 @@
         </div>
     </div>
 </div>
+@Styles.Render("~/Content/slider/ubislider.min.css")
 @section scripts{
+    <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
     @Scripts.Render("~/bundles/work")    
 }
 

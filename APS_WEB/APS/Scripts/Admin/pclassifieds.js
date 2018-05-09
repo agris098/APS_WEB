@@ -76,7 +76,6 @@ function assingClassifieds() {
         Id: $('#workerList').val(),
         Count: $('#assingCount').val()
     }
-    console.log(data);
     $.ajax({
         url: uri,
         method: 'POST',

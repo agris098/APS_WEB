@@ -3,14 +3,17 @@
 @{
     ViewBag.Title = "View";
     var userId = User.Identity.GetUserId();
-    var Owner = User.Identity.GetUserId() == Model.UserId ? true : false;
+    var Owner = userId == Model.UserId ? true : false;
 }
-<div class="row profile">
+<div class="row profile" data-userid="@Model.UserId">
     <div class="col-md-4">
         <div><img id="user_img" src="@String.Format("data:image/jpg;base64,{0}", Model.lg_image)" height="300" width="250" style="border:solid" /></div>
-        <ul class="profile-manage">
-            <li>@Html.ActionLink("Edit Profile", "Edit", "Profile")</li>
-        </ul>
+        @if (Owner)
+        {   
+            <ul class="profile-manage">
+                <li>@Html.ActionLink("Edit Profile", "Edit", "Profile")</li>
+            </ul>
+        }
     </div>
     <div class="col-md-8 profile-information">
         <div class="row main">
@@ -18,13 +21,12 @@
                 <div class="FullName">
                     @Model.FullName
                 </div>
-                <div class="ranking title">
-                    Rankings
-                </div>
-
-                <div class="actions">
-                    <button class="btn btn-light"><span><i class="fa fa-envelope"></i>Send Message</span></button>
-                </div>
+                @if (!Owner)
+                {
+                    <div class="actions">
+                        <button class="btn btn-light sendMessage"><span><i class="fa fa-envelope"></i>Send Message</span></button>
+                    </div>
+                }
             </div>
         </div>
         <div class="row">
@@ -57,7 +59,7 @@
                             <div class="title">Basic information</div>
                             <div class="row">
                                 <div class="col-xs-5 sub-title">
-                                    Birthday
+                                    Date of birth
                                 </div>
                                 <div class="col-xs-7 sub-title">
                                     @Model.DOBString
@@ -80,5 +82,13 @@
     </div>
 </div>
 @Styles.Render("~/Content/profile")
+@section Scripts{
+    <script>
+        var publicedClassifiedUri = "@Url.Action("PublicedClassifiedsForUser", "profile", new { id = Model.UserId})";
+        console.log(publicedClassifiedUri);
+    </script>
+    @Scripts.Render("~/bundles/profile")
+
+}
 
 

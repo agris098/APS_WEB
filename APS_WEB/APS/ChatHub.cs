@@ -31,7 +31,7 @@ namespace APS
         }
         public void GetUserList() {
             var currentUser = HttpContext.Current.User.Identity.GetUserId();
-            var list = objds.GetUsers().Where(u=> u.ID != currentUser);
+            var list = objds.GetHistoryUsers(currentUser);
             Clients.User(currentUser).getUserList(list);
         }
         public void ChatLoadHistory(string id) {

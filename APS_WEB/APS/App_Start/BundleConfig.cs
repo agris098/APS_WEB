@@ -40,6 +40,8 @@ namespace APS
 
             bundles.Add(new ScriptBundle("~/bundles/work").Include(
                 "~/Scripts/Admin/work.js"));
+            bundles.Add(new ScriptBundle("~/bundles/profile").Include(
+                "~/Scripts/profile/profile.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",

@@ -20,7 +20,7 @@ namespace APS.Models
             _server = _client.GetServer();
             _db = _server.GetDatabase("APS");
         }
-#region Sections
+        #region Sections
         public IEnumerable<Section> GetSections()
         {
             return _db.GetCollection<Section>("Sections").FindAll();
@@ -161,8 +161,8 @@ namespace APS.Models
             }
             Remove(section.Id);
         }
-#endregion
-#region Classifieds
+        #endregion
+        #region Classifieds
         public void DeleteClassified(string id)
         {
             var res = Query<ClassifieldModel>.EQ(e => e.Id, ObjectId.Parse(id));
@@ -181,7 +181,7 @@ namespace APS.Models
         public IEnumerable<ClassifieldModel> GetClassifieldsPublishedById(string id)
         {
             var res = Query<ClassifieldModel>.EQ(c => c.SectionId, id);
-            var classifields = _db.GetCollection<ClassifieldModel>("Classifields").Find(res).Where(c=>c.Status == Status.Public);
+            var classifields = _db.GetCollection<ClassifieldModel>("Classifields").Find(res).Where(c => c.Status == Status.Public);
 
             return classifields;
         }
@@ -284,7 +284,8 @@ namespace APS.Models
             if (status == Status.Public) {
                 DateTime timeStart = DateTime.Now;
                 DateTime timeEnd = timeStart.AddDays(Convert.ToDouble(weeks * 7));
-                var update = Update<ClassifieldModel>.Set(p => p.Status, status).Set(p => p.S_dateCreated, timeStart).Set(p => p.S_endDate, timeEnd).Set(p=> p.Approved, false);
+                var update = Update<ClassifieldModel>.Set(p => p.Status, status)
+                                .Set(p => p.S_dateCreated, timeStart).Set(p => p.S_endDate, timeEnd).Set(p => p.Approved, false);
                 _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
             } else {
                 var update = Update<ClassifieldModel>.Set(p => p.Status, status);
@@ -374,7 +375,7 @@ namespace APS.Models
         {
             var classified = GetClassifield(newL.ClassifiedId);
 
-            var comment = classified.Comments.Where(c=>c.Id == newL.CommentId).First();
+            var comment = classified.Comments.Where(c => c.Id == newL.CommentId).First();
             int index = classified.Comments.IndexOf(comment);
             if (comment.DisLikes == null) { comment.DisLikes = new List<string>(); }
             if (comment.Likes == null) { comment.Likes = new List<string>(); }
@@ -408,21 +409,29 @@ namespace APS.Models
         public int AssignClassifieds(string id, int count)
         {
             var res = Query<ClassifieldModel>.EQ(c => c.Status, Status.Public);
-            var classifieds = _db.GetCollection<ClassifieldModel>("Classifields").Find(res).Where(c=> c.Approved == false && String.IsNullOrWhiteSpace(c.OverWatch))
-                .OrderBy(c=> c.S_dateCreated).Take(count);
-
+            var classifieds = _db.GetCollection<ClassifieldModel>("Classifields").Find(res).Where(c => c.Approved == false && String.IsNullOrWhiteSpace(c.OverWatch))
+                .OrderBy(c => c.S_dateCreated).Take(count);
+            var result = classifieds.Count();
             foreach (var c in classifieds) {
                 var res2 = Query<ClassifieldModel>.EQ(pd => pd.Id, c.Id);
                 var update = Update<ClassifieldModel>.Set(p => p.OverWatch, id);
                 _db.GetCollection<ClassifieldModel>("Classifields").Update(res2, update);
             }
-
-            var result = classifieds.Count();
-
             return result;
         }
+        public void ClassifiedApproveWorkItem(string Id) {
+            var res = Query<ClassifieldModel>.EQ(pd => pd.Id, ObjectId.Parse(Id));
+            var update = Update<ClassifieldModel>.Set(p => p.Approved, true);
+            _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+        }
+        public void ClassifiedRejectWorkItem(string Id)
+        {
+            var res = Query<ClassifieldModel>.EQ(pd => pd.Id, ObjectId.Parse(Id));
+            var update = Update<ClassifieldModel>.Set(p => p.Status, Status.Rejected);
+            _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+        }
         #endregion
-#region Users
+        #region Users
         public List<UserModel> GetUsers()
         {
             var users = _db.GetCollection<UserModel>("users").FindAll();
@@ -440,13 +449,33 @@ namespace APS.Models
         {
             var res = Query<ClassifieldModel>.EQ(c => c.Status, Status.Public);
             var classifieds = _db.GetCollection<ClassifieldModel>("Classifields").Find(res).Where(c => c.Approved == false && !String.IsNullOrWhiteSpace(c.OverWatch));
-            var group = classifieds.GroupBy(c => c.OverWatch, c => c.Id, (key, g) => new UserWorkInfo() { Id = key , FullName = GetUserDetails(key).FullName, NotApproved = g.Count()} );
+            var group = classifieds.GroupBy(c => c.OverWatch, c => c.Id, (key, g) => new UserWorkInfo() { Id = key, FullName = GetUserDetails(key).FullName, NotApproved = g.Count() });
 
             return group;
         }
+        public WorkItem GetWorkerItem(string id)
+        {
+            try
+            {
+                var re = Query<ClassifieldModel>.EQ(s => s.Status, Status.Public);
+                var c = _db.GetCollection<ClassifieldModel>("Classifields").Find(re).Where(s => s.Approved == false && s.OverWatch == id).FirstOrDefault();
+                var section = GetSection(ObjectId.Parse(c.SectionId));
+                WorkItem result = new WorkItem()
+                {
+                    Classified = c,
+                    Section = section
+                };
+                return result;
+            }
+            catch {
+                return new WorkItem();
+            }
+
+
+        }
         public IEnumerable<UserBaseInfo> GetWorkerList()
         {
-            var users = _db.GetCollection<UserModel>("users").FindAll().Where(u=> u.Roles.Contains("Support") || u.Roles.Contains("Admin")).Select(u => new UserBaseInfo
+            var users = _db.GetCollection<UserModel>("users").FindAll().Where(u => u.Roles.Contains("Support") || u.Roles.Contains("Admin")).Select(u => new UserBaseInfo
             {
                 Id = u.ID,
                 FullName = GetUserDetails(u.ID).FullName
@@ -480,7 +509,7 @@ namespace APS.Models
                 result.WebAddress = details.WebAddress;
                 result.Gender = details.Gender;
             }
-            
+
 
             return result;
         }
@@ -511,13 +540,31 @@ namespace APS.Models
                 _db.GetCollection<UserDetails>("UserDetails").Update(res, operation);
             }
         }
+        public IEnumerable<ClassifieldModel> GetPublicedClassifiedsForUser(string id)
+        {
+            var res = Query<ClassifieldModel>.EQ(c => c.S_userId, id);
+            var classifieds = _db.GetCollection<ClassifieldModel>("Classifields").Find(res).Where(c => c.Status == Status.Public);
+
+            return classifieds;
+        }
         #endregion
-#region Chat
+        #region Chat
         public List<ChatMessageModel> GetHistoryMessages(string userId, string toUserId) {
             var messages = _db.GetCollection<ChatMessageModel>("chatMessages").FindAll()
-                .Where(i=> (i.UserId == userId && i.ToUserId == toUserId) || (i.UserId == toUserId && i.ToUserId == userId)).OrderBy(i => i.Created).ToList();
+                .Where(i => (i.UserId == userId && i.ToUserId == toUserId) || (i.UserId == toUserId && i.ToUserId == userId)).OrderBy(i => i.Created).ToList();
 
             return messages;
+        }
+        public IEnumerable<UserModel> GetHistoryUsers(string userId)
+        {
+            var messages = _db.GetCollection<ChatMessageModel>("chatMessages").FindAll()
+                .Where(i => i.UserId == userId || i.ToUserId == userId).OrderBy(i => i.Created).ToList();
+
+            var userIdList = messages.Select(m => userId == m.UserId ? m.ToUserId : m.UserId).Distinct();
+
+            var users = GetUsers().Where(u => u.ID != userId && userIdList.Contains(u.ID)).AsEnumerable();
+
+            return users;
         }
         public void AddHistoryMessages(ChatMessageModel m)
         {

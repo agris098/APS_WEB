@@ -39,3 +39,56 @@
     list-style: none;
     font-size:15px;
 }
+tr .image {
+    height: 50px;
+    width: 70px;
+}
+
+    tr .image img {
+        height: 50px;
+    }
+
+table tr .info {
+    display: flex;
+    align-items: center;
+}
+
+table tr td:first-child {
+    max-width: 0;
+}
+
+table tr .price {
+    margin-left: auto;
+    font-weight: bold;
+    color: limegreen;
+    font-size: 15px;
+}
+
+table tr .description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.right {
+    float: right !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+.price {
+    white-space: nowrap;
+}
+td:hover {
+    background-color: #F0F0F0;
+}
+td {
+    margin:10px;
+}
+tr {
+    border-bottom: 2px solid #f2f2f2;
+}

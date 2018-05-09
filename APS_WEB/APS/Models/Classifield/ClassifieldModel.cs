@@ -60,6 +60,7 @@ namespace APS.Models
         public List<Comment> Comments { get; set; }
 
         public string Path { get; set; }
+        public string IDS{ get {return Id.ToString(); } }
     }
     public class CommentNew
     {

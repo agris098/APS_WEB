@@ -12,6 +12,7 @@
             initChatHub();
             registerHubEvents();
             registerChatEvents();
+            registerOtherEvents();
         }
 
         function initChatHub() {
@@ -100,6 +101,19 @@
             $(chatContainer).on("keydown", messageInput, function (e) {
                 if (e.which === 13) {
                     $(this).parent().find("#sendmessage").trigger("click");
+                }
+            });
+        }
+        function registerOtherEvents() {
+            $(document).on("click", ".profile .sendMessage", function () {
+                var profile = $('.profile'),
+                    userId = profile.data("userid"),
+                    userName = profile.find('.FullName').html();
+
+                if (chatIsOpen(userId)) {
+                    setChatWindowActive(userId);
+                } else {
+                    addNewChat(userId, userName);
                 }
             });
         }

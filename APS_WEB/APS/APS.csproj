@@ -253,6 +253,7 @@
     <Compile Include="Models\Admin\PClassifiedCountModel.cs" />
     <Compile Include="Models\Admin\PClassifiedGroupModel.cs" />
     <Compile Include="Models\Admin\UserModel.cs" />
+    <Compile Include="Models\Admin\WorkItem.cs" />
     <Compile Include="Models\Chat\ChatMessageHistoryModel.cs" />
     <Compile Include="Models\Chat\ChatMessageModel.cs" />
     <Compile Include="Models\Classifield\ClassifiedAddModel.cs" />
@@ -376,6 +377,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\profile\profile.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\shared\classifiedForm.js" />

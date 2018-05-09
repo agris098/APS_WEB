@@ -6,8 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using MongoDB.Driver;
 
 namespace APS.Controllers.Api
 {
@@ -47,15 +45,38 @@ namespace APS.Controllers.Api
         [HttpPost]
         public IHttpActionResult Assign([FromBody]PClassifiedAssign a)
         {
-            var count = objds.AssignClassifieds(a.Id ,a.Count );
+            var count = objds.AssignClassifieds(a.Id, a.Count);
             return Ok(count);
         }
         [Route("workerinfo")]
         [HttpGet]
         public IHttpActionResult WorkerInfo()
         {
+
             var info = objds.GetWorkerInfo();
             return Ok(info);
+        }
+        [Route("workitem")]
+        [HttpGet]
+        public IHttpActionResult WorkerItem()
+        {
+            var id = User.Identity.GetUserId();
+            var info = objds.GetWorkerItem(id);
+            return Ok(info);
+        }
+        [Route("approveworkitem")]
+        [HttpPut]
+        public IHttpActionResult ApproveWorkItem([FromBody]ClassifiedViewModel c)
+        {
+            objds.ClassifiedApproveWorkItem(c.Id);
+            return Ok();
+        }
+        [Route("rejectworkitem")]
+        [HttpPut]
+        public IHttpActionResult RejectWorkeItem([FromBody]ClassifiedViewModel c)
+        {
+            objds.ClassifiedRejectWorkItem(c.Id);
+            return Ok();
         }
     }
 }
