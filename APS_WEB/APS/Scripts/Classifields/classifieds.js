@@ -37,7 +37,7 @@ function UpdateTable() {
             UpdateTableRows("public", data[1].classifieds);
             UpdateTableRows("expired", data[2].classifieds);
             UpdateTableRows("rejected", data[3].classifieds);
-            //UpdateTableRows("marked", data[4].classifieds);
+            UpdateTableRows("marked", data[4].classifieds);
         },
         error: function () {
             alert("error")

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<APS.Models.Section>
+﻿@model IEnumerable<APS.Models.SectionViewModel>
 @{
     ViewBag.Title = "Section";
     var _pagetitle = Model.FirstOrDefault().Parent;
@@ -34,7 +34,7 @@
 {
     <div class="row">
         <div class="col">
-            @Html.ActionLink(item.Child, "Section", new { tags = item.Path +"/"+ item.Child }, new { style = "font-size:30px; " })
+            @Html.ActionLink(item.Child + "<span class='count'>"+ item.Count.ToString() +"</span>", "Section", new { tags = item.Path +"/"+ item.Child }, new { style = "font-size:30px; " })
         </div>
     </div>
 }

@@ -201,6 +201,13 @@ namespace APS.Models
 
             return classifieds;
         }
+        public IEnumerable<ClassifieldModel> GetMarkedClassifiedsByUser(string userId)
+        {
+            var res = Query<ClassifieldModel>.EQ(p => p.Status, Status.Public);
+            var classifieds = _db.GetCollection<ClassifieldModel>("Classifields").Find(res)
+                                    .Where(c => c.Marks != null && c.Marks.Contains(userId));
+            return classifieds;
+        }
         public ClassifiedViewModel GetClassifiedViewModel(string id, string ipAdress) {
             ClassifieldModel c = GetClassifield(id);
 
@@ -429,6 +436,12 @@ namespace APS.Models
             var res = Query<ClassifieldModel>.EQ(pd => pd.Id, ObjectId.Parse(Id));
             var update = Update<ClassifieldModel>.Set(p => p.Status, Status.Rejected);
             _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+        }
+        public int ClassifieldCountByPath(string path) {
+            var classifieds = GetClassifieldAll().Where(c=> c.Status == Status.Public);
+            var count = classifieds.Where(c => c.Path.Contains(path)).Count();
+
+            return count;
         }
         #endregion
         #region Users

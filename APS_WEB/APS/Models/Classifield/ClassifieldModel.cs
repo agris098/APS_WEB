@@ -58,6 +58,8 @@ namespace APS.Models
         public List<string> Viewers { get; set; }
         [BsonElement("Comments")]
         public List<Comment> Comments { get; set; }
+        [BsonElement("Marks")]
+        public List<string> Marks { get; set; }
 
         public string Path { get; set; }
         public string IDS{ get {return Id.ToString(); } }

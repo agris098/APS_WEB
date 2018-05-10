@@ -12,5 +12,6 @@ namespace APS.Models
         public string Description { get; set; }
         public decimal Price { get; set; }
         public Status Status { get; set; }
+        public List<string> Marks { get; set; }
     }
 }

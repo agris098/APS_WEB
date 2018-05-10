@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using APS.Models;
 using MongoDB.Bson;
+using System.Linq;
 
 namespace APS.Controllers
 {
@@ -33,7 +34,18 @@ namespace APS.Controllers
             {
                 if (objds.HasChildren(path))
                 {
-                    return View(objds.GetSectionsByPath(path));
+                    var temp = objds.GetSectionsByPath(path);
+                    var sections = temp.Select(s => new SectionViewModel()
+                    {
+                        Child = s.Child,
+                        Parent = s.Parent,
+                        Id = s.Id,
+                        Columns = s.Columns,
+                        Path = s.Path,
+                        Fields = s.Fields,
+                        Count = objds.ClassifieldCountByPath(s.Path + "/" + s.Child)
+                    });
+                    return View(sections);
                 }
                 else
                 {

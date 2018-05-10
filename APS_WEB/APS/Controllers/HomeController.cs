@@ -36,7 +36,7 @@ namespace APS.Controllers
                     Columns = s.Columns,
                     Path = s.Path,
                     Fields = s.Fields,
-                    Count = 0
+                    Count = objds.ClassifieldCountByPath(s.Path + "/" +s.Child )
                 };
                 var gg = new HomeSections()
                 {
@@ -49,11 +49,12 @@ namespace APS.Controllers
                         Columns = p.Columns,
                         Path = p.Path,
                         Fields = p.Fields,
-                        Count = 0
+                        Count = objds.ClassifieldCountByPath(p.Path + "/" + p.Child)
                     }).ToList()
                 };
                 groupList.Add(gg);
             }
+
 
             return View(groupList);
         }

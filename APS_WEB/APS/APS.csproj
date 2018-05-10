@@ -445,7 +445,6 @@
     <Content Include="Views\Notification\Index.cshtml" />
     <Content Include="Views\Admin\Classifieds.cshtml" />
     <Content Include="Views\Admin\PClassifieds.cshtml" />
-    <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Scripts\README.md" />

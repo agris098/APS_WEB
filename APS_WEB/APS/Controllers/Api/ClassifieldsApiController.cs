@@ -78,7 +78,8 @@ namespace APS.Controllers
                 Description = s.S_description,
                 Picture = s.S_mpicture,
                 Price = s.S_price,
-                Status = s.Status
+                Status = s.Status,
+                Marks = s.Marks
             });
 
             List<MyClassifieds> mylist = new List<MyClassifieds>();
@@ -103,12 +104,18 @@ namespace APS.Controllers
             rejected.classifieds = classifields.Where(c => c.Status == Status.Rejected).ToList();
             mylist.Add(rejected);
 
-            /*
             MyClassifieds marked = new MyClassifieds();
-            marked.Status = Status.Rejected;
-            marked.classifieds = classifields.Where(c => c.Status == Status.Rejected).ToList();
-            mylist.Add(rejected);*/
-
+            marked.Status = Status.Public;
+            marked.classifieds = objds.GetMarkedClassifiedsByUser(userId).Select(s => new MyClassifiedsModel()
+                                {
+                                    Id = s.Id.ToString(),
+                                    Description = s.S_description,
+                                    Picture = s.S_mpicture,
+                                    Price = s.S_price,
+                                    Status = s.Status,
+                                    Marks = s.Marks
+                                }).ToList();
+            mylist.Add(marked);
             return Ok(mylist);
         }
         [Route("delete/{id}")]
