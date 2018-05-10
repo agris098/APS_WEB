@@ -3,8 +3,8 @@
 }
 
 <h3>Work</h3>
-
-<div class="row classified-overwatch" data-wId>
+<div class="noTasks" style="display:none">No assigned Tasks</div>
+<div class="row classified-overwatch" style="display:none" data-wId>
     <div class="col-xs-12">
         <button class="btn btn-primary" onclick="rejectWorkItem()">Reject</button>
         <button class="btn btn-primary" onclick="approveWorkItem()">Approve</button>
@@ -16,11 +16,9 @@
                     <div class="ubislider-image-container" data-ubislider="#slider" id="imageSlider"></div>
                     <div class="ubislider" id="slider">
                         <ul class="ubislider-inner classified-pictures-container">
-                           
-                                @*<li>
-                                    <img src="@String.Format("data:image/jpg;base64,{0}", img)" />
-                                </li>*@
-                            
+                            @*<li>
+                                <img src="@String.Format("data:image/jpg;base64,{0}", img)" />
+                            </li>*@
                         </ul>
                     </div>
                 </div>

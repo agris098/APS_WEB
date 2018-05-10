@@ -1,0 +1,62 @@
+﻿h3 {
+    text-align: center;
+    font-weight: bold;
+    color: dimgrey;
+}
+
+table tbody tr {
+    height: 60px;
+}
+
+    table tbody tr td {
+        vertical-align: middle !important;
+    }
+
+        table tbody tr td img {
+            height: 50px;
+        }
+
+table tr td:first-child {
+    width: 200px;
+}
+
+.action-icon {
+    font-size: 25px;
+    color: black;
+}
+
+    .action-icon:hover {
+        color: deepskyblue;
+    }
+
+.modal-footer {
+    display: flex;
+}
+
+    .modal-footer .toRight {
+        margin-left: auto !important;
+    }
+
+.ubislider-inner {
+    height: auto !important;
+}
+
+.ubislider-inner {
+    top: 0 !important;
+}
+
+.back-button {
+    font-size: 15px;
+}
+
+i.back-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.back-container {
+    margin-top: 20px;
+}
+.markClassified.true {
+    color: deepskyblue;
+}

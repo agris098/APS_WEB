@@ -45,9 +45,18 @@
                 $.each(data, function () {
                     var tr = $("<tr data-id='" + this.Id + "'></tr>");
                     var hasPicture = false;
-                    
-                    
-                    tr.append("<td><i class='fa fa-eye prevClassified'><i/></td>");
+                    var hasMark = '';
+                    var mark = "";
+                    var logged = currentUser.Id && currentUser.Id !== this.S_userId ? true : false;
+                    console.log(currentUser);
+                    if (logged) {
+                        if (this.Marks && this.Marks.indexOf(currentUser.Id) > -1) {
+                            hasMark = 'true';
+                        }
+                        mark = "<i class='fa fa-star markClassified action-icon " + hasMark + "'></i>";
+                    }
+
+                    tr.append("<td><i class='fa fa-eye prevClassified action-icon'></i>"+mark+"</td>");
                     if (jQuery.inArray("S_mpicture", _tableColumns) !== -1) {
                         tr.append("<td><img src='data:image/jpg;base64," + this.S_mpicture + "'/></td>");
                         hasPicture = true;
@@ -78,6 +87,26 @@
             modalCid.val(cId);
             getModalData(cId);
             _modal.modal('show');
+        });
+        _table.on('click', '.markClassified', function (e) {
+            e.stopPropagation();
+            var cId = $(this).closest('tr').data('id');
+            var data = { Id: cId };
+            var element = $(this);
+            $.ajax({
+                url: uriMarkClassified,
+                type: 'POST',
+                data: data,
+                success: function (data) {
+                    if (data.Status) {
+                        element.addClass('true');
+                    } else {
+                        element.removeClass('true');
+                    }
+
+                    console.log(data);
+                }
+            });
         });
         _modal.on('show.bs.modal', function () {
         });

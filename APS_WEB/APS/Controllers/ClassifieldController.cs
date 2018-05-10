@@ -23,6 +23,12 @@ namespace APS.Controllers
         [Route("{id}")]
         public ActionResult Index(string id)
         {
+            var userId = User.Identity.GetUserId();
+            var classifield = objds.GetClassifield(id);
+            if (userId != classifield.S_userId && classifield.Status != Status.Public)
+            {
+                return RedirectToAction("Index","Home");
+            }    
             var ipAdress = Request.UserHostAddress;
 
             return View(objds.GetClassifiedViewModel(id, ipAdress));
@@ -38,6 +44,15 @@ namespace APS.Controllers
         public ActionResult Classifieds()
         {
             return View();
+        }
+      //  [Authorize]
+        [Route("mark")]
+        [HttpPost]
+        public ActionResult Mark(MarkModel m )
+        {
+            var userId = User.Identity.GetUserId();
+            var mark = objds.MarkClassified(m.Id, userId);
+            return Json(mark, JsonRequestBehavior.AllowGet);
         }
         [Authorize]
         [Route("addclassified")]

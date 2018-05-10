@@ -46,7 +46,10 @@
                     <i class="fa @icon"></i>
 
                     <span class="main-title">
-                        @Html.ActionLink(item.MainSection.Child + item.MainSection.Count, item.MainSection.Child, "classifields")
+                        <a href="@Url.Action(item.MainSection.Child,"classifields")">
+                            <span class="title">@item.MainSection.Child</span>
+                            <span class="count">(@item.MainSection.Count)</span>
+                        </a>
                     </span>
 
                 </dt>
@@ -56,7 +59,12 @@
                         {
                             if (subitem.Child != "none")
                             {
-                                <li>@Html.ActionLink(subitem.Child + subitem.Count, subitem.Parent + "/" + subitem.Child, "classifields")</li>
+                                <li>
+                                    <a href="@Url.Action(subitem.Parent + "/" + subitem.Child,"classifields")">
+                                        <span class="title">@subitem.Child</span>
+                                        <span class="count">(@subitem.Count)</span>
+                                    </a>
+                                </li>
                             }
 
                         }

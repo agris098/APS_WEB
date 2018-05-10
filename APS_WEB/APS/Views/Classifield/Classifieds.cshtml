@@ -73,9 +73,6 @@
     </div>
 </div>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#publishModal">
-    Launch demo modal
-</button>
 
 <!-- Modal Window -->
 
@@ -148,5 +145,8 @@
     }
 </style>
 @section scripts{
+    <script>
+        var uriMarkClassified = "@Url.Action("mark", "classifield")";
+    </script>
     <script src="@Url.Content("~/Scripts/Classifields/classifieds.js")"></script>
 }

@@ -12,7 +12,7 @@ function UpdateTableRows(selector, data) {
             break;
         case "rejected": option = "";
             break;
-        case "marked": option = "";
+        case "marked": option = "unmark";
             break;
 
     }
@@ -21,8 +21,8 @@ function UpdateTableRows(selector, data) {
         
         var imgP = !this.Picture ? "" : "<div class='image'><img src='data: image/jpg;base64," + this.Picture + "' /></div>";
         var price = this.Price ? "<div class='price'>" + this.Price + " €</div>" : "";
-        var template = "<tr c-id='" + this.Id + "'><td><div class='info'>" + imgP + "<div class='description'><span>"+this.Description +"<span></div>" + price + 
-            "</div></td><td><a class='delete'>Delete</a>   <a class='" + option + "'>" + option+"</a></td></tr>"
+        var template = "<tr c-id='" + this.Id + "'><td><div class='info'>" + imgP + "<div class='description'><span>" + this.Description + "<span></div>" + price +
+            "</div></td><td>" + (option === "unmark" ? "" : "<a class='delete'>Delete</a> ") + "  <a class='" + option + "'>" + option + "</a></td></tr>"
         tableBody.append(template);
     });
     $("[status = '" + selector + "']").find("span").text("("+data.length+")");
@@ -122,3 +122,17 @@ $(document).ready(function () {
 $('#publishModal').on('show.bs.modal', function (e) {
     $(this).find('select').val('1');
 })
+$(document).on('click', '.unmark', function (e) {
+    e.stopPropagation();
+    var id = $(this).closest('tr').attr("c-id");
+    var data = { Id: id };
+    var element = $(this);
+    $.ajax({
+        url: uriMarkClassified,
+        type: 'POST',
+        data: data,
+        success: function (data) {
+            UpdateTable();
+        }
+    });
+});

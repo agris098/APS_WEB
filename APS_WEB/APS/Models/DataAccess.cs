@@ -247,14 +247,14 @@ namespace APS.Models
                 S_endDate = c.S_endDate,
                 S_description = c.S_description,
                 S_viewsCount = c.Viewers.Count,
-                S_pictures = c.S_pictures == null ? new string[] { } : c.S_pictures,
+                S_pictures = c.S_pictures ?? (new string[] { }),
                 U_email = user.Email,
                 U_number = user.PhoneNumber,
                 U_FullName = userDetails.FullName,
                 U_Image = userDetails.sm_image,
                 S_Path = section.Path,
-                U_Id = user.Id
-
+                U_Id = user.Id,
+                Marks = c.Marks ?? new List<string>()
             };
             return result;
         }
@@ -442,6 +442,33 @@ namespace APS.Models
             var count = classifieds.Where(c => c.Path.Contains(path)).Count();
 
             return count;
+        }
+        public MarkModel MarkClassified(string Id, string userId) {
+            var result = new MarkModel {
+                Id = Id,
+                Status = false
+            };
+
+            var classified = GetClassifield(Id);
+            var marks = classified.Marks;
+            if (marks == null) {
+                marks = new List<string>();
+            }
+            if (!marks.Contains(userId))
+            {
+                marks.Add(userId);
+                result.Status = true;
+            }
+            else
+            {
+                marks.Remove(userId);
+                result.Status = false;
+            }
+            var res = Query<ClassifieldModel>.EQ(pd => pd.Id, ObjectId.Parse(Id));
+            var update = Update<ClassifieldModel>.Set(p => p.Marks, marks);
+            _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+
+            return result;
         }
         #endregion
         #region Users

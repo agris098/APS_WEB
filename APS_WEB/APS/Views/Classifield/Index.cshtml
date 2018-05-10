@@ -4,6 +4,19 @@
     ViewBag.Title = "Index";
     var _path = Model.S_Path;
     string[] _backOptions = _path.Split('/');
+    var hasMark = "";
+    var user = Html.CurrentUser();
+    var mark = "";
+    var logged = user.Id != null && user.Id != Model.U_Id ? true : false;
+
+    if (logged)
+    {
+        if (Model.Marks != null && Model.Marks.IndexOf(user.Id) > -1)
+        {
+            hasMark = "true";
+        }
+        mark = "<i class='fa fa-star markClassified action-icon " + hasMark + "'></i>";
+    }
 }
 <div class="row back-container">
     <div class="col-xs-12">
@@ -45,7 +58,7 @@
         <div class="main-info">
             <div class="section">
                 <div class="title">Price:</div>
-                <div class="price">@Html.Raw(Model.S_price) €</div>
+                <div><span class="price">@Html.Raw(Model.S_price) €</span><span class="mark">@Html.Raw(mark)</span></div>
             </div>
             <div class="publiced section">
                 <div class="title">Date</div>
@@ -168,19 +181,39 @@
     <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
     <script type="text/javascript">
         var classified = @Html.Raw(Json.Encode(Model));
+        var uriMarkClassified = "@Url.Action("mark", "classifield")";
     </script>
     @if (Model.S_pictures.Length > 0) {
         <script>
-            $(document).ready(function () {
-                $('#slider').ubislider({
-                    arrowsToggle: true,
-                    type: 'ecommerce',
-                    autoSlideOnLastClick: true,
-                    modalOnClick: true,
-                    position: 'vertical'
-                });
+            $('#slider').ubislider({
+                arrowsToggle: true,
+                type: 'ecommerce',
+                autoSlideOnLastClick: true,
+                modalOnClick: true,
+                position: 'vertical'
             });
         </script>
     }
+    <script>
+        $(document).on('click', '.markClassified', function (e) {
+            e.stopPropagation();
+            var data = { Id: classified.Id };
+            var element = $(this);
+            $.ajax({
+                url: uriMarkClassified,
+                type: 'POST',
+                data: data,
+                success: function (data) {
+                    if (data.Status) {
+                        element.addClass('true');
+                    } else {
+                        element.removeClass('true');
+                    }
+
+                    console.log(data);
+                }
+            });
+        });
+    </script>
    @Scripts.Render("~/bundles/classified-comments")
 }

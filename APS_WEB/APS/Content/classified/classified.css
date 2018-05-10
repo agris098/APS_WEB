@@ -44,3 +44,17 @@
 .tab-pane {
     padding-top: 20px;
 }
+.mark {
+    display:inline-block;
+    font-size:25px !important;
+    float:right;
+}
+.markClassified {
+    font-size: 25px !important;
+}
+.markClassified:hover {
+    color: deepskyblue;
+}
+.markClassified.true {
+    color: deepskyblue;
+}

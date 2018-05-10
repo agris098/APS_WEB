@@ -9,6 +9,7 @@
             chatManagerBody = ".chat-manager-body";
 
         function init() {
+            $(chatContainer).show();
             initChatHub();
             registerHubEvents();
             registerChatEvents();
@@ -162,7 +163,13 @@
             stop: stop
         };
     }
-    var chatManager = new ChatManager();
-    chatManager.init();
-    chatManager.start();
+    $(document).ready(function () {
+        var chatManager = new ChatManager();
+        if (currentUser.Id)
+        {
+            chatManager.init();
+            chatManager.start();
+        }
+
+    });
 });

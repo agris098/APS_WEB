@@ -4,31 +4,40 @@
 function bindWorkItemData(data) {
     var c = data.Classified,
         s = data.Section,
+        noTasks = $(".noTasks");
         cId = $(".classified-overwatch"),
         pictureContainer = $(".classified-pictures-container"),
         price = $('.S_price'),
         description = $('.S_description'),
         video = $('.video');
-    cId.data('wId', c.Id);
-    price.html(c.S_price);
-    description.html(c.S_description);
-    video.html(c.S_video);
-    pictureContainer.empty();
-    if (c.S_pictures) {
-        $.each(c.S_pictures, function (i, v) {
-            var li = $("<li></li>"),
-                img = $("<img/>").attr("src", "data:image/jpg;base64," + v);
-            li.append(img);
-            pictureContainer.append(li);
-        });
-        $('#slider').ubislider({
-            arrowsToggle: true,
-            type: 'ecommerce',
-            autoSlideOnLastClick: true,
-            modalOnClick: true,
-            position: 'vertical'
-        });
+    if (data.Classified) {
+        cId.show();
+        noTasks.hide();
+        cId.data('wId', c.Id);
+        price.html(c.S_price);
+        description.html(c.S_description);
+        video.html(c.S_video);
+        pictureContainer.empty();
+        if (c.S_pictures) {
+            $.each(c.S_pictures, function (i, v) {
+                var li = $("<li></li>"),
+                    img = $("<img/>").attr("src", "data:image/jpg;base64," + v);
+                li.append(img);
+                pictureContainer.append(li);
+            });
+            $('#slider').ubislider({
+                arrowsToggle: true,
+                type: 'ecommerce',
+                autoSlideOnLastClick: true,
+                modalOnClick: true,
+                position: 'vertical'
+            });
+        }
+    } else {
+        cId.hide();
+        noTasks.show();
     }
+
 }
 
 function getClassifiedInfo() {

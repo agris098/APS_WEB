@@ -260,6 +260,7 @@
     <Compile Include="Models\Classifield\ClassifiedStatus.cs" />
     <Compile Include="Models\Classifield\ClassifiedViewModel.cs" />
     <Compile Include="Models\Classifield\ClassifieldModel.cs" />
+    <Compile Include="Models\Classifield\MarkModel.cs" />
     <Compile Include="Models\Classifield\MyClassifieds.cs" />
     <Compile Include="Models\Classifield\MyClassifiedsModel.cs" />
     <Compile Include="Models\Extensions\CurrentUser.cs" />
@@ -309,6 +310,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\classified-manager.css" />
     <Content Include="Content\classified\add_classified.css" />
     <Content Include="Content\main_logo_white.svg" />
     <Content Include="Content\main_logo_black.svg" />

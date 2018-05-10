@@ -36,18 +36,12 @@
         </div>
     </div>
 </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prevClassified">
-    Launch demo modal
-</button>
 <!-- Modal -->
 <div class="modal fade" id="prevClassified" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <input id="c-id" type="hidden" />
-                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>*@
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -90,52 +84,17 @@
 </div>
 @Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
 @Styles.Render("~/Content/slider/ubislider.min.css")
+@Styles.Render("~/Content/classified-manager.css")
 
 @section scripts{
     <script>
         var section = @Html.Raw(Json.Encode(Model))
+        var uriMarkClassified = "@Url.Action("mark", "classifield")";
     </script>
     <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
     <script src="@Url.Content("~/Scripts/Classifields/classifields-manager.js")"></script>
-    <script>
-    </script>
 }
 <style>
-    h3 {
-        text-align: center;
-        font-weight: bold;
-        color: dimgrey;
-    }
-    table tbody tr {
-        height:60px;
-    }
-        table tbody tr td {
-            vertical-align: middle !important;
-        }
-    table tbody tr td img{
-        height: 50px;
-    }
-    table tr td:first-child {
-        width: 200px;
-    }
-    .prevClassified {
-        font-size:25px;
-        color:black;
-    }
-    .prevClassified:hover {
-        color: deepskyblue;
-    }
-    .modal-footer {
-        display:flex;
-    }
-        .modal-footer .toRight {
-            margin-left: auto !important;
-        }
-    .ubislider-inner {
-        height:auto !important;
-    }
-    .ubislider-inner {
-        top:0 !important;
-    }
+
 </style>
