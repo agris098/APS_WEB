@@ -6,3 +6,6 @@
     flex-direction:column;
     min-height:80vh;
 }
+.ubiModal{
+    z-index:9999 !important;
+}

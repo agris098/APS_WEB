@@ -9,10 +9,9 @@ namespace APS
     {
         private CultureInfo _culture;
 
-        public NoficationManager() {
-            _culture = new CultureInfo("ru");
+        public NoficationManager(string culture) {
+            _culture = new CultureInfo(culture);
         }
-
         public NotificationModel ClassifiedRejected(string userId ) {
              var n = Notification(
                 userId
@@ -25,16 +24,8 @@ namespace APS
         {
             return Notification(
                 userId
-                , "Expired"
-                , "EXXXXXXXXXXXXX"
-                );
-        }
-        public NotificationModel ClassifiedMarkedExpired(string userId)
-        {
-            return Notification(
-                userId
-                , "Expired"
-                , "EXXXXXXXXXXXXX"
+                , GetString("test")
+                , GetString("test")
                 );
         }
         private NotificationModel Notification(string userId, string title, string Description)
@@ -48,6 +39,7 @@ namespace APS
                 DateTime = DateTime.Now
             };
         }
+        // Get resource value From Notification Resource collection
         private string GetString(string key) {
             return Notifications.ResourceManager.GetString(key, _culture);
         }

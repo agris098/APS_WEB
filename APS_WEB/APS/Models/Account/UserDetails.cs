@@ -28,5 +28,7 @@ namespace APS.Models
         public string lg_image { get; set; }
         [BsonElement("DOB")]
         public DateTime DOB { get; set; }
+        [BsonElement("Nln")]
+        public string NLn { get; set; }
     }
 }

@@ -20,25 +20,21 @@ namespace APS.Models
             _server = _client.GetServer();
             _db = _server.GetDatabase("APS");
         }
-        #region Sections
+        #region Sections  ------------------------------------------------------------------------------------------------------------------
         public IEnumerable<Section> GetSections()
         {
             return _db.GetCollection<Section>("Sections").FindAll();
         }
-
-
         public Section GetSection(ObjectId id)
         {
             var res = Query<Section>.EQ(p => p.Id, id);
             return _db.GetCollection<Section>("Sections").FindOne(res);
         }
-
         public Section CreateSection(Section p)
         {
             _db.GetCollection<Section>("Sections").Save(p);
             return p;
         }
-
         public void Update(ObjectId id, Section p)
         {
             var res = Query<Section>.EQ(pd => pd.Id, id);
@@ -162,7 +158,7 @@ namespace APS.Models
             Remove(section.Id);
         }
         #endregion
-        #region Classifieds
+        #region Classifieds  ------------------------------------------------------------------------------------------------------------------
         public void DeleteClassified(string id)
         {
             var res = Query<ClassifieldModel>.EQ(e => e.Id, ObjectId.Parse(id));
@@ -181,8 +177,16 @@ namespace APS.Models
         public void ResolveExpiredClassifieds()
         {
             var res = Query<ClassifieldModel>.Where(c => c.Status == Status.Public && c.S_endDate < DateTime.Now);
-            var update = Update<ClassifieldModel>.Set(c => c.Status, Status.Expired);
-            _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+            var classifieds = _db.GetCollection<ClassifieldModel>("Classifields").Find(res);
+            foreach (var classified in classifieds)
+            {
+                NoficationManager nm = new NoficationManager(UserCulture(classified.S_userId));
+                AddNotification(nm.ClassifiedRejected(classified.S_userId));
+                var res2 = Query<ClassifieldModel>.EQ(c => c.Id, classified.Id);
+                var update = Update<ClassifieldModel>.Set(c => c.Status, Status.Expired);
+                _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+            }
+
         }
         public IEnumerable<ClassifieldModel> GetClassifieldsPublishedById(string id)
         {
@@ -439,6 +443,11 @@ namespace APS.Models
         }
         public void ClassifiedRejectWorkItem(string Id)
         {
+            // Send Notification
+            var classified = GetClassifield(Id);
+            NoficationManager nm = new NoficationManager(UserCulture(classified.S_userId));
+            AddNotification(nm.ClassifiedRejected(classified.S_userId));
+
             var res = Query<ClassifieldModel>.EQ(pd => pd.Id, ObjectId.Parse(Id));
             var update = Update<ClassifieldModel>.Set(p => p.Status, Status.Rejected);
             _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
@@ -477,7 +486,7 @@ namespace APS.Models
             return result;
         }
         #endregion
-        #region Users
+        #region Users ------------------------------------------------------------------------------------------------------------------
         public List<UserModel> GetUsers()
         {
             var users = _db.GetCollection<UserModel>("users").FindAll();
@@ -593,8 +602,12 @@ namespace APS.Models
 
             return classifieds;
         }
+        public string UserCulture(string userId) {
+            var user = GetUserDetails(userId);
+            return user.NLn ?? "en";
+        }
         #endregion
-        #region Chat
+        #region Chat -------------------------------------------------------------------------------------------------------------------------
         public List<ChatMessageModel> GetHistoryMessages(string userId, string toUserId) {
             var messages = _db.GetCollection<ChatMessageModel>("chatMessages").FindAll()
                 .Where(i => (i.UserId == userId && i.ToUserId == toUserId) || (i.UserId == toUserId && i.ToUserId == userId)).OrderBy(i => i.Created).ToList();
@@ -617,13 +630,13 @@ namespace APS.Models
             _db.GetCollection<ChatMessageModel>("chatMessages").Save(m);
         }
         #endregion
-#region StaticData
+        #region StaticData -----------------------------------------------------------------------------------------------------------
         public StaticData GetStaticData()
         {
             return _db.GetCollection<StaticData>("StaticData").FindOne();
         }
-#endregion
-#region Notifications
+#endregion 
+        #region Notifications -------------------------------------------------------------------------------------------------------
         public IEnumerable<NotificationModel> GetNotifications(string Userid)
         {
             var res = Query<NotificationModel>.EQ(p => p.UserId, Userid);

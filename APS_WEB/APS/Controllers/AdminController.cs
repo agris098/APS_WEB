@@ -35,5 +35,11 @@ namespace APS.Controllers
             ViewBag.AdministrationPage = true;
             return View();
         }
+        [Route("reports")]
+        public ActionResult Reports()
+        {
+            ViewBag.AdministrationPage = true;
+            return View();
+        }
     }
 }

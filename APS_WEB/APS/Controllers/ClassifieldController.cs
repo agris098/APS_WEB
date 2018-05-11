@@ -23,9 +23,6 @@ namespace APS.Controllers
         [Route("{id}")]
         public ActionResult Index(string id)
         {
-            NoficationManager n = new NoficationManager();
-            var b = n.ClassifiedRejected("asddd");
-
             var userId = User.Identity.GetUserId();
             var classifield = objds.GetClassifield(id);
             if (userId != classifield.S_userId && classifield.Status != Status.Public)
