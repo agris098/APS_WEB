@@ -178,6 +178,12 @@ namespace APS.Models
 
             return classifields;
         }
+        public void ResolveExpiredClassifieds()
+        {
+            var res = Query<ClassifieldModel>.Where(c => c.Status == Status.Public && c.S_endDate < DateTime.Now);
+            var update = Update<ClassifieldModel>.Set(c => c.Status, Status.Expired);
+            _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
+        }
         public IEnumerable<ClassifieldModel> GetClassifieldsPublishedById(string id)
         {
             var res = Query<ClassifieldModel>.EQ(c => c.SectionId, id);

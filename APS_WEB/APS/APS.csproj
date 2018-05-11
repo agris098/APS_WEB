@@ -223,6 +223,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ChatHub.cs" />
+    <Compile Include="ClassifiedTimer.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Api\AdminApiController.cs" />
     <Compile Include="Controllers\Api\UploadController.cs" />
@@ -284,6 +285,21 @@
     </Compile>
     <Compile Include="Resources\Main.lv.Designer.cs">
       <DependentUpon>Main.lv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Notifications.lv.Designer.cs">
+      <DependentUpon>Notifications.lv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Notifications.ru.Designer.cs">
+      <DependentUpon>Notifications.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Notifications.Designer.cs">
+      <DependentUpon>Notifications.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -473,6 +489,18 @@
     <EmbeddedResource Include="Resources\Main.lv.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.lv.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Notifications.lv.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Notifications.lv.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Notifications.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Notifications.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Notifications.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Notifications.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Sections.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

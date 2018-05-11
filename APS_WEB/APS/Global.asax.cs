@@ -21,6 +21,10 @@ namespace APS
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Sets Periodical function for Checking expired classifieds
+            // Runs every 30 mins
+            var setTimer = new ClassifiedSystemTimer(30);
         }
         protected void Application_BeginRequest(object sender, EventArgs e) {
             HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
