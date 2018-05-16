@@ -44,6 +44,7 @@ namespace APS.Controllers
             // sections.OrderBy()
             return Ok(classifields);
         }
+        [Authorize]
         [Route("add")]
         [HttpPost]
         public IHttpActionResult AddClassifield([FromBody]ClassifiedAddModel c)
@@ -68,6 +69,7 @@ namespace APS.Controllers
                 return InternalServerError(new Exception(e.Message));
             }
         }
+        [Authorize]
         [Route("byuser")]
         [HttpGet]
         public IHttpActionResult GetClassifieldsByUserId()
@@ -118,6 +120,7 @@ namespace APS.Controllers
             mylist.Add(marked);
             return Ok(mylist);
         }
+        [Authorize]
         [Route("delete/{id}")]
         [HttpDelete]
         public IHttpActionResult DeleteClassifield(string id)
@@ -133,6 +136,7 @@ namespace APS.Controllers
                 return InternalServerError(new Exception(e.Message));
             }
         }
+        [Authorize]
         [Route("updatestatus")]
         [HttpPut]
         public IHttpActionResult UpdateClassifiedStatus(ClassifiedViewModel cv)
@@ -162,6 +166,7 @@ namespace APS.Controllers
                 return InternalServerError(new Exception(e.Message));
             }
         }
+        [Authorize]
         [Route("comments/add")]
         [HttpPost]
         public IHttpActionResult AddClassifiedComments([FromBody] CommentNew newC)
@@ -177,6 +182,7 @@ namespace APS.Controllers
                 return InternalServerError(new Exception(e.Message));
             }
         }
+        [Authorize]
         [Route("comments/like")]
         [HttpPost]
         public IHttpActionResult AddClassifiedCommentsLike([FromBody] CommentLike newL)

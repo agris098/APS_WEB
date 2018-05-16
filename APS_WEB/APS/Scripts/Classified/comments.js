@@ -7,7 +7,7 @@ function CommentsManager() {
         loadComments();
     }
     function loadComments() {
-        var uri = uri = "http://localhost:56616/api/classifields/comments/" + classified.Id;
+        var uri = uri = "/api/classifields/comments/" + classified.Id;
         $.ajax({
             method: "GET",
             url: uri,
@@ -66,7 +66,7 @@ function CommentsManager() {
     }
     function registerEvents() {
         _container.on("click", "#addButton", function () {
-            var uri = uri = "http://localhost:56616/api/classifields/comments/add";
+            var uri = uri = "/api/classifields/comments/add";
 
             var data = {
                 ClassifiedId: classified.Id,
@@ -91,7 +91,7 @@ function CommentsManager() {
                 return false;
 
             var commentId = $(this).closest(".comment").attr("comment-id"),
-                uri = uri = "http://localhost:56616/api/classifields/comments/like";
+                uri = uri = "/api/classifields/comments/like";
             var like = $(this).hasClass("c-like");
 
             var data = {

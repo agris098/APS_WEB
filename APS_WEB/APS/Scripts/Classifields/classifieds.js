@@ -28,7 +28,7 @@ function UpdateTableRows(selector, data) {
     $("[status = '" + selector + "']").find("span").text("("+data.length+")");
 }
 function UpdateTable() {
-    var uri = "http://localhost:56616/api/classifields/byuser";
+    var uri = "/api/classifields/byuser";
     $.ajax({
         url: uri,
         method: 'GET',
@@ -47,7 +47,7 @@ function UpdateTable() {
 $(document).on('click', "a.delete", function (e) {
     e.stopPropagation();
     var cid = $(this).closest("tr").attr("c-id");
-    var uri = "http://localhost:56616/api/classifields/delete/" + cid;
+    var uri = "/api/classifields/delete/" + cid;
     $.ajax({
         method: 'Delete',
         url: uri,    
@@ -68,7 +68,7 @@ $(document).on('click', "a.public", function (e) {
     $("#publishModal").find("[data-classified-id]").attr("data-classified-id", cid);
 });
 function publishClassified(cid) {
-    var uri = "http://localhost:56616/api/classifields/updatestatus";
+    var uri = "/api/classifields/updatestatus";
     var weeks = $("#publishModal").find("select").val();
     var data = {
         Id: cid,
@@ -91,7 +91,7 @@ function publishClassified(cid) {
 $(document).on('click', "a.unlist", function (e) {
     e.stopPropagation();
     var cid = $(this).closest("tr").attr("c-id");
-    var uri = "http://localhost:56616/api/classifields/updatestatus";
+    var uri = "/api/classifields/updatestatus";
     var data = {
         Id: cid,
         Status: 0

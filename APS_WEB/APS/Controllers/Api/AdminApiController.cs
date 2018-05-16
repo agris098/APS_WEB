@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 
 namespace APS.Controllers.Api
 {
+    [Authorize(Roles = "Admin, Support")]
     [RoutePrefix("api/admin")]
     public class AdminApiController : ApiController
     {
@@ -25,7 +26,7 @@ namespace APS.Controllers.Api
             var users = objds.GetUsers();
             return Ok(users);
         }
-
+        [Authorize]
         [Route("pclassifiedscount")]
         [HttpGet]
         public IHttpActionResult PublicedClassifieds()

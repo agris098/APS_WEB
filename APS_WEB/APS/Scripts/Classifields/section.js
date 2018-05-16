@@ -12,7 +12,7 @@
 
         }
         function updateTree() {
-            var uri = "http://localhost:56616/api/section/getall";
+            var uri = "/api/section/getall";
             $.ajax({
                 method: "GET",
                 url: uri,
@@ -128,7 +128,7 @@
             _tree.on("click", "button[delete-section]", function () {
                 var section = $(this).closest("li");
                 function deleteSection() {
-                    var uri = "http://localhost:56616/api/section/delete/" + section.attr("data-id");
+                    var uri = "/api/section/delete/" + section.attr("data-id");
                     $.ajax({
                         method: "DELETE",
                         url: uri,
@@ -183,7 +183,7 @@
                 Fields: getStaticData().Fields
             };
 
-        var uri = "http://localhost:56616/api/section/add";
+        var uri = "/api/section/add";
         $.ajax({
             method: "POST",
             url: uri,
@@ -204,7 +204,7 @@
         }
 
         function getStaticData() {
-            var uri = "http://localhost:56616/api/section/staticdata";
+            var uri = "/api/section/staticdata";
             $.ajax({
                 method: "GET",
                 url: uri,

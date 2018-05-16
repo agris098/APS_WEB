@@ -36,6 +36,7 @@ namespace APS.Controllers.Account
 
             return View(user);
         }
+        [Authorize]
         [HttpGet]
         [Route("publicedclassifieds")]
         public ActionResult PublicedClassifiedsForUser(string id)

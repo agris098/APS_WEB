@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using APS.Models;
 namespace APS.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Support")]
     [RoutePrefix("admin")]
     public class AdminController : Controller
     {
+        private readonly DataAccess _objds;
+
+        public AdminController() {
+            _objds = new DataAccess();
+        }
+
         [Route("")]
         public ActionResult Index()
         {
             ViewBag.AdministrationPage = true;
             return View();
         }
-
+        [Authorize]
         [Route("addsection")]
         public ActionResult AddSection()
         {
@@ -26,8 +32,9 @@ namespace APS.Controllers
         [Route("pclassifieds")]
         public ActionResult PClassifieds()
         {
+            var classifieds = _objds.GetPublicedClassifieds();
             ViewBag.AdministrationPage = true;
-            return View();
+            return View(classifieds);
         }
         [Route("work")]
         public ActionResult Work()
@@ -39,6 +46,7 @@ namespace APS.Controllers
         public ActionResult Reports()
         {
             ViewBag.AdministrationPage = true;
+            var reports = _objds.ReportsGet();
             return View();
         }
     }

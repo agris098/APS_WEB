@@ -39,7 +39,7 @@
         tbody.empty();
 
         $.ajax({
-            url: "http://localhost:56616/api/classifields/allpublished/" + id,
+            url: "/api/classifields/allpublished/" + id,
             type: 'get',
             success: function (data) {
                 $.each(data, function () {
@@ -77,7 +77,7 @@
 
     function registerEvents() {
         _table.on("click", "tbody tr", function () {
-            window.location.href = "http://localhost:56616/classifield/" + $(this).attr("data-id");
+            window.location.href = "/classifield/" + $(this).attr("data-id");
         });
         _table.on('click', '.prevClassified', function (e) {
             e.stopPropagation();
@@ -162,7 +162,7 @@
     }
     function getModalData(id) {
         $.ajax({
-            url: "http://localhost:56616/api/classifields/" + id,
+            url: "/api/classifields/" + id,
             type: 'get',
             success: function (data) {
                 bindModalData(data);

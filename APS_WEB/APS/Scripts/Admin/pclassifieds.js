@@ -7,7 +7,7 @@
 });
 function getPublicedCount() {
     console.log('UpdateCountData');
-    var uri = "http://localhost:56616/api/admin/pclassifiedscount";
+    var uri = "/api/admin/pclassifiedscount";
     $.ajax({
         url: uri,
         method: 'GET',
@@ -33,7 +33,7 @@ function bindPublicedCountData(data) {
 
 function getWorkerList() {
     console.log('getWorkerList');
-    var uri = "http://localhost:56616/api/admin/workerlist";
+    var uri = "/api/admin/workerlist";
     $.ajax({
         url: uri,
         method: 'GET',
@@ -47,7 +47,7 @@ function getWorkerList() {
 }
 function getWorkerInfo() {
     console.log('getWorkerInfo');
-    var uri = "http://localhost:56616/api/admin/workerinfo";
+    var uri = "/api/admin/workerinfo";
     $.ajax({
         url: uri,
         method: 'GET',
@@ -71,7 +71,7 @@ function bindWorkerData(data) {
     });
 }
 function assingClassifieds() {
-    var uri = "http://localhost:56616/api/admin/assign";
+    var uri = "/api/admin/assign";
     var data = {
         Id: $('#workerList').val(),
         Count: $('#assingCount').val()
@@ -107,3 +107,4 @@ $(document).on('focus', '#assignModal input, #assignModal select', function () {
     $('.addedCountContainer').hide();
     $('#assignModal .btn-primary').removeClass('disabled');
 });
+////////////////////////   Classified Logic Here

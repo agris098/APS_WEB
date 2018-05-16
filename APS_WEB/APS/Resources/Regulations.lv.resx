@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Classified_Rules_Description" xml:space="preserve">
+    <value>- Vispārējie noteikumi
+Vietnes lietošana nosaka visu noteikumu piekrišanu, kas tālāk tiks apskatīti. Gadījumā, ja lietotājs nepiekrīt noteikumiem, viņam ir jāatturas no tālākas vietnes izmantošanas.
+- Vispārējie lietošanas noteikumi
+Lietotājs uzņemas pilnu atbildību, kas ir saistīta ar sludinājuma saturu, atbilstoši lietotnes noteikumiem un Valsts likumdošanai.
+Veidot un publicēt sludinājumus ir atļauts tikai lietotājiem, kuri ir reģistrējušies.
+Lietotājam ir iespējams publicēt, noņemt no publikācijas, atkārtoti publicēt savus izveidotos sludinājumus.
+- Aizliegti publicēšanai
+Sludinājumi, kuri iesniegti neatbilstošajā kategorijā.
+Sludinājumi par neesošu pakalpojumu, preci.
+Sludinājuma iesniegšana ar vairāk par vienu darījuma objektu.
+Vairāki sludinājumi, kas satur vienu un to pašu darījuma objektu.
+Fotogrāfijas, kuras neatbilst konkrētajam darījuma objektam vai fotogrāfijas, kurās ir grūti saskatīt darījuma objektu tiks dzēstas. Kā arī fotogrāfijās darījuma objektam ir jābūt skaidri saskatāmam, un jāatbilst tā dotajam aprakstam.
+Sludinājumi, kas nomelno fiziskās vai juridiskās personas godu, cieņu, reputāciju.
+Sludinājumi, kuru teksts satur papildus kontaktinformāciju, atrašanās vietu.
+Sludinājumi, kuri satur erotiska, pornogrāfiska satura rakstura materiālus.
+Sludinājumi, kuru teksts vai atsevišķi vārdi satur visus lielos burtus, piemēram, ”PĀRDODU MAZ LIETOTU”. Vai citus simbolus, kas dotajā veidā to padara daudz pamanāmāku.
+Sludinājumi, kuri satur sākuma tekstu, lai piesaistītu uzmanību, piemēram, ’Speciāls piedāvājums’,’ Tikai šodien Jums ir iespēja’ un tam līdzīgi.
+Sludinājumi ar pārdošanai aizliegtu darījuma objektu, tas ir darījuma objekts, kuram ir vajadzīga speciāla licence pārdošanai.
+- Publicējamo sludinājumu apstrāde
+Vietnes Administrācija nav atbildīga par sludinājuma saturu
+Vietnes Administrācijai ir tiesības dzēst sludinājumu, ja par to ir vairākas sūdzības
+Vietnes Administrācijai ir tiesības dzēst sludinājumu, kas neatbilst vietnes noteikumiem.
+Ja sludinājums ir noņemts no publikācijas, tad tas nozīmē, ka tas neatbilst noteikumiem.
+- Sludinājumu iesniegšanas noteikumu izmaiņas
+Vietnes Administrācijai ir visas tiesības veikt izmaiņas noteikumos, kā arī lietotāja pienākums ir ar tiem iepazīties.
+Lietotājam ir tiesības izteikt priekšlikumu par lietošanas noteikumu uzlabošanu.
+- Lietotāja tiesības
+Lietotājs ir tiesīgs saņemt paziņojumus, kas saistīti administrācijas un lietotāja mijiedarbību.
+- Administrācijas pienākumi
+Informēt lietotājus par veiktajām izmaiņām lietotnē.
+Informēt tos lietotājus pret, kuriem tika veikta jebkāda tipa mijiedarbība.
+Sniegt nemaldinošus paskaidrojumus lietotājiem par veiktajām operācijām, kuras skar lietotāju.</value>
+  </data>
+  <data name="Classified_Rules_Title" xml:space="preserve">
+    <value>Sludinājumu ievietošanas noteikumi</value>
+  </data>
+  <data name="Classified_User_Description" xml:space="preserve">
+    <value>- Vispārējie nosacījumi
+Vienošanās ir spēkā attiecībā uz visu informāciju, ko ir sniedzis lietotājs vietnes lietošanas laikā. Vietnes izmantošana nozīmē lietotāja piekrišanu, kas balstās uz viņa personīgās informācijas apstrādes nosacījumiem. Gadījumā, ja lietotājs nepiekrīt dotajiem nosacījumiem, viņam ir jāatturas no tālākas vietnes izmantošanas.
+- Lietotāja profils
+Lietotāja sniegtajai informācijai ir jābūt patiesai un aktuālai. Ja gadījumā rodas šaubas par sniegtās informācijas patiesumu, lietotāja profils tiks bloķēts.
+Lietotājs pats ir atbildīgs par sava profila drošumu (paroli un tās konfidencialitāti).
+Lietotāja pienākums ir informēt Vietni par sludinājumiem, 
+kā arī par lietotājiem, kuri pārkāpj noteikumus.
+Lietotājs jebkurā brīdi var izdzēst savu profilu.
+Lietotāja profila izdzēšanas gadījumā, turpmāka piekļuva no dotā profila Vietnes servisiem nav pieejama.
+Lietotāja regulāra noteikumu pārkāpšana izraisīs beztermiņa profila nobloķēšanu.
+- Lietotāja personīgās informācijas ievākšanas un apstrādes mērķi
+Lietotāja personīgā informācija tiek apstrādāta un uzglabāta vietnes servisu sniegšanas vajadzībām.
+Lietotāja personīgā informācija tiek izmantota ērtuma uzlabošanai, jaunu servisu izveidei un uzlabošanai.
+Lietotāja personīgā informācija tiek izmantota lietotāja informēšanai par veiktajām izmaiņām, jaunumiem vietnē.
+Lietotāja personīgā informācija tiek izmantota statisko pētījumu veikšanai.
+Nepieciešamās informācijas sniegšanai pārējiem lietotājiem, kura tiek iekļauta publicētajos sludinājumos, lai interesentiem būtu iespēja sazināties uz izpaust savu ieinteresētību par darījuma objektu.
+Lietotāja sniegtās informācijas patiesums un aktualitāte netiek pārbaudīta. Lietotne vadās pēc principa, ka lietotājs ir sniedzis patiesu informāciju un nepārkāpj nosacījumus. Visu atbildību par iespējamām nepatiesas un neaktuālas informācijas sekām uzņemas lietotājs.
+- Lietotāja personīgās informācijas nosacījumi
+Vietne uzglabā un apstrādā lietotāja personīgo informāciju saskaņā ar spēkā esošajiem normatīvajiem aktiem.
+Vietne ir atbildīga par lietotāja personīgās informācijas drošumu, izņemot gadījumus, kad lietotājs brīvprātīgi sniedz informācijas piekļuvi neierobežotam personu lokam.
+Vietne ir tiesīga nodot lietotāja personīgo informāciju trešajām personām, gadījumā, ja nodošana ir paredzēta Latvijas likumdošanas aktos likumdošanā noteiktās procedūras ietvaros.
+Lietotājam ir iespēja mainīt, papildināt savu personīgo informāciju.
+Lietotājs jebkurā momentā ir tiesīgs pieprasīt izdzēst personīgo informāciju, kuru satur vietne, sazinoties ar administrāciju vai izdarot to pats. 
+- Vienošanās apstiprinājums
+Lietotājs ir tiesīgs neapstiprināt doto vienošanos, ja nepiekrīt visiem lietošanas nosacījumiem.
+Lietotāja vienošanās apstiprināšana nozīmē, ka lietotājs piekrīt visiem nosacījumiem un apsolās tos pildīt.
+Lietotāja vienošanās nosacījumi ir spēkā uzreiz kā lietotājs tiem ir piekritis, tas ir, reģistrācijas formā atzīmējis izvēles rūtiņu par nosacījumu piekrišanu.
+- Vienošanās izmaiņas par konfidencialitāti
+Vietnes administratori ir tiesīgi mainīt vienošanās nosacījumus par konfidencialitāti. Pēdējo veikto izmaiņu datums atspoguļojas Vienošanās nosacījumu sadaļas labajā apakšējā stūri.
+Vietnes pienākums ir informēt lietotājus par vienošanās nosacījumu veiktajām izmaiņām 
+- Jautājumi un priekšlikumi
+Lietotājs ir tiesisks uzdot jautājumus un izteikt priekšlikumus dotajai vietnes administrācijai.</value>
+  </data>
+  <data name="Classified_User_Title" xml:space="preserve">
+    <value>Lietotāja vienošanās par konfidencialitāti</value>
+  </data>
+</root>

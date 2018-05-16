@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Index";
+    var rules = APS.Resources.Regulations.Classified_Rules_Description.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+    var rules2 = APS.Resources.Regulations.Classified_User_Description.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+}
+<div style="margin-top:20px;">
+    <p class="section">@APS.Resources.Regulations.Classified_Rules_Title</p>
+        @foreach (var s in rules)
+        {
+            try
+            {
+                if (s[0] == '-')
+                {
+                    <p class="title">@s.Substring(1)</p>
+                }
+                else
+                {
+                    <p class="rule">@s</p>
+                }
+            }
+            catch { }
+        }
+</div>
+<div style="margin-top:20px;">
+    <p class="section">@APS.Resources.Regulations.Classified_User_Title</p>
+    @foreach (var s in rules2)
+    {
+        try
+        {
+            if (s[0] == '-')
+            {
+                <p class="title">@s.Substring(1)</p>
+            }
+            else
+            {
+                <p class="rule">@s</p>
+            }
+        }
+        catch { }
+    }
+</div>
+<div class="dateTime" style="text-align:right;">2018.04.18</div>
+<style>
+    .section {
+        text-align:center;
+        font-size:20px;
+        font-weight:bold;
+    }
+    .title {
+        font-weight:bold;
+        font-size:17px;
+    }
+
+</style>
+

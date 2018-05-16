@@ -45,7 +45,7 @@ namespace APS.Controllers
         {
             return View();
         }
-      //  [Authorize]
+        [Authorize]
         [Route("mark")]
         [HttpPost]
         public ActionResult Mark(MarkModel m )
@@ -114,6 +114,7 @@ namespace APS.Controllers
                 return View("Classifieds");
             }
         }
+        [Authorize(Roles = "Admin, Support")]
         [Route("getassigned")]
         public ActionResult GetAssigned(string id)
         {

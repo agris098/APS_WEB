@@ -1,6 +1,6 @@
 ﻿$(document).on("mousedown", ".section-selector-container select", function () {
     var selector = $(this);
-    var uri = "http://localhost:56616/api/section/getall/parent/" + selector.attr("data-load-section");
+    var uri = "/api/section/getall/parent/" + selector.attr("data-load-section");
 
     $.ajax({
         method: "GET",
@@ -38,7 +38,7 @@ $(document).on("change", ".section-selector-container select", function (e) {
         tempselector.trigger("mousedown");
     }
     var data = { Path: path },
-        uri = "http://localhost:56616/api/section/haschildren/path";
+        uri = "/api/section/haschildren/path";
     $.ajax({
         method: "POST",
         url: uri,
@@ -91,7 +91,7 @@ $(document).on("click", ".selected-section-info .change", function () {
     
 });
 function getSectionInfo(path) {
-    var uri = "http://localhost:56616/api/section/getbypath";
+    var uri = "/api/section/getbypath";
     var data = { Path: path };
     $.ajax({
         method: "POST",
@@ -118,7 +118,7 @@ $(document).on("submit", "#ClassifieldForm", function (e) {
     e.preventDefault();
     var data = $(this).serialize();
     data += "&Path=" + $(this).find("#path").val().substring(1);
-    var uri = "http://localhost:56616/api/classifields/add";
+    var uri = "/api/classifields/add";
 
     $.ajax({
         method: "POST",

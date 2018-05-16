@@ -1,7 +1,53 @@
 ﻿
-@{
-    ViewBag.Title = "Reports";
+@model IEnumerable<APS.Models.ReportGroupModel>
+<h1>Reports</h1>
+<div class="row report-container">
+    <div class="col-xs-12">
+        @foreach (var report in Model)
+        {
+            var activeT = "false";
+            var title = "";
+            foreach (var r in report.items)
+            {
+                title += r.Title + " / ";
+                if (r.Active == true) {
+                    activeT = "active";
+                }
+            }
+            <div class="report @activeT" id="@report.Id">
+                <div class="header">
+                    <div class="title">
+                        @title
+                    </div>
+                </div>
+                <div class="description" style="display:none;">
+                    
+                    @foreach (var r in report.items)
+                    {
+                        var activeD = r.Active == true ? "true" : "false";
+                        <div id="">
+                            <div class="description @activeD">
+                                @r.Description
+                            </div>
+                            <div class="date">
+                                @r.DateTime.ToString("dd/MM/yyyy HH:mm:ss")
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).on("click", ".report .header", function () {
+            var description = $(this).closest(".report").find('.description');
+        if (!description.is(":visible")) {
+            description.slideDown();
+        } else {
+            description.slideUp();
+        }
+    })
+    </script>
 }
-
-<h2>Reports</h2>
-

@@ -22,14 +22,14 @@ namespace APS.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Main {
+    public class Regulations {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Main() {
+        internal Regulations() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace APS.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("APS.Resources.Main", typeof(Main).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("APS.Resources.Regulations", typeof(Regulations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,47 @@ namespace APS.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add.
+        ///   Looks up a localized string similar to - General rules
+        ///The use of the site defines all the terms of the consent, which will be discussed below. In case the user disagrees with the terms, he must refuse to use the site further.
+        ///- General terms of use
+        ///The User assumes full responsibility for the content of the advertisement, in accordance with the program rules and national laws.
+        ///Creating and publishing ads is only allowed for registered users.
+        ///The user is able to publish, remove from the publication, re-publish their advertisements.
+        ///- Prohi [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Add {
+        public static string Classified_Rules_Description {
             get {
-                return ResourceManager.GetString("Add", resourceCulture);
+                return ResourceManager.GetString("Classified_Rules_Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to English.
+        ///   Looks up a localized string similar to Terms of ad placement.
         /// </summary>
-        public static string EN {
+        public static string Classified_Rules_Title {
             get {
-                return ResourceManager.GetString("EN", resourceCulture);
+                return ResourceManager.GetString("Classified_Rules_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language.
+        ///   Looks up a localized string similar to - General conditions
+        ///The agreement applies to all information provided by the user during the use of the site. The use of the site means the consent of the user based on the conditions for processing his personal information. In case the user does not agree with the given conditions, he must refrain from using the further site.
+        ///- User profile
+        ///The information provided by the user must be true and up-to-date. If there is any doubt as to the veracity of the information provided, the user profile will be blo [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Language {
+        public static string Classified_User_Description {
             get {
-                return ResourceManager.GetString("Language", resourceCulture);
+                return ResourceManager.GetString("Classified_User_Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to User Confidentiality Agreement.
         /// </summary>
-        public static string Login {
+        public static string Classified_User_Title {
             get {
-                return ResourceManager.GetString("Login", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Latvian.
-        /// </summary>
-        public static string LV {
-            get {
-                return ResourceManager.GetString("LV", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to My classifieds.
-        /// </summary>
-        public static string My_classifieds {
-            get {
-                return ResourceManager.GetString("My_classifieds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Register.
-        /// </summary>
-        public static string Register {
-            get {
-                return ResourceManager.GetString("Register", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Regulations.
-        /// </summary>
-        public static string Regulations {
-            get {
-                return ResourceManager.GetString("Regulations", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Report an error.
-        /// </summary>
-        public static string Report_an_error {
-            get {
-                return ResourceManager.GetString("Report_an_error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Russian.
-        /// </summary>
-        public static string RU {
-            get {
-                return ResourceManager.GetString("RU", resourceCulture);
+                return ResourceManager.GetString("Classified_User_Title", resourceCulture);
             }
         }
     }

@@ -17,12 +17,6 @@ namespace APS.Controllers
        public ClassifieldsController() {
             objds = new DataAccess();
        }
-
-        // GET: Section
-     //   public ActionResult Index()
-     //   {
-      //      return View();
-      //  }
         [Route("{*tags}")]
         public ActionResult Section(string tags)
         {

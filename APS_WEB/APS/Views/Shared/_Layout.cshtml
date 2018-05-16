@@ -26,8 +26,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("My Classifields", "classifieds", "Classifield")</li>
-                    <li>@Html.ActionLink("Add", "add", "classifield")</li>
+                    <li>@Html.ActionLink(APS.Resources.Main.My_classifieds, "classifieds", "Classifield")</li>
+                    <li>@Html.ActionLink(APS.Resources.Main.Add, "add", "classifield")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Notif.", "Index", "notifications")</li>
@@ -77,7 +77,7 @@
                 <div class="col-sm-3 text-center">
                     <div class="dropdown dropup">
                         <label class="dropdown-toggle" type="button" data-toggle="dropdown">
-                            Choose language
+                            @APS.Resources.Main.Language
                             <span class="caret"></span>
                         </label>
                         <ul class="dropdown-menu text-center">
@@ -88,11 +88,10 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    Regulation
-                    
+                    @Html.ActionLink(APS.Resources.Main.Regulations, "Index", "Regulations")             
                 </div>
                 <div class="col-sm-3">
-                    Zinot Par kludu
+                    @APS.Resources.Main.Report_an_error
                 </div>
                 <div class="col-sm-3">
                     &copy; @DateTime.Now.Year - APS

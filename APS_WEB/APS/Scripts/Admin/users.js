@@ -3,7 +3,7 @@
 });
 
 function updateUserTable() {
-    var uri = "http://localhost:56616/api/admin/users";
+    var uri = "/api/admin/users";
     $.ajax({
         url: uri,
         method: 'GET',

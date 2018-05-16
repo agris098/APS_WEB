@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Classified_Rules_Description" xml:space="preserve">
+    <value>- General rules
+The use of the site defines all the terms of the consent, which will be discussed below. In case the user disagrees with the terms, he must refuse to use the site further.
+- General terms of use
+The User assumes full responsibility for the content of the advertisement, in accordance with the program rules and national laws.
+Creating and publishing ads is only allowed for registered users.
+The user is able to publish, remove from the publication, re-publish their advertisements.
+- Prohibited for publication
+Classifieds Submitted in Inappropriate Category.
+Classifieds about the non-serving service.
+Submission of an advertisement with more than one transaction object.
+Multiple ads containing the same transaction object.
+Photos that do not match a specific transaction object or photos that have difficulty seeing a transaction object will be deleted. As well as in photographs, the object of the transaction must be clearly visible and comply with the description given.
+Ads that dishonor the honor, dignity, or reputation of a natural or legal person.
+The location of the ad text containing additional contact information.
+Ads containing erotic content of a pornographic nature.
+Ads whose text or individual words contain all uppercase letters, such as "SALES LOW USED". Do other symbols in the given way to make it more prominent.
+Ads that contain the original text to attract attention, such as "Special Offer," "Only You Now Have Opportunity," and the like.
+Classifieds for selling a prohibited transaction object, this is a transaction object that requires a special sales license.
+- Publication processing
+The site administration is not responsible for the content of the advertisement
+The site administration has the right to delete the ad if there are several complaints about it
+The site administration has the right to delete ads that do not comply with the site's terms.
+If the ad has been removed from the publication, it means that it does not comply with the rules.
+- Changes to the terms of service
+The site administration has all the power to make changes to the rules, as well as the user's obligation to consult them.
+The user has the right to make a proposal to improve the terms of use.
+- User rights
+The user is entitled to receive notifications related to administration and user interactivity.
+- Administration responsibilities
+Inform users of the changes made to the app.
+Inform users against whom any interactions were made.
+Provide non-confidential explanations to users about user-initiated operations.</value>
+  </data>
+  <data name="Classified_Rules_Title" xml:space="preserve">
+    <value>Terms of ad placement</value>
+  </data>
+  <data name="Classified_User_Description" xml:space="preserve">
+    <value>- General conditions
+The agreement applies to all information provided by the user during the use of the site. The use of the site means the consent of the user based on the conditions for processing his personal information. In case the user does not agree with the given conditions, he must refrain from using the further site.
+- User profile
+The information provided by the user must be true and up-to-date. If there is any doubt as to the veracity of the information provided, the user profile will be blocked.
+The user is solely responsible for the security of his profile (password and its confidentiality).
+The User is obliged to inform the Website of announcements,
+as well as for users who violate the rules.
+The user can delete his profile at any moment.
+In the event of deleting a user's profile, further access to the services of the given profile on the Site is not available.
+The user's regular violation of the rules will cause blocking of the profile for no time.
+- Purposes of collecting and processing personal information of the User
+The user's personal information is processed and stored for the purpose of providing the site's services.
+The user's personal information is used to improve the convenience, create and improve new services.
+The user's personal information is used to inform the user of the changes made, updates on the site.
+The user's personal information is used for static research.
+To provide the necessary information to other users, which is included in the published advertisements, in order to allow interested parties to communicate their interest in the transaction object.
+The veracity and topicality of the information provided by the user is not verified. The app is guided by the principle that the user provided true information and did not violate the terms. All responsibility for the possible consequences of false and inaccurate information is assumed by the user.
+- Terms of User's Personal Information
+The site stores and processes user personal information in accordance with applicable laws and regulations.
+The site is responsible for the security of the user's personal information, unless the user voluntarily provides access to information for an unlimited number of individuals.
+The site is entitled to transfer the user's personal information to third parties, in case the transfer is provided for in Latvian legislation under the procedure established by law.
+The user has the opportunity to change, supplement his personal information.
+The user is entitled at any time to request the deletion of personal information contained in the website by contacting the administration or by doing it yourself.
+- Confirmation of the agreement
+The User is entitled not to accept this agreement if he does not agree to all terms of use.
+Approval of the user agreement means that the user agrees to all conditions and pledges to fulfill them.
+The terms of the user agreement are valid as soon as the user has agreed to them, that is, the checkbox for approval of the conditions is entered in the registration form.
+- Privacy Conflict Arrangements
+Site administrators are entitled to change the terms of the agreement on confidentiality. The date of the last change made is reflected in the bottom right corner of the Agreement terms section.
+The site is obliged to inform users about the changes made by the terms of the agreement
+- Questions and suggestions
+It is legitimate for the user to ask questions and make suggestions to the site administration.</value>
+  </data>
+  <data name="Classified_User_Title" xml:space="preserve">
+    <value>User Confidentiality Agreement</value>
+  </data>
+</root>

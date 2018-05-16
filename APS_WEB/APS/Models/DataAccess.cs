@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 
@@ -10,15 +11,19 @@ namespace APS.Models
 {
     public class DataAccess
     {
+        private static string _connectionString;
+        private static string _databaseName;
         private MongoClient _client;
         private MongoServer _server;
         private MongoDatabase _db;
 
         public DataAccess()
         {
-            _client = new MongoClient("mongodb://localhost:27017");
+            _connectionString = ConfigurationManager.ConnectionStrings["MongoDB"].ToString();
+            _databaseName = MongoUrl.Create(_connectionString).DatabaseName;
+            _client = new MongoClient(_connectionString);
             _server = _client.GetServer();
-            _db = _server.GetDatabase("APS");
+            _db = _server.GetDatabase(_databaseName);
         }
         #region Sections  ------------------------------------------------------------------------------------------------------------------
         public IEnumerable<Section> GetSections()
@@ -485,6 +490,17 @@ namespace APS.Models
 
             return result;
         }
+        public IEnumerable<PClassifiedModel> GetPublicedClassifieds()
+        {
+            var res = Query<ClassifieldModel>.EQ(c => c.Status, Status.Public);
+            var classifieds = _db.GetCollection<ClassifieldModel>("Classifields").Find(res).Select(c=> new PClassifiedModel(){
+                Id = c.IDS,
+                Section = GetSection(ObjectId.Parse(c.SectionId)).Parent,
+                UserEmail = GetUser(c.S_userId).Email,
+                UserFullName = GetUserDetails(c.S_userId).FullName
+            });
+            return classifieds;
+        }
         #endregion
         #region Users ------------------------------------------------------------------------------------------------------------------
         public List<UserModel> GetUsers()
@@ -635,7 +651,7 @@ namespace APS.Models
         {
             return _db.GetCollection<StaticData>("StaticData").FindOne();
         }
-#endregion 
+        #endregion 
         #region Notifications -------------------------------------------------------------------------------------------------------
         public IEnumerable<NotificationModel> GetNotifications(string Userid)
         {
@@ -654,6 +670,35 @@ namespace APS.Models
             var update = Update<NotificationModel>.Set(p => p.Active, false);
             _db.GetCollection<NotificationModel>("Notifications").Update(ress, update);
             return false;
+        }
+        #endregion
+        #region Reports --------------------------------------------------------------------------------------------------------------------
+        public IEnumerable<ReportGroupModel> ReportsGet() {
+            var reports = _db.GetCollection<ReportModel>("Reports").FindAll();
+            var reportGroup = reports.GroupBy(r => r.ClassifiedId, (key, g) => new ReportGroupModel { Id = key.ToString(), items = g.ToList() });
+            return reportGroup;
+        }
+        public void ReportInsert(string Id,string title, string desc)
+        {
+            var report = new ReportModel()
+            {
+                ClassifiedId = Id,
+                Description = desc,
+                Active = true,
+                Title = title,
+                DateTime = DateTime.Now
+            };
+            _db.GetCollection<ReportModel>("Reports").Insert(report);
+        }
+        public void ReportSetActive(string id)
+        {
+            var res = Query<ReportModel>.EQ(c => c.ClassifiedId, id);
+            var reports = _db.GetCollection<ReportModel>("Reports").Find(res);
+            foreach (var r in reports) {
+                var update = Update<ReportModel>.Set(u =>u.Active, false);
+                var query = Query<ReportModel>.EQ(c => c.Id, r.Id);
+                _db.GetCollection<ReportModel>("Reports").Update(query, update);
+            }  
         }
         #endregion
     }

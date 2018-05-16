@@ -226,7 +226,6 @@
     <Compile Include="ClassifiedTimer.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Api\AdminApiController.cs" />
-    <Compile Include="Controllers\Api\UploadController.cs" />
     <Compile Include="Controllers\ClassifieldController.cs" />
     <Compile Include="Controllers\Api\ClassifieldsApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -237,6 +236,7 @@
     <Compile Include="Controllers\Account\UserAdminController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\RegulationsController.cs" />
     <Compile Include="CustomUserIdProvider.cs" />
     <Compile Include="Extensions\Helpers.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,6 +253,8 @@
     <Compile Include="Models\Admin\PClassifiedAssign.cs" />
     <Compile Include="Models\Admin\PClassifiedCountModel.cs" />
     <Compile Include="Models\Admin\PClassifiedGroupModel.cs" />
+    <Compile Include="Models\Admin\PClassifiedModel.cs" />
+    <Compile Include="Models\Admin\ReportModel.cs" />
     <Compile Include="Models\Admin\UserModel.cs" />
     <Compile Include="Models\Admin\WorkItem.cs" />
     <Compile Include="Models\Chat\ChatMessageHistoryModel.cs" />
@@ -285,6 +287,21 @@
     </Compile>
     <Compile Include="Resources\Main.lv.Designer.cs">
       <DependentUpon>Main.lv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Regulations.lv.Designer.cs">
+      <DependentUpon>Regulations.lv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Regulations.ru.Designer.cs">
+      <DependentUpon>Regulations.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Regulations.Designer.cs">
+      <DependentUpon>Regulations.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -375,6 +392,7 @@
     <Content Include="Scripts\Classifields\classifields-manager.js" />
     <Content Include="Scripts\Classifields\classifieds.js" />
     <Content Include="Scripts\Classifields\section.js" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
@@ -416,8 +434,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -461,7 +477,6 @@
     <Content Include="Views\Classifield\Classifieds.cshtml" />
     <Content Include="Views\Shared\Chat.cshtml" />
     <Content Include="Views\Notification\Index.cshtml" />
-    <Content Include="Views\Admin\Classifieds.cshtml" />
     <Content Include="Views\Admin\PClassifieds.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
@@ -472,6 +487,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Admin\Work.cshtml" />
     <Content Include="Views\Admin\Reports.cshtml" />
+    <Content Include="Views\Regulations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -490,6 +506,18 @@
     <EmbeddedResource Include="Resources\Main.lv.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.lv.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Regulations.lv.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Regulations.lv.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Regulations.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Regulations.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Regulations.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Regulations.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Notifications.lv.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

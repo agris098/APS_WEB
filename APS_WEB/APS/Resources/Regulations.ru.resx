@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Classified_Rules_Description" xml:space="preserve">
+    <value>- Общие правила
+Использование сайта определяет все условия согласия, которые будут обсуждаться ниже. Если пользователь не согласен с условиями, он должен отказаться от дальнейшего использования сайта.
+- Общие условия использования
+Пользователь берет на себя полную ответственность за содержание рекламы в соответствии с правилами программы и национальными законами.
+Создание и публикация объявлений разрешено только для зарегистрированных пользователей.
+Пользователь может публиковать, удалять из публикации, повторно публиковать свои рекламные объявления.
+- Запрещено для публикации
+Объявления отправлены в непристойной категории.
+Объявления о необслуживающей службе.
+Представление рекламы с несколькими объектами транзакции.
+Несколько объявлений, содержащих один и тот же объект транзакции.
+Фотографии, которые не соответствуют конкретному объекту транзакции или фотографиям, которые с трудом видят объект транзакции, будут удалены. Как и на фотографиях, объект транзакции должен быть четко виден и соответствовать приведенному описанию.
+Объявления, которые обесценивают честь, достоинство или репутацию физического или юридического лица.
+Местоположение текста объявления, содержащего дополнительную контактную информацию.
+Объявления, содержащие эротику, порнографические материалы.
+Объявления, текст которых или отдельные слова содержат все заглавные буквы, например «ПРОДАЖИ НИЗКО ИСПОЛЬЗУЕТСЯ». Сделайте другие символы таким образом, чтобы сделать его более заметным.
+Объявления, содержащие исходный текст для привлечения внимания, такие как «Специальное предложение», «Только у вас есть возможность» и т. П.
+Объявления о продаже запрещенного объекта транзакции - это объект транзакции, требующий специальной лицензии на продажу.
+- Обработка публикаций
+Администрация сайта не несет ответственности за содержание рекламы
+Администрация сайта имеет право удалить объявление, если есть несколько жалоб на это
+Администрация сайта имеет право удалять объявления, которые не соответствуют условиям сайта.
+Если объявление было удалено из публикации, это означает, что оно не соответствует правилам.
+- Изменения условий обслуживания
+Администрация сайта имеет все возможности вносить изменения в правила, а также обязательство пользователя проконсультироваться с ними.
+Пользователь имеет право сделать предложение об улучшении условий использования.
+- Права пользователя
+Пользователь имеет право получать уведомления, связанные с административной и пользовательской интерактивностью.
+- Ответственность администрации
+Сообщите пользователям об изменениях, внесенных в приложение.
+Сообщите пользователям, с которыми были сделаны какие-либо взаимодействия.
+Предоставляйте пользователям конфиденциальные объяснения по поводу инициируемых пользователем операций.</value>
+  </data>
+  <data name="Classified_Rules_Title" xml:space="preserve">
+    <value>Условия размещения объявлений</value>
+  </data>
+  <data name="Classified_User_Description" xml:space="preserve">
+    <value>- Общие условия
+Соглашение распространяется на всю информацию, предоставленную пользователем во время использования сайта. Использование сайта означает согласие пользователя на основании условий для обработки его личной информации. Если пользователь не согласен с данными условиями, он должен воздержаться от использования другого сайта.
+- Профиль пользователя
+Информация, предоставленная пользователем, должна быть достоверной и актуальной. Если есть какие-либо сомнения относительно достоверности предоставленной информации, профиль пользователя будет заблокирован.
+Пользователь несет полную ответственность за безопасность своего профиля (пароль и его конфиденциальность).
+Пользователь обязан сообщать Веб-сайт объявлений,
+а также для пользователей, нарушающих правила.
+Пользователь может удалить свой профиль в любой момент.
+В случае удаления профиля пользователя дальнейший доступ к услугам данного профиля на Сайте недоступен.
+Регулярное нарушение правил пользователя приведет к блокировке профиля в течение некоторого времени.
+- Цели сбора и обработки личной информации Пользователя
+Личная информация пользователя обрабатывается и хранится с целью предоставления услуг сайта.
+Личная информация пользователя используется для улучшения удобства, создания и улучшения новых услуг.
+Личная информация пользователя используется для информирования пользователя о внесенных изменениях, обновлениях на сайте.
+Личная информация пользователя используется для статических исследований.
+Предоставлять необходимую информацию другим пользователям, включенным в опубликованные рекламные объявления, с тем чтобы заинтересованные стороны могли сообщить свою заинтересованность в объекте транзакции.
+Достоверность и актуальность предоставленной пользователем информации не проверяется. Приложение руководствуется принципом, согласно которому пользователь предоставил достоверную информацию и не нарушил условия. Пользователь несет ответственность за возможные последствия ложной и неточной информации.
+- Условия личной информации пользователя
+Сайт хранит и обрабатывает личную информацию пользователя в соответствии с применимыми законами и правилами.
+Сайт несет ответственность за безопасность личной информации пользователя, если пользователь добровольно не предоставляет доступ к информации для неограниченного числа лиц.
+Сайт имеет право передавать личную информацию пользователя третьим лицам, если передача предусмотрена в латвийском законодательстве в порядке, установленном законом.
+Пользователь имеет возможность изменить, дополнить свою личную информацию.
+Пользователь имеет право в любое время запросить удаление личной информации, содержащейся на веб-сайте, путем обращения в администрацию или путем ее выполнения самостоятельно.
+- Подтверждение соглашения
+Пользователь имеет право не принимать это соглашение, если он не согласен со всеми условиями использования.
+Утверждение пользовательского соглашения означает, что пользователь согласен со всеми условиями и обещаниями их выполнения.
+Условия пользовательского соглашения действительны, как только пользователь согласился с ними, то есть флажок для утверждения условий внесен в регистрационную форму.
+- Конфиденциальность
+Администраторы сайта имеют право изменить условия соглашения о конфиденциальности. Дата последнего внесенного изменения отражена в нижнем правом углу раздела «Условия соглашения».
+Сайт обязан сообщать пользователям об изменениях, внесенных условиями соглашения
+- Вопросы и предложения
+Пользователь имеет право задавать вопросы и вносить предложения в администрацию сайта.</value>
+  </data>
+  <data name="Classified_User_Title" xml:space="preserve">
+    <value>Соглашение о конфиденциальности пользователей</value>
+  </data>
+</root>

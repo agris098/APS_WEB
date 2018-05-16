@@ -41,7 +41,7 @@ function bindWorkItemData(data) {
 }
 
 function getClassifiedInfo() {
-    var uri = "http://localhost:56616/api/admin/workitem";
+    var uri = "/api/admin/workitem";
     $.ajax({
         url: uri,
         method: 'GET',
@@ -57,7 +57,7 @@ function getClassifiedInfo() {
     });
 }
 function rejectWorkItem() {
-    var uri = "http://localhost:56616/api/admin/rejectworkitem";
+    var uri = "/api/admin/rejectworkitem";
     $.ajax({
         url: uri,
         method: 'PUT',
@@ -73,7 +73,7 @@ function rejectWorkItem() {
     });
 }
 function approveWorkItem() {
-    var uri = "http://localhost:56616/api/admin/approveworkitem";
+    var uri = "/api/admin/approveworkitem";
     $.ajax({
         url: uri,
         method: 'PUT',

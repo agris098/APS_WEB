@@ -9,6 +9,7 @@ using MongoDB.Bson;
 
 namespace APS.Controllers
 {
+    [Authorize(Roles = "Admin, Support")]
     [RoutePrefix("api/section")]
     public class SectionApiController : ApiController
     {
@@ -18,13 +19,7 @@ namespace APS.Controllers
 
             objds = new DataAccess();
         }
-
-        //[Route("get")]
-        //public IHttpActionResult Get(ObjectId id) {
-
-        //    return Ok(objds.GetSection(id));
-        //}
-
+        [Authorize]
         [Route("getall/parent/{parent}")]
         [HttpGet]
         public IHttpActionResult GetAllByParent(string parent="")
@@ -41,7 +36,7 @@ namespace APS.Controllers
         {
             return Ok(objds.GetStaticData());
         }
-
+        [Authorize]
         [Route("haschildren/path")]
         [HttpPost]
         public IHttpActionResult HasChildren(SectionPath p)
@@ -71,6 +66,7 @@ namespace APS.Controllers
             objds.AddSection(s);
             return Ok();
         }
+        [Authorize]
         [Route("getbypath")]
         [HttpPost]
         public IHttpActionResult GetByPath(SectionPath s)

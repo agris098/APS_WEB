@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<APS.Models.PClassifiedModel>
 @{
     ViewBag.Title = "Publiced classifieds";
 }
@@ -32,7 +32,32 @@
 <button type="button" class="btn btn-primary" style="width:200px; margin:0 auto 0 auto;" data-toggle="modal" data-target="#assignModal">
     Assign
 </button>
-
+<div class="row">
+    <div class="col-xs-12">
+        <table class="public-table table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Section</th>
+                    <th>FullName</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model)
+                {
+                    <tr>
+                        <td>@c.Id</td>
+                        <td>@c.Section</td>
+                        <td>@c.UserFullName</td>
+                        <td>@c.UserEmail</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@*----------------------Modal window ------------------*@
 <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -70,6 +95,12 @@
         color: dimgrey;
     }
 </style>
+@Styles.Render("https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css")
 @section scripts{
+    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js")"></script>
+    <script>
+        $(".public-table").DataTable();
+    </script>
     <script src="@Url.Content("~/Scripts/Admin/pclassifieds.js")"></script>
 }

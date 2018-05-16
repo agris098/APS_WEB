@@ -117,11 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="EN" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="LV" xml:space="preserve">
     <value>Latvian</value>
+  </data>
+  <data name="My_classifieds" xml:space="preserve">
+    <value>My classifieds</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Regulations" xml:space="preserve">
+    <value>Regulations</value>
+  </data>
+  <data name="Report_an_error" xml:space="preserve">
+    <value>Report an error</value>
   </data>
   <data name="RU" xml:space="preserve">
     <value>Russian</value>
