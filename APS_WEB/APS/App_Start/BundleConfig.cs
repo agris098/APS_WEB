@@ -41,8 +41,13 @@ namespace APS
             bundles.Add(new ScriptBundle("~/bundles/work").Include(
                 "~/Scripts/Admin/work.js"));
             bundles.Add(new ScriptBundle("~/bundles/profile").Include(
-                "~/Scripts/profile/profile.js"));
-
+                "~/Scripts/profile/profile.js",
+                "~/Scripts/profile/canvas-to-blob.js",
+                "~/Scripts/profile/croppie.js"));
+            bundles.Add(new ScriptBundle("~/bundles/profileedit").Include(
+                "~/Scripts/profile/canvas-to-blob.js",
+                "~/Scripts/profile/profileedit.js",
+                "~/Scripts/profile/croppie.js"));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
                         "~/Content/site.css"));
@@ -61,7 +66,8 @@ namespace APS
             bundles.Add(new StyleBundle("~/Content/comments").Include(
             "~/Content/comments/classified-comments.css"));
             bundles.Add(new StyleBundle("~/Content/profile").Include(
-                    "~/Content/profile/profile.css"));
+                    "~/Content/profile/profile.css",
+                    "~/Content/profile/croppie.css"));
             bundles.Add(new StyleBundle("~/Content/add_classified").Include(
                 "~/Content/classified/add_classified.css"));
             bundles.Add(new StyleBundle("~/Content/shared").Include(

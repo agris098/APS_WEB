@@ -353,6 +353,7 @@
     <Content Include="Content\fontawesome\font-awesome.min.css" />
     <Content Include="Content\comments\classified-comments.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\profile\croppie.css" />
     <Content Include="Content\profile\profile.css" />
     <Content Include="Content\section.css" />
     <Content Include="Content\classifields.css" />
@@ -413,6 +414,9 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\profile\canvas-to-blob.js" />
+    <Content Include="Scripts\profile\croppie.js" />
+    <Content Include="Scripts\profile\profileedit.js" />
     <Content Include="Scripts\profile\profile.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

@@ -6,6 +6,7 @@
        @using (Html.BeginForm("Update", "Profile", FormMethod.Post, new { @class = "form-horizontal profile-edit", role = "form", enctype = "multipart/form-data" }))
        {
         @Html.ValidationSummary(true)
+        @Html.Hidden("lg_image", Model.lg_image);
         <div class="row">
            <div class="col-md-5">
                 <div class="form-group">
@@ -66,8 +67,8 @@
             </div>
             <div class="col-md-6">
                 <div style="font-weight:bold;margin-bottom:10px; font-size:14px;">Profile picture:</div>
-                <div><img id="user_img2" src="@String.Format("data:image/jpg;base64,{0}", Model.lg_image)" height="300" width="250" style="border:solid" /></div>
-                <div style="margin-top:20px;"><input type="file" name="UserPhoto" id="fileUpload" onchange="show(this)" accept=".png,.jpg,.jpeg" /></div>
+                <div><input type="image" value="@Model.lg_image" id="user_img2" src="@String.Format("data:image/jpg;base64,{0}", Model.lg_image)" name="lg_image" height="300" width="250" style="border:solid" /></div>
+                <div style="margin-top:20px;"><input type="file" name="UserPhoto" id="fileUpload" onchange="onFileSelected(event)" accept=".png,.jpg,.jpeg" /></div>
             </div>
         </div>
         <div class="row">
@@ -76,9 +77,29 @@
                 <button type="submit" class="btn btn-primary form-action">Save</button>
             </div>
         </div>
-
        }
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--Image container-->
+                        <div id="vanilla-demo"></div>
+                        <button class="vanilla-rotate" data-deg="-90">Rotate Left</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" style="text-align:left" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary vanilla-result" style="text-align:left" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 <style>
     .profile-edit {
         margin-top: 20px;
@@ -91,8 +112,10 @@
         margin:10px;
     }
 </style>
+@Styles.Render("~/Content/profile")
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/profileedit")
 <script type="text/javascript">
 
     function show(input) {

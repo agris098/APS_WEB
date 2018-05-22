@@ -27,6 +27,4 @@ function bindClassifiedData(data) {
         table.append(template);
     });
     container.append(table);
-
-
 }

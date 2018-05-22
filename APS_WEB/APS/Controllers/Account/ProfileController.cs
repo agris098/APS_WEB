@@ -54,24 +54,24 @@ namespace APS.Controllers.Account
             {
 
                 // To convert the user uploaded Photo as Byte Array before save to DB
-                byte[] imageData = null;
-                string thePictureDataAsString = "";
-                if (Request.Files.Count > 0)
-                {
-                    HttpPostedFileBase userImage = Request.Files["UserPhoto"];
-                    /*
-                    Image recivedImage = Image.FromStream(userImage.InputStream);
-                    ImageManager IManager = new ImageManager(); 
-                    Image lol = IManager.ResizeImage(recivedImage, 200, 200, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    */
-                    using (var binary = new BinaryReader(userImage.InputStream))
-                    {
-                        imageData = binary.ReadBytes(userImage.ContentLength);
-                    }
+               // byte[] imageData = null;
+              ////  string thePictureDataAsString = "";
+                //if (Request.Files.Count > 0)
+                //{
+                //    HttpPostedFileBase userImage = Request.Files["UserPhoto"];
+                //    /*
+                //    Image recivedImage = Image.FromStream(userImage.InputStream);
+                //    ImageManager IManager = new ImageManager(); 
+                //    Image lol = IManager.ResizeImage(recivedImage, 200, 200, System.Drawing.Imaging.ImageFormat.Jpeg);
+                //    */
+                //    using (var binary = new BinaryReader(userImage.InputStream))
+                //    {
+                //        imageData = binary.ReadBytes(userImage.ContentLength);
+                //    }
                     
-                    thePictureDataAsString = Convert.ToBase64String(imageData);
-                }
-                _objds.UpdateUserDetails(userId,thePictureDataAsString, model);
+                //    thePictureDataAsString = Convert.ToBase64String(imageData);
+                //}
+                _objds.UpdateUserDetails(userId,model.lg_image, model);
             }
             // If we got this far, something failed, redisplay form
             return RedirectToAction("Index", "Profile", new { id = userId});
