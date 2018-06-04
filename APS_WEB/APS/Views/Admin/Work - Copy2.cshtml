@@ -7,7 +7,7 @@
 <div class="row classified-overwatch" style="display:none" data-wId>
     <div class="col-xs-12">
         <button class="btn btn-primary" onclick="rejectWorkItem()">Reject</button>
-        <button class="btn btn-primary" style="float:right;" onclick="approveWorkItem()">Approve</button>
+        <button class="btn btn-primary" onclick="approveWorkItem()">Approve</button>
     </div>
     <div class="col-xs-12">
         <div class="row header-container">
@@ -27,7 +27,7 @@
                 <div class="main-info">
                     <div class="section">
                         <div class="title">Price:</div>
-                        <div><span class="S_price price"></span> <span class="price">€</span></div>
+                        <div><span class="S_price"></span> €</div>
                     </div>
                 </div>
             </div>
@@ -57,10 +57,9 @@
     </div>
 </div>
 @Styles.Render("~/Content/slider/ubislider.min.css")
-@Styles.Render("~/Content/classified")
 @section scripts{
     <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
-    @Scripts.Render("~/bundles/work") 
+    @Scripts.Render("~/bundles/work")    
 }
 
 

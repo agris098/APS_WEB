@@ -16,7 +16,7 @@ function bindWorkItemData(data) {
         cId.data('wId', c.Id);
         price.html(c.S_price);
         description.html(c.S_description);
-        video.html(c.S_video);
+       // video.html(c.S_video);
         pictureContainer.empty();
         if (c.S_pictures) {
             $.each(c.S_pictures, function (i, v) {
