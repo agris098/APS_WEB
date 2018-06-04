@@ -61,6 +61,60 @@ namespace APS.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expired classified.
+        /// </summary>
+        public static string expired {
+            get {
+                return ResourceManager.GetString("expired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your classified has expired..
+        /// </summary>
+        public static string expiredDesc {
+            get {
+                return ResourceManager.GetString("expiredDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Publiced classified.
+        /// </summary>
+        public static string publiced {
+            get {
+                return ResourceManager.GetString("publiced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your classified has been publiced..
+        /// </summary>
+        public static string publicedDesc {
+            get {
+                return ResourceManager.GetString("publicedDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejected classified.
+        /// </summary>
+        public static string rejected {
+            get {
+                return ResourceManager.GetString("rejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your classified has been rejected..
+        /// </summary>
+        public static string rejectedDesc {
+            get {
+                return ResourceManager.GetString("rejectedDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to enggggg.
         /// </summary>
         public static string test {

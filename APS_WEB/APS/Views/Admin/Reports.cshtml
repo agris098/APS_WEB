@@ -1,53 +1,192 @@
-﻿
-@model IEnumerable<APS.Models.ReportGroupModel>
-<h1>Reports</h1>
+﻿@model APS.Models.ReportsG
+@{
+    var Reports = Model.Reports;
+    var ReportsError = Model.ReportsError;
+}
+<h3>Reports</h3>
 <div class="row report-container">
-    <div class="col-xs-12">
-        @foreach (var report in Model)
-        {
-            var activeT = "false";
-            var title = "";
-            foreach (var r in report.items)
-            {
-                title += r.Title + " / ";
-                if (r.Active == true) {
-                    activeT = "active";
-                }
-            }
-            <div class="report @activeT" id="@report.Id">
-                <div class="header">
-                    <div class="title">
-                        @title
-                    </div>
-                </div>
-                <div class="description" style="display:none;">
-                    
-                    @foreach (var r in report.items)
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs">
+                <li status="classifieds" class="active"><a data-toggle="tab" href="#reportsc">Classifieds</a></li>
+                <li status="errors"><a data-toggle="tab" href="#reportse">Errors</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div id="reportsc" class="tab-pane fade in active">
+            <div class="col-sm-8">
+                @foreach (var report in Reports)
+                {
+                    var activeT = "false";
+                    var title = "";
+                    foreach (var r in report.items)
                     {
-                        var activeD = r.Active == true ? "true" : "false";
-                        <div id="">
-                            <div class="description @activeD">
-                                @r.Description
-                            </div>
-                            <div class="date">
-                                @r.DateTime.ToString("dd/MM/yyyy HH:mm:ss")
+                        title += APS.Resources.Reports.ResourceManager.GetString(r.Title)  + " | ";
+                        if (r.Active == true)
+                        {
+                            activeT = "active";
+                        }
+                    }
+                    <div class="report @activeT" id="@report.Id">
+                        <div class="header">
+                            <div class="title">
+                                @title.Substring(0,title.Length - 3)
                             </div>
                         </div>
-                    }
+                        <div class="description-container" style="display:none;">
+
+                            @foreach (var r in report.items)
+                            {
+                                var activeD = r.Active == true ? "active" : "";
+                                <div class="dsc-item @activeD" id="@r.Id">
+                                    <div class="date">
+                                        @r.DateTime.ToString("dd/MM/yyyy HH:mm:ss")
+                                    </div>
+                                    <div class="description">
+                                        @r.Description
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-sm-4">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action mark-all">Mark all as readed</a>
+                    <a href="#" class="list-group-item list-group-item-action delete-all">Delete all readed</a>
                 </div>
             </div>
-        }
+        </div>
+        <div id="reportse" class="tab-pane fade in">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="reporterror-container">
+                        @foreach (var report in ReportsError)
+                        {
+                            var active = report.Active == true ? "active" : "";
+
+                            <div id="@report.Id" class="report @active">
+                                <div class="time">
+                                    @report.DateTime.ToString("dd/MM/yyyy HH:mm:ss")
+                                </div>
+                                <div class="description">
+                                    @report.Description
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action mark-all">Mark all as readed</a>
+                        <a href="#" class="list-group-item list-group-item-action delete-all">Delete all readed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+@Styles.Render("~/Content/reports")
 @section scripts{
     <script>
-        $(document).on("click", ".report .header", function () {
-            var description = $(this).closest(".report").find('.description');
-        if (!description.is(":visible")) {
-            description.slideDown();
-        } else {
-            description.slideUp();
-        }
-    })
+        $(document).on("click", "#reportsc .report .header", function () {
+            var description = $(this).closest(".report").find('.description-container');
+            if (!description.is(":visible")) {
+                description.slideDown();
+            } else {
+                description.slideUp();
+            }
+        });
+        $(document).on("click", "#reportse .report.active", function () {
+            var uri = "/api/admin/reporterrormark";
+            var data = {
+                Id: $(this).attr('id')
+            };
+            var el = $(this);
+            $.ajax({
+                method: "POST",
+                url: uri,
+                data: data,
+                success: function () {
+                    el.removeClass('active');
+                },
+                error: function () { }
+            });
+        }); 
+        $(document).on("click", "#reportse .mark-all", function () {
+            var uri = "/api/admin/reporterrormarkall";
+            var el = $('#reportse .report');
+            $.ajax({
+                method: "POST",
+                url: uri,
+                success: function () {
+                    el.removeClass('active');
+                },
+                error: function () { }
+            });
+        });
+        $(document).on("click", "#reportse .delete-all", function () {
+            var uri = "/api/admin/reporterrordeletemarked";
+            var el = $('#reportse .report').not('.active');
+            $.ajax({
+                method: "POST",
+                url: uri,
+                success: function () {
+                    el.remove();
+                },
+                error: function () { }
+            });
+        });
+        /////////////////////////////////////////
+        $(document).on("click", "#reportsc .dsc-item.active", function () {
+            var uri = "/api/admin/reportmark";
+            var data = {
+                Id: $(this).attr('id')
+            };
+            var el = $(this);
+            var parent = el.closest('.report');
+            $.ajax({
+                method: "POST",
+                url: uri,
+                data: data,
+                success: function () {
+                    el.removeClass('active');
+                    if (parent.find('.description-container .dsc-item.active').length === 0) {
+                        parent.removeClass('active');
+                    }
+                },
+                error: function () { }
+            });
+        });
+        $(document).on("click", "#reportsc .mark-all", function () {
+            var uri = "/api/admin/reportmarkall";
+            var el = $('#reportsc .report, #reportsc .dsc-item');
+            $.ajax({
+                method: "POST",
+                url: uri,
+                success: function () {
+                    el.removeClass('active');
+                },
+                error: function () { }
+            });
+        });
+        $(document).on("click", "#reportsc .delete-all", function () {
+            var uri = "/api/admin/reportdeletemarked";
+            var el = $('#reportsc .dsc-item').not('.active');
+            var parent = el.closest('.report');
+            $.ajax({
+                method: "POST",
+                url: uri,
+                success: function () {
+                    el.remove();
+                    if (parent.find('.description-container .dsc-item.active').length === 0) {
+                        parent.remove('active');
+                    }
+                },
+                error: function () { }
+            });
+        });
     </script>
 }

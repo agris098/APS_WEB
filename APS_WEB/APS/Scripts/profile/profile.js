@@ -28,3 +28,7 @@ function bindClassifiedData(data) {
     });
     container.append(table);
 }
+$(document).on('click', 'table tr', function () {
+    var id = $(this).attr('c-id');
+    location.href = "/classifield/" + id;
+});

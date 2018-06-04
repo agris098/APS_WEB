@@ -37,12 +37,18 @@ namespace APS.Models
         [Display(Name = "Gender")]
         public string Gender { get; set; }
 
+        [Required]
+        [Display(Name = "Language")]
+        public string NLn { get; set; }
+
         public string sm_image { get; set; }
         public string lg_image { get; set; }
 
         [Required]
         [Display(Name = "Date of birth")]
         public DateTime DOB { get; set; }
+
+        public bool Blocked { get; set; }
 
         public string DOBString { get { return DOB.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);} }
     }

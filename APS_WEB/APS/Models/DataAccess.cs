@@ -304,8 +304,11 @@ namespace APS.Models
         {
             var res = Query<ClassifieldModel>.EQ(pd => pd.Id, ObjectId.Parse(id));
             if (status == Status.Public) {
+                var classified = GetClassifield(id);
                 DateTime timeStart = DateTime.Now;
                 DateTime timeEnd = timeStart.AddDays(Convert.ToDouble(weeks * 7));
+                NoficationManager nm = new NoficationManager(UserCulture(classified.S_userId));
+                AddNotification(nm.ClassifiedPubliced(classified.S_userId));
                 var update = Update<ClassifieldModel>.Set(p => p.Status, status)
                                 .Set(p => p.S_dateCreated, timeStart).Set(p => p.S_endDate, timeEnd).Set(p => p.Approved, false);
                 _db.GetCollection<ClassifieldModel>("Classifields").Update(res, update);
@@ -509,6 +512,26 @@ namespace APS.Models
 
             return users.ToList();
         }
+        public List<UserAdminModel> GetUsersAdmin()
+        {
+            var users = GetUsers();
+            var usersinfo = _db.GetCollection<UserDetails>("UserDetails").FindAll();
+
+            var userJoin = from u in users
+                           join ui in usersinfo on u.ID equals ui.UserId
+                           select new UserAdminModel
+                           {
+                               UserName = u.UserName,
+                               FullName = ui.FullName,
+                               Email = u.Email,
+                               EmailConfirmed = u.EmailConfirmed,
+                               Roles = u.ROLES,
+                               PhoneNumber = u.PhoneNumber,
+                               Blocked = ui.Blocked || false,
+                               Id = u.ID
+                           };
+            return userJoin.ToList();
+        }
         public UserModel GetUser(string id)
         {
             var res = Query<UserModel>.EQ(p => p.Id, ObjectId.Parse(id));
@@ -579,6 +602,8 @@ namespace APS.Models
                 result.DOB = details.DOB;
                 result.WebAddress = details.WebAddress;
                 result.Gender = details.Gender;
+                result.Blocked = details.Blocked;
+                result.NLn = details.NLn;
             }
 
 
@@ -601,6 +626,7 @@ namespace APS.Models
                 dbUser.City = u.City;
                 dbUser.DOB = u.DOB;
                 dbUser.Gender = u.Gender;
+                dbUser.NLn = u.NLn;
                 if (!string.IsNullOrEmpty(picture))
                 {
                     dbUser.lg_image = picture;
@@ -621,6 +647,21 @@ namespace APS.Models
         public string UserCulture(string userId) {
             var user = GetUserDetails(userId);
             return user.NLn ?? "en";
+        }
+        public void AdminEditUser(UserEditModal ed)
+        {
+            if (ed.Roles == null)
+            {
+                ed.Roles = "";
+            }
+            var res = Query<UserDetails>.EQ(p => p.UserId, ed.Id);
+            var operation = Update<UserDetails>.Set(u => u.Blocked,ed.Blocked );
+            _db.GetCollection<UserDetails>("UserDetails").Update(res, operation);
+
+            string[] roles = ed.Roles.Split(','); 
+            var res2 = Query<UserModel>.EQ(p => p.Id, ObjectId.Parse(ed.Id));
+            var operation2 = Update<UserModel>.Set(u => u.Roles, roles);
+            _db.GetCollection<UserDetails>("users").Update(res2, operation2);
         }
         #endregion
         #region Chat -------------------------------------------------------------------------------------------------------------------------
@@ -674,7 +715,7 @@ namespace APS.Models
         #endregion
         #region Reports --------------------------------------------------------------------------------------------------------------------
         public IEnumerable<ReportGroupModel> ReportsGet() {
-            var reports = _db.GetCollection<ReportModel>("Reports").FindAll();
+            var reports = _db.GetCollection<ReportModel>("Reports").FindAll().OrderByDescending(r=>r.DateTime);
             var reportGroup = reports.GroupBy(r => r.ClassifiedId, (key, g) => new ReportGroupModel { Id = key.ToString(), items = g.ToList() });
             return reportGroup;
         }
@@ -690,15 +731,60 @@ namespace APS.Models
             };
             _db.GetCollection<ReportModel>("Reports").Insert(report);
         }
-        public void ReportSetActive(string id)
+        public void ReportErrorInsert(ReportErrorModel r) {
+            r.Active = true;
+            r.DateTime = DateTime.Now;
+
+            _db.GetCollection<ReportErrorModel>("ReportsError").Insert(r);
+        }
+        public IEnumerable<ReportErrorModel> ReportsErrorGet()
         {
-            var res = Query<ReportModel>.EQ(c => c.ClassifiedId, id);
-            var reports = _db.GetCollection<ReportModel>("Reports").Find(res);
-            foreach (var r in reports) {
-                var update = Update<ReportModel>.Set(u =>u.Active, false);
-                var query = Query<ReportModel>.EQ(c => c.Id, r.Id);
-                _db.GetCollection<ReportModel>("Reports").Update(query, update);
-            }  
+            var reports = _db.GetCollection<ReportErrorModel>("ReportsError").FindAll();
+            return reports.OrderByDescending(r=>r.DateTime);
+        }
+        public void ReportsErrorMark(string id)
+        {
+            var ress = Query<ReportErrorModel>.EQ(pd => pd.Id, ObjectId.Parse(id));
+            var update = Update<ReportErrorModel>.Set(p => p.Active, false);
+            _db.GetCollection<ReportErrorModel>("ReportsError").Update(ress, update);
+        }
+        public void ReportsErrorMarkAll()
+        {
+            var reports = _db.GetCollection<ReportErrorModel>("ReportsError").FindAll();
+
+            foreach (var report in reports)
+            {
+                var ress = Query<ReportErrorModel>.EQ(pd => pd.Id, report.Id);
+                var update = Update<ReportErrorModel>.Set(p => p.Active, false);
+                _db.GetCollection<ReportErrorModel>("ReportsError").Update(ress, update);
+            }
+        }
+        public void ReportsErrorDeleteAllMarked()
+        {
+                var ress = Query<ReportErrorModel>.EQ(pd => pd.Active, false);
+                _db.GetCollection<ReportErrorModel>("ReportsError").Remove(ress);
+        }
+        public void ReportsMark(string id)
+        {
+            var ress = Query<ReportModel>.EQ(pd => pd.Id, ObjectId.Parse(id));
+            var update = Update<ReportModel>.Set(p => p.Active, false);
+            _db.GetCollection<ReportModel>("Reports").Update(ress, update);
+        }
+        public void ReportsMarkAll()
+        {
+            var reports = _db.GetCollection<ReportModel>("Reports").FindAll();
+
+            foreach (var report in reports)
+            {
+                var ress = Query<ReportModel>.EQ(pd => pd.Id, report.Id);
+                var update = Update<ReportModel>.Set(p => p.Active, false);
+                _db.GetCollection<ReportModel>("Reports").Update(ress, update);
+            }
+        }
+        public void ReportsDeleteAllMarked()
+        {
+            var ress = Query<ReportModel>.EQ(pd => pd.Active, false);
+            _db.GetCollection<ReportModel>("Reports").Remove(ress);
         }
         #endregion
     }

@@ -12,5 +12,6 @@ namespace APS.Models
         public string Email { get; set; }
         public string ImageSmall { get; set; }
         public string ImageLarge { get; set; }
+        public bool Blocked { get; set; }
     }
 }

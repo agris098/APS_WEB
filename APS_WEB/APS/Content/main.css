@@ -9,3 +9,45 @@
 .ubiModal{
     z-index:9999 !important;
 }
+
+
+h3 {
+    font-size: 24px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    color: dimgrey !important;
+    text-transform: uppercase !important;
+}
+footer a {
+    color:black;
+    cursor:pointer;
+}
+footer span {
+    color: black;
+    cursor: pointer;
+}
+    footer span:hover {
+        color: #2a6496;
+        text-decoration: underline;
+    }
+
+#reportErrorModal textarea {
+    max-width:100%;
+    min-height:200px;
+}
+#reportModal textarea{
+    max-width: 100%;
+    min-height: 200px;
+}
+.admin-menu {
+    border-bottom: 1px solid lightgrey;
+}
+@media(max-width:767px) {
+    footer .col-sm-3 {
+        height:40px;
+        border-bottom: 1px solid lightgrey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

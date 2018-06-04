@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System.Web;
 using System.IO;
+using System.Drawing;
 
 namespace APS.Controllers
 {
@@ -69,21 +70,47 @@ namespace APS.Controllers
                     for (int i=0; i < Request.Files.Count; i++)
                     {
                         var img = Request.Files[i];
-                        byte[] imageData = null;
-                        string thePictureDataAsString = "";
-                        //HttpPostedFileBase userImage = Request.Files["S_pictures"];
-                        /*
-                        Image recivedImage = Image.FromStream(userImage.InputStream);
-                        ImageManager IManager = new ImageManager(); 
-                        Image lol = IManager.ResizeImage(recivedImage, 200, 200, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        */
-                        using (var binary = new BinaryReader(img.InputStream))
+                        //  byte[] imageData = null;
+                        if (img.ContentLength != 0)
                         {
-                            imageData = binary.ReadBytes(img.ContentLength);
-                        }
+                            string thePictureDataAsString = "";
+                            //HttpPostedFileBase userImage = Request.Files["S_pictures"];
+                            /*
+                            Image recivedImage = Image.FromStream(userImage.InputStream);
+                            ImageManager IManager = new ImageManager(); 
+                            Image lol = IManager.ResizeImage(recivedImage, 200, 200, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            */
+                            Image recivedImage = Image.FromStream(img.InputStream);
+                            ImageManager IManager = new ImageManager();
+                            Image lol;
+                            if (recivedImage.Width > 800)
+                            {
+                                var heigth = ((double)recivedImage.Height / recivedImage.Width) * 800;
+                                lol = IManager.ResizeImage(recivedImage, 800, (int)heigth, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            }
+                            else
+                            {
+                                lol = recivedImage;
+                            }
 
-                        thePictureDataAsString = Convert.ToBase64String(imageData);
-                        images.Add(thePictureDataAsString);
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                // Convert Image to byte[]
+                                lol.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                byte[] imageBytes = ms.ToArray();
+
+                                // Convert byte[] to Base64 String
+                                thePictureDataAsString = Convert.ToBase64String(imageBytes);
+                            }
+                            //using (var binary = new BinaryReader(img.InputStream))
+                            //{
+                            //    imageData = binary.ReadBytes(img.ContentLength);
+                            //}
+
+                            //  thePictureDataAsString = Convert.ToBase64String(imageData);
+                            images.Add(thePictureDataAsString);
+                        }
+                       
                     }
                 }
 

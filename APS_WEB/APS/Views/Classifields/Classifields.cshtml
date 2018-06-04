@@ -27,9 +27,6 @@
     </div>
 </div>
 <h3>@ViewBag.Title</h3>
-@*<div class="classifields-table table-responsive">
-</div>
-    *@
 <div class="row">
     <div class="col-xs-12">
         <div class="classifields-table">
@@ -82,7 +79,7 @@
         </div>
     </div>
 </div>
-@Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
+@Styles.Render("https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css")
 @Styles.Render("~/Content/slider/ubislider.min.css")
 @Styles.Render("~/Content/classified-manager.css")
 
@@ -92,6 +89,7 @@
         var uriMarkClassified = "@Url.Action("mark", "classifield")";
     </script>
     <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js")"></script>
     <script src="@Url.Content("~/Scripts/slider/ubislider.min.js")"></script>
     <script src="@Url.Content("~/Scripts/Classifields/classifields-manager.js")"></script>
 }

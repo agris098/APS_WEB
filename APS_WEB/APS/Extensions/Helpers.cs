@@ -27,7 +27,8 @@ namespace APS.Extensions
                 Email = user.Email,
                 ImageLarge = user.lg_image,
                 ImageSmall = user.sm_image,
-                FullName = user.FullName
+                FullName = user.FullName,
+                Blocked = user.Blocked || false
             };
         }
     }

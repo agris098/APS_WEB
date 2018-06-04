@@ -118,4 +118,6 @@
     .chat-container .chat-manager.show-manager .chat-manager-add {
         display: none;
     }
-
+.chat-manager-window {
+    border: 2px solid lightblue;
+}

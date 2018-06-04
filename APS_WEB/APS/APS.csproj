@@ -226,6 +226,7 @@
     <Compile Include="ClassifiedTimer.cs" />
     <Compile Include="Controllers\Account\AccountController.cs" />
     <Compile Include="Controllers\Api\AdminApiController.cs" />
+    <Compile Include="Controllers\BlockedController.cs" />
     <Compile Include="Controllers\ClassifieldController.cs" />
     <Compile Include="Controllers\Api\ClassifieldsApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -254,7 +255,11 @@
     <Compile Include="Models\Admin\PClassifiedCountModel.cs" />
     <Compile Include="Models\Admin\PClassifiedGroupModel.cs" />
     <Compile Include="Models\Admin\PClassifiedModel.cs" />
+    <Compile Include="Models\Admin\ReportErrorModel.cs" />
     <Compile Include="Models\Admin\ReportModel.cs" />
+    <Compile Include="Models\Admin\ReportsG.cs" />
+    <Compile Include="Models\Admin\UserAdminModel.cs" />
+    <Compile Include="Models\Admin\UserEditModal.cs" />
     <Compile Include="Models\Admin\UserModel.cs" />
     <Compile Include="Models\Admin\WorkItem.cs" />
     <Compile Include="Models\Chat\ChatMessageHistoryModel.cs" />
@@ -269,7 +274,9 @@
     <Compile Include="Models\Extensions\CurrentUser.cs" />
     <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\Home\HomeSections.cs" />
+    <Compile Include="Models\IdModel.cs" />
     <Compile Include="Models\NotificationModel.cs" />
+    <Compile Include="Models\ReportAdd.cs" />
     <Compile Include="Models\Section\SectionViewModel.cs" />
     <Compile Include="Models\Section\SectionNew.cs" />
     <Compile Include="Models\DataAccess.cs" />
@@ -280,6 +287,16 @@
     <Compile Include="Models\StaticData.cs" />
     <Compile Include="NoficationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Account.ru.Designer.cs">
+      <DependentUpon>Account.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Account.Designer.cs">
+      <DependentUpon>Account.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Main.ru.Designer.cs">
       <DependentUpon>Main.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -287,6 +304,11 @@
     </Compile>
     <Compile Include="Resources\Main.lv.Designer.cs">
       <DependentUpon>Main.lv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Account.lv.Designer.cs">
+      <DependentUpon>Account.lv.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -320,6 +342,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Resources\Reports.lv.Designer.cs">
+      <DependentUpon>Reports.lv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Reports.ru.Designer.cs">
+      <DependentUpon>Reports.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Reports.Designer.cs">
+      <DependentUpon>Reports.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Sections.Designer.cs">
       <DependentUpon>Sections.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -345,6 +382,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\classified-manager.css" />
     <Content Include="Content\classified\add_classified.css" />
+    <Content Include="Content\reports.css" />
     <Content Include="Content\main_logo_white.svg" />
     <Content Include="Content\main_logo_black.svg" />
     <Content Include="Content\chat\chat.css" />
@@ -358,7 +396,9 @@
     <Content Include="Content\section.css" />
     <Content Include="Content\classifields.css" />
     <Content Include="Content\shared\classifiedForm.css" />
+    <Content Include="Content\shared\reportForm.css" />
     <Content Include="Content\slider\ubislider.min.css" />
+    <Content Include="Content\users.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -418,6 +458,7 @@
     <Content Include="Scripts\profile\croppie.js" />
     <Content Include="Scripts\profile\profileedit.js" />
     <Content Include="Scripts\profile\profile.js" />
+    <Content Include="Scripts\reportForm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\shared\classifiedForm.js" />
@@ -492,6 +533,9 @@
     <Content Include="Views\Admin\Work.cshtml" />
     <Content Include="Views\Admin\Reports.cshtml" />
     <Content Include="Views\Regulations\Index.cshtml" />
+    <Content Include="Views\Shared\_ReportErrorModal.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Blocked\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -503,6 +547,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Account.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Account.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Account.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Account.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Main.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.ru.Designer.cs</LastGenOutput>
@@ -510,6 +562,10 @@
     <EmbeddedResource Include="Resources\Main.lv.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.lv.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Account.lv.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Account.lv.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Regulations.lv.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -534,6 +590,19 @@
     <EmbeddedResource Include="Resources\Notifications.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Notifications.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Reports.lv.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Reports.lv.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Reports.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Reports.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Reports.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Reports.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Sections.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

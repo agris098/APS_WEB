@@ -24,5 +24,11 @@ namespace APS.Controllers
             var notifications = _objds.GetNotifications(userId);
             return View(notifications);
         }
+        [Route("updatestatus")]
+        [HttpPost]
+        public ActionResult NotificationUpdateStatus(IdModel m ) {
+            _objds.NotificationUpdateStatus(m.Id);
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
     }
 }

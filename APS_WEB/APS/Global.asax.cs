@@ -8,6 +8,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Threading;
 using System.Globalization;
+using Microsoft.AspNet.Identity;
+using APS.Models;
+using System.Security.Claims;
 
 namespace APS
 {
@@ -19,6 +22,7 @@ namespace APS
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+         //   GlobalFilters.Filters.Add(new RequireHttpsAttribute());
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
@@ -28,7 +32,6 @@ namespace APS
         }
         protected void Application_BeginRequest(object sender, EventArgs e) {
             HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
-
             if (cookie != null && cookie.Value != null)
             {
                 Thread.CurrentThread.CurrentCulture = new CultureInfo(cookie.Value);
@@ -39,6 +42,6 @@ namespace APS
                 Thread.CurrentThread.CurrentCulture = new CultureInfo("en");
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
             }
-        }
+        }       
     }
 }

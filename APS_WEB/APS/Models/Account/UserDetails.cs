@@ -30,5 +30,7 @@ namespace APS.Models
         public DateTime DOB { get; set; }
         [BsonElement("Nln")]
         public string NLn { get; set; }
+        [BsonElement("Blocked")]
+        public bool Blocked { get; set; }
     }
 }

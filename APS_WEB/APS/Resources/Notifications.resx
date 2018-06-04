@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="expired" xml:space="preserve">
+    <value>Expired classified</value>
+  </data>
+  <data name="expiredDesc" xml:space="preserve">
+    <value>Your classified has expired.</value>
+  </data>
+  <data name="publiced" xml:space="preserve">
+    <value>Publiced classified</value>
+  </data>
+  <data name="publicedDesc" xml:space="preserve">
+    <value>Your classified has been publiced.</value>
+  </data>
+  <data name="rejected" xml:space="preserve">
+    <value>Rejected classified</value>
+  </data>
+  <data name="rejectedDesc" xml:space="preserve">
+    <value>Your classified has been rejected.</value>
+  </data>
   <data name="test" xml:space="preserve">
     <value>enggggg</value>
   </data>

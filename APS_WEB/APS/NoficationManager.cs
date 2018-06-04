@@ -15,8 +15,8 @@ namespace APS
         public NotificationModel ClassifiedRejected(string userId ) {
              var n = Notification(
                 userId
-                , GetString("test")
-                , GetString("test")
+                , GetString("rejected")
+                , GetString("rejectedDesc")
                 );
             return n;
         }
@@ -24,8 +24,16 @@ namespace APS
         {
             return Notification(
                 userId
-                , GetString("test")
-                , GetString("test")
+                , GetString("expired")
+                , GetString("expiredDesc")
+                );
+        }
+        public NotificationModel ClassifiedPubliced(string userId)
+        {
+            return Notification(
+                userId
+                , GetString("publiced")
+                , GetString("publicedDesc")
                 );
         }
         private NotificationModel Notification(string userId, string title, string Description)

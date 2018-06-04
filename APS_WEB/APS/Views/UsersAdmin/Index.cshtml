@@ -29,17 +29,25 @@
     }
 
 </table>
-<table id="example" class="display" style="width:100%">
+<table id="usersTable" class="display" style="width:100%">
     <thead>
         <tr>
+            <th>Id</th>
+            <th>Full Name</th>
             <th>Email</th>
-            <th>PhoneNumber</th>
+            <th>Email C.</th>
+            <th>Phone nr.</th>
+            <th>Roles</th>
+            <th>Blocked</th>
+            <th></th>
         </tr>
     </thead>
+    <tfoot>
+    </tfoot>
 </table>
 @section scripts{
     <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
+<script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js")"></script>
     <script src="@Url.Content("~/Scripts/Admin/users.js")"></script>
 }
-
-    @Styles.Render("https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css")
+@Styles.Render("https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css")

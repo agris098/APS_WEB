@@ -47,6 +47,18 @@ namespace APS.Controllers
         {
             ViewBag.AdministrationPage = true;
             var reports = _objds.ReportsGet();
+            var reportserror = _objds.ReportsErrorGet();
+            var r = new ReportsG
+            {
+                Reports = reports,
+                ReportsError = reportserror
+            };
+            return View(r);
+        }
+        [Route("users")]
+        public ActionResult Users()
+        {
+            ViewBag.AdministrationPage = true;
             return View();
         }
     }

@@ -107,4 +107,28 @@ $(document).on('focus', '#assignModal input, #assignModal select', function () {
     $('.addedCountContainer').hide();
     $('#assignModal .btn-primary').removeClass('disabled');
 });
+$(document).on('click', '.show-profile', function () {
+    var id = $(this).closest('tr').find('td:first').html();
+    location.href = "/classifield/" + id;
+});
+$(document).on('click', '.reject-classified', function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    var tr = $(this).closest('tr');
+    var id = tr.find('td:first').html();
+    var uri = "/api/admin/rejectworkitem";
+    $.ajax({
+        url: uri,
+        method: 'PUT',
+        data: {
+            Id: id
+        },
+        success: function () {
+            tr.remove();
+        },
+        error: function () {
+            alert("error")
+        }
+    });
+});
 ////////////////////////   Classified Logic Here

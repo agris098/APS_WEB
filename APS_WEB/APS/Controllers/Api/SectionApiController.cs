@@ -9,7 +9,6 @@ using MongoDB.Bson;
 
 namespace APS.Controllers
 {
-    [Authorize(Roles = "Admin, Support")]
     [RoutePrefix("api/section")]
     public class SectionApiController : ApiController
     {

@@ -147,4 +147,37 @@
   <data name="RU" xml:space="preserve">
     <value>Krievu</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Par</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administrācija</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Čats</value>
+  </data>
+  <data name="Contactinformation" xml:space="preserve">
+    <value>Kontaktinformācija</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Rediģēt profilu</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Pilnais vārds</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Paziņojumi</value>
+  </data>
+  <data name="Phonenumber" xml:space="preserve">
+    <value>Tālruņa numurs</value>
+  </data>
+  <data name="publicedc" xml:space="preserve">
+    <value>Publicētie sludinājumi</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Aizvērt</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Sūtīt</value>
+  </data>
 </root>

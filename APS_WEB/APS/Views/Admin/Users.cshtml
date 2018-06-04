@@ -1,0 +1,58 @@
+﻿@model IEnumerable<APS.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Users";
+}
+
+<h3>Users</h3>
+
+<table id="usersTable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Email C.</th>
+            <th>Phone nr.</th>
+            <th>Roles</th>
+            <th>Blocked</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+<div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle">User</h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                    @Html.Hidden("Id")
+                    <h4>Roles</h4>
+                    <div class="form-group ">                     
+                        <input type="checkbox" name="Roles" value="Admin" />
+                        <label for="Roles">Admin</label>
+                        <input type="checkbox" name="Roles" value="Support" />
+                        <label for="Roles">Support</label>
+                    </div>
+                    <h4>Blocked</h4>
+                    <div class="form-group">
+                        <input type="checkbox" name="Blocked" value="Blocked" />
+                        <label for="Blocked">Blocked</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="sendReport" type="button" onclick="editUser()" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/Admin/users.js")"></script>
+}
+@Styles.Render("~/Content/users")
+@Styles.Render("https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css")

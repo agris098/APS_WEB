@@ -13,7 +13,7 @@
         registerEvents();    
     }
     function createTable(data) {
-        var table = $("<table class='table table-bordered' id='draftTable'></table>").attr("data-id", data.ID);
+        var table = $("<table class='display table' id='draftTable'></table>").attr("data-id", data.ID);
         var thead = $("<thead></thead>");
         var theadtr = $("<tr></tr>");
         var tbody = $("<tbody></tbody>");

@@ -36,7 +36,8 @@ namespace APS
                 "~/Scripts/shared/classifiedForm.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
-                "~/Scripts/main.js"));
+                "~/Scripts/main.js",
+                "~/Scripts/reportForm.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/work").Include(
                 "~/Scripts/Admin/work.js"));
@@ -71,7 +72,12 @@ namespace APS
             bundles.Add(new StyleBundle("~/Content/add_classified").Include(
                 "~/Content/classified/add_classified.css"));
             bundles.Add(new StyleBundle("~/Content/shared").Include(
-                "~/Content/shared/classifiedForm.css"));
+                "~/Content/shared/classifiedForm.css",
+                "~/Content/shared/reportForm.css"));
+            bundles.Add(new StyleBundle("~/Content/reports").Include(
+                "~/Content/reports.css"));
+            bundles.Add(new StyleBundle("~/Content/users").Include(
+                 "~/Content/users.css"));
         }
     }
 }

@@ -34,13 +34,14 @@
 </button>
 <div class="row">
     <div class="col-xs-12">
-        <table class="public-table table table-striped table-bordered">
+        <table class="public-table table display">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Section</th>
                     <th>FullName</th>
                     <th>Email</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,7 @@
                         <td>@c.Section</td>
                         <td>@c.UserFullName</td>
                         <td>@c.UserEmail</td>
+                        <td><i class='fa fa-eye show-profile'></i><i class='fa fa-ban reject-classified'></i></td>
                     </tr>
                 }
             </tbody>
@@ -93,6 +95,24 @@
         text-align: center;
         font-weight: bold;
         color: dimgrey;
+    }
+    table th:last-child {
+        width:40px;
+    }
+    .summary-classifieds {
+        font-size:17px;
+    }
+    .summary-classifieds td:last-child{
+        padding-left:20px;
+    }
+    .show-profile, .reject-classified {
+        font-size: 20px;
+    }
+    .show-profile:hover, .reject-classified:hover {
+        color:grey;
+    }
+    .show-profile {
+        padding-right:15px;
     }
 </style>
 @Styles.Render("https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css")

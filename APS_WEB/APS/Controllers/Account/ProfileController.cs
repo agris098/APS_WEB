@@ -31,6 +31,7 @@ namespace APS.Controllers.Account
         [Route("edit")]
         public ActionResult Edit()
         {
+            ViewBag.Edit = true;
             var id = HttpContext.User.Identity.GetUserId();
             var user = _objds.GetUserDetailsFull(id);
 

@@ -7,9 +7,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/main")
-    @Styles.Render("~/Content/fontawesome")
 
+    @Styles.Render("~/Content/fontawesome")
+    @Styles.Render("~/Content/main")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,11 +30,11 @@
                     <li>@Html.ActionLink(APS.Resources.Main.Add, "add", "classifield")</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Notif.", "Index", "notifications")</li>
+                        <li>@Html.ActionLink(APS.Resources.Main.Notifications, "Index", "notifications")</li>
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+                        <li>@Html.ActionLink(APS.Resources.Main.Administration, "pclassifieds", "Admin")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -45,22 +45,19 @@
     {
         <div class=" admin-menu" style="padding: 5px 0 5px 0;">
             <div class="container" style="text-align:center;">
-                <div class="col-xs-3">
+                <div class="col-xs-2">
                     @Html.ActionLink("Section", "addsection", "Admin")
                 </div>
-                <div class="col-xs-3">
-                    @Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")
+                <div class="col-xs-2">
+                    @Html.ActionLink("Users", "Users", "Admin")
                 </div>
-                <div class="col-xs-3">
-                    @Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")
-                </div>
-                <div class="col-xs-3">
+                <div class="col-xs-2">
                     @Html.ActionLink("Classifieds", "pclassifieds", "admin")
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-2">
                     @Html.ActionLink("Work", "work", "admin")
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-2">
                     @Html.ActionLink("Reports", "Reports", "Admin")
                 </div>
             </div>
@@ -91,7 +88,7 @@
                     @Html.ActionLink(APS.Resources.Main.Regulations, "Index", "Regulations")             
                 </div>
                 <div class="col-sm-3">
-                    @APS.Resources.Main.Report_an_error
+                    <span  data-toggle="modal" data-target="#reportErrorModal">@APS.Resources.Main.Report_an_error</span>               
                 </div>
                 <div class="col-sm-3">
                     &copy; @DateTime.Now.Year - APS
@@ -99,9 +96,18 @@
             </div>
         </footer>
         @Html.Partial("Chat")
+        @Html.Partial("_ReportErrorModal")
     </div>
     <script>
         var currentUser = @Html.Raw(Json.Encode(Html.CurrentUser()));
+        var Blocked = "@ViewBag.Blocked";
+        var Edit = "@ViewBag.Edit";
+        if (currentUser.Id && currentUser.Blocked && Blocked != "True") {
+            window.location.href = "/Blocked";
+        }
+        else if (!currentUser.FullName && currentUser.Id && Edit != "True") {
+            window.location.href = "/profile/edit";
+        }
     </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -21,28 +21,39 @@
                 <div class="FullName">
                     @Model.FullName
                 </div>
+                @if (Model.Blocked == true)
+                {
+                    <div class="blocked" style="color:red; font-size:16px;">Account blocked</div>
+                }  
                 @if (!Owner)
                 {
                     <div class="actions">
                         <button class="btn btn-light sendMessage"><span><i class="fa fa-envelope"></i>Send Message</span></button>
                     </div>
                 }
+    
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <ul class="nav nav-tabs profile-navigation">
-                    <li status="profile-about" class="active"><a data-toggle="tab" href="#profile-about"><i class="fa fa-user icon"></i>About<span></span></a></li>
-                    <li status="profile-classifieds"><a data-toggle="tab" href="#profile-classifieds"><i class="fa fa-list icon"></i>publiced classifieds<span></span></a></li>
+                    <li status="profile-about" class="active"><a data-toggle="tab" href="#profile-about"><i class="fa fa-user icon"></i>@APS.Resources.Main.About<span></span></a></li>
+                    <li status="profile-classifieds"><a data-toggle="tab" href="#profile-classifieds"><i class="fa fa-list icon"></i>@APS.Resources.Main.publicedc<span></span></a></li>
                 </ul>
 
                 <div class="tab-content">
                     <div id="profile-about" class="tab-pane fade in active">
                         <div class="contact-information">
-                            <div class="title">Contact information</div>
+                            <div class="title">@APS.Resources.Main.Contactinformation</div>
                             <div class="row">
                                 <div class="col-xs-5 sub-title">
-                                    Phone number
+                                    @APS.Resources.Main.FullName
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    @Model.FullName
+                                </div>
+                                <div class="col-xs-5 sub-title">
+                                    @APS.Resources.Main.Phonenumber
                                 </div>
                                 <div class="col-xs-7 sub-title">
                                     @Model.PhoneNumber
@@ -53,11 +64,29 @@
                                 <div class="col-xs-7 sub-title">
                                     @Model.Email
                                 </div>
+                                <div class="col-xs-5 sub-title">
+                                    Skype
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    @Model.Skype
+                                </div>
+                                <div class="col-xs-5 sub-title">
+                                    Web addres
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    @Model.WebAddress
+                                </div>
                             </div>
                         </div>
                         <div class="basic-information">
                             <div class="title">Basic information</div>
                             <div class="row">
+                                <div class="col-xs-5 sub-title">
+                                    City
+                                </div>
+                                <div class="col-xs-7 sub-title">
+                                    @Model.City
+                                </div>
                                 <div class="col-xs-5 sub-title">
                                     Date of birth
                                 </div>

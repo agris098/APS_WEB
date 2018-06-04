@@ -23,7 +23,7 @@ namespace APS.Controllers.Api
         [Route("users")]
         [HttpGet]
         public IHttpActionResult UsersList() {
-            var users = objds.GetUsers();
+            var users = objds.GetUsersAdmin();
             return Ok(users);
         }
         [Authorize]
@@ -77,6 +77,76 @@ namespace APS.Controllers.Api
         public IHttpActionResult RejectWorkeItem([FromBody]ClassifiedViewModel c)
         {
             objds.ClassifiedRejectWorkItem(c.Id);
+            return Ok();
+        }
+        [Route("addreport")]
+        [HttpPost]
+        public IHttpActionResult AddReportError([FromBody]ReportAdd re)
+        {
+            objds.ReportInsert(re.Id, re.Title, re.Description);
+            return Ok();
+        }
+        [Route("reportmark")]
+        [HttpPost]
+        public IHttpActionResult ReportsMark([FromBody]IdModel im)
+        {
+            objds.ReportsMark(im.Id);
+            return Ok();
+        }
+        [Route("reportmarkall")]
+        [HttpPost]
+        public IHttpActionResult ReportsMarkAll()
+        {
+            objds.ReportsMarkAll();
+            return Ok();
+        }
+        [Route("reportdeletemarked")]
+        [HttpPost]
+        public IHttpActionResult ReportsDeleteAllMarked()
+        {
+            objds.ReportsDeleteAllMarked();
+            return Ok();
+        }
+        [Route("addreporterror")]
+        [HttpPost]
+        public IHttpActionResult AddReportError([FromBody]ReportErrorModel re)
+        {
+            objds.ReportErrorInsert(re);
+            return Ok();
+        }
+        [Route("reportserror")]
+        [HttpGet]
+        public IHttpActionResult ReportsError()
+        {
+            var er = objds.ReportsErrorGet();
+            return Ok(er);
+        }
+        [Route("reporterrormark")]
+        [HttpPost]
+        public IHttpActionResult ReportsErrorMark([FromBody]IdModel im)
+        {
+            objds.ReportsErrorMark(im.Id);
+            return Ok();
+        }
+        [Route("reporterrormarkall")]
+        [HttpPost]
+        public IHttpActionResult ReportsErrorMarkAll()
+        {
+            objds.ReportsErrorMarkAll();
+            return Ok();
+        }
+        [Route("reporterrordeletemarked")]
+        [HttpPost]
+        public IHttpActionResult ReportsErrorDeleteAllMarked()
+        {
+            objds.ReportsErrorDeleteAllMarked();
+            return Ok();
+        }
+        [Route("edituser")]
+        [HttpPost]
+        public IHttpActionResult EditUser([FromBody]UserEditModal ue)
+        {
+            objds.AdminEditUser(ue);
             return Ok();
         }
     }

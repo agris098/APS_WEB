@@ -58,3 +58,6 @@
 .markClassified.true {
     color: deepskyblue;
 }
+.td {
+    vertical-align:middle;
+}

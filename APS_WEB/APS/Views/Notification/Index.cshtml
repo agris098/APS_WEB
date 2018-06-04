@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<APS.Models.NotificationModel>
-   <h1>Notifications</h1>
+   <h3>@APS.Resources.Main.Notifications</h3>
     <div class="row notification-container">
         <div class="col-xs-12">
             @foreach (var notification in Model)
@@ -22,6 +22,35 @@
             }
         </div>
     </div>
+<style>
+    .notification {
+        padding: 10px 20px 10px 20px;
+        background-color: white;
+        border-radius: 20px;
+        border-top: 1px solid lightgrey;
+    }
+        .notification.active {
+            background-color: #F0F0F0;
+        }
+        .notification .header {
+            font-weight: bold;
+            height: 30px;
+        }
+    .notification .time{
+        float:right;
+        background-color: #F0F0F0;
+    }
+    .notification .title {
+        display:inline-block;
+        height: 30px;
+    }
+        .notification .description {
+            border-top:1px dashed grey;
+        }
+        .notification:hover {
+            border:2px solid lightgrey;
+        }
+</style>
 @section scripts{
 <script>
     $(document).on("click", ".notification .header", function () {
@@ -30,7 +59,24 @@
             description.slideDown();
         } else {
             description.slideUp();
-        }    
-    })
+        }
+    });
+    $(document).on("click", ".notification.active", function () {
+        var id = $(this).attr('id');
+        var uri = "/notifications/updatestatus";
+        var data = {
+            Id: id
+        };
+        var el = $(this);
+        $.ajax({
+            method: "POST",
+            url: uri,
+            data: data,
+            success: function () {
+                el.removeClass('active');
+            },
+            error: function () { }
+        });
+    });
 </script>
 }
