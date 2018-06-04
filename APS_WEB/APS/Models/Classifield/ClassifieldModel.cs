@@ -61,6 +61,11 @@ namespace APS.Models
         [BsonElement("Marks")]
         public List<string> Marks { get; set; }
 
+        [Display(Name = "Video")]
+        [BsonElement("S_video")]
+        public string S_video { get; set; }
+        
+
         public string Path { get; set; }
         public string IDS{ get {return Id.ToString(); } }
     }

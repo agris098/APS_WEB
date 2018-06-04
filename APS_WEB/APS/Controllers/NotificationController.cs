@@ -21,7 +21,7 @@ namespace APS.Controllers
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-            var notifications = _objds.GetNotifications(userId);
+            var notifications = _objds.GetNotifications(userId).OrderByDescending(c=> c.DateTime);
             return View(notifications);
         }
         [Route("updatestatus")]

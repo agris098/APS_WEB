@@ -18,11 +18,12 @@ namespace APS
     {
         protected void Application_Start()
         {
+            GlobalFilters.Filters.Add(new RequireHttpsAttribute());
             EnsureAuthIndexes.Exist();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-         //   GlobalFilters.Filters.Add(new RequireHttpsAttribute());
+            
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 

@@ -263,6 +263,7 @@ namespace APS.Models
                 S_description = c.S_description,
                 S_viewsCount = c.Viewers.Count,
                 S_pictures = c.S_pictures ?? (new string[] { }),
+                S_video = c.S_video,
                 U_email = user.Email,
                 U_number = user.PhoneNumber,
                 U_FullName = userDetails.FullName,

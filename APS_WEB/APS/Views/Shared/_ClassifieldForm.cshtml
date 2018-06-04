@@ -35,6 +35,11 @@
         <ul id="Pictures_container">
         </ul>
     </div>
+    <div class="form-group data-field S_video">
+        @Html.LabelFor(model => model.S_video)
+        @Html.TextBoxFor(model => model.S_video, new { @class = "form-control", type = "text", placeholder = "youtube.com/..." })
+        @Html.ValidationMessageFor(model => model.S_video, "", new { @class = "text-danger" })
+    </div>
     <div class="form-group add">
         <button type="submit" class="btn btn-primary">Add</button>
     </div>
