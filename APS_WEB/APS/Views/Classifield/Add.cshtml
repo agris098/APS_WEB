@@ -1,21 +1,27 @@
-﻿
+﻿@using System.Collections
+@using System.Globalization
+@using System.Resources
 @{
     ViewBag.Title = "AddSection";
+
+    ResourceSet resourceSet =
+    APS.Resources.Sections.ResourceManager.GetResourceSet
+    (CultureInfo.CurrentUICulture, true, true);
 }
 
-<h3>ADD CLASSIFIED</h3>
+<h3>@APS.Resources.Main.AddClassified</h3>
 
 <div class="row section-selector-container">
     <div class="col-md-3 section-selector">
         <select class="form-control" data-load-section="classifields" data-section-path>
-            <option>Select section</option>
+            <option>@APS.Resources.Main.SelectSection</option>
         </select>
     </div>
 </div>
 <div class="row" id="SelectedSectionRow" style="display:none">
     <div class="col-md-12" style="text-align:center;">
         <div class="selected-section-info">
-            <span>Selected section path</span><br />
+            <span>@APS.Resources.Main.SelectedSectionPath</span><br />
             <span id="SelectedPath"></span><i class="fa fa-pencil-square-o change"></i>
         </div>
     </div>
@@ -28,6 +34,15 @@
 @Styles.Render("~/Content/add_classified")
 @Styles.Render("~/Content/shared")
 @section scripts{
+    <script>
+        var Resources = {};
+        @foreach (DictionaryEntry res in resourceSet)
+        {
+            // Create a property on the javascript object for each text resource
+            @:Resources.@res.Key = "@Html.Raw(
+                HttpUtility.JavaScriptStringEncode(res.Value.ToString()))";
+        }
+    </script>
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/shared")
     <script src="@Url.Content("~/Scripts/Classifields/add-classifield.js")"></script>

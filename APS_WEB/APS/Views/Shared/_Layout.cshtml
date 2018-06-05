@@ -46,19 +46,19 @@
         <div class=" admin-menu" style="padding: 5px 0 5px 0;">
             <div class="container" style="text-align:center;">
                 <div class="col-xs-2">
-                    @Html.ActionLink("Section", "addsection", "Admin")
+                    @Html.ActionLink(APS.Resources.Main.Section, "addsection", "Admin")
                 </div>
                 <div class="col-xs-2">
-                    @Html.ActionLink("Users", "Users", "Admin")
+                    @Html.ActionLink(APS.Resources.Main.Users, "Users", "Admin")
                 </div>
                 <div class="col-xs-2">
-                    @Html.ActionLink("Classifieds", "pclassifieds", "admin")
+                    @Html.ActionLink(APS.Resources.Main.Classifieds, "pclassifieds", "admin")
                 </div>
                 <div class="col-xs-2">
-                    @Html.ActionLink("Work", "work", "admin")
+                    @Html.ActionLink(APS.Resources.Main.Work, "work", "admin")
                 </div>
                 <div class="col-xs-2">
-                    @Html.ActionLink("Reports", "Reports", "Admin")
+                    @Html.ActionLink(APS.Resources.Main.Reports, "Reports", "Admin")
                 </div>
             </div>
          </div>
@@ -105,9 +105,9 @@
         if (currentUser.Id && currentUser.Blocked && Blocked != "True") {
             window.location.href = "/Blocked";
         }
-        else if (!currentUser.FullName && currentUser.Id && Edit != "True") {
-            window.location.href = "/profile/edit";
-        }
+        //else if (!currentUser.FullName && currentUser.Id && Edit != "True") {
+        //    window.location.href = "/profile/edit";
+        //}
     </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

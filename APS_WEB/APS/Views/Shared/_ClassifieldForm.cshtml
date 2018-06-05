@@ -21,7 +21,7 @@
     </div>
     <div class="form-group S_description">
         @Html.LabelFor(model => model.S_description)<span class="star">*</span>
-        @Html.TextAreaFor(model => model.S_description, new { @class = "form-control", type = "text", rows=5, required = "required", placeholder = "Description" })
+        @Html.TextAreaFor(model => model.S_description, new { @class = "form-control", type = "text", rows=5, required = "required", placeholder = Html.Raw(APS.Resources.Classifieds.Description) })
         @Html.ValidationMessageFor(model => model.S_description, "", new { @class = "text-danger" })
     </div>
     <div class="form-group data-field S_year">
@@ -41,6 +41,6 @@
         @Html.ValidationMessageFor(model => model.S_video, "", new { @class = "text-danger" })
     </div>
     <div class="form-group add">
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">@APS.Resources.Main.Add</button>
     </div>
 }

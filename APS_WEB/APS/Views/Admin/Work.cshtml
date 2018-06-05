@@ -2,12 +2,12 @@
     ViewBag.Title = "Work";
 }
 
-<h3>Work</h3>
-<div class="noTasks" style="display:none">No assigned Tasks</div>
+<h3>@APS.Resources.Classifieds.OVERWATCH</h3>
+<div class="noTasks" style="display:none">@APS.Resources.Classifieds.NoassignedTasks</div>
 <div class="row classified-overwatch" style="display:none" data-wId>
     <div class="col-xs-12">
-        <button class="btn btn-primary" onclick="rejectWorkItem()">Reject</button>
-        <button class="btn btn-primary" style="float:right;" onclick="approveWorkItem()">Approve</button>
+        <button class="btn btn-primary" onclick="rejectWorkItem()">@APS.Resources.Classifieds.Reject</button>
+        <button class="btn btn-primary" style="float:right;" onclick="approveWorkItem()">@APS.Resources.Classifieds.Approve</button>
     </div>
     <div class="col-xs-12">
         <div class="row header-container">
@@ -26,7 +26,7 @@
             <div class="col-md-4">
                 <div class="main-info">
                     <div class="section">
-                        <div class="title">Price:</div>
+                        <div class="title">@APS.Resources.Classifieds.Price :</div>
                         <div><span class="S_price price"></span> <span class="price">€</span></div>
                     </div>
                 </div>
@@ -36,19 +36,16 @@
             <div class="row">
                 <div class="col-xs-12">
                     <ul class="nav nav-tabs">
-                        <li status="description" class="active"><a data-toggle="tab" href="#description-content">Description<span></span></a></li>
-                        <li status="information"><a data-toggle="tab" href="#information-content">Information<span></span></a></li>
-                        <li status="Video"><a data-toggle="tab" href="#video-content">Video<span></span></a></li>
+                        <li status="description" class="active"><a data-toggle="tab" href="#description-content">@APS.Resources.Classifieds.Description<span></span></a></li>
+                        <li status="information"><a data-toggle="tab" href="#information-content">@APS.Resources.Classifieds.Information<span></span></a></li>
+                        <li status="Video"><a data-toggle="tab" href="#video-content">@APS.Resources.Classifieds.Video<span></span></a></li>
                     </ul>
-
                     <div class="tab-content">
                         <div id="description-content" class="tab-pane fade in active S_description">
                         </div>
                         <div id="information-content" class="tab-pane fade Information">
-                            Information
                         </div>
                         <div id="video-content" class="tab-pane fade video">
-                            Video
                         </div>
                     </div>
                 </div>

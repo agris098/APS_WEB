@@ -180,4 +180,82 @@
   <data name="Send" xml:space="preserve">
     <value>Send</value>
   </data>
+  <data name="AddSection" xml:space="preserve">
+    <value>Add Section</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Assign</value>
+  </data>
+  <data name="AssignClassifieds" xml:space="preserve">
+    <value>Assign classifieds</value>
+  </data>
+  <data name="Assigned" xml:space="preserve">
+    <value>Assigned</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Classifiedcount" xml:space="preserve">
+    <value>Classified count</value>
+  </data>
+  <data name="Classifieds" xml:space="preserve">
+    <value>Classifieds</value>
+  </data>
+  <data name="classifiedstouser" xml:space="preserve">
+    <value>classifieds to user</value>
+  </data>
+  <data name="Collapseall" xml:space="preserve">
+    <value>Collapse all</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Expand all</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Not Approved</value>
+  </data>
+  <data name="NotAssigned" xml:space="preserve">
+    <value>NotAssigned</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="AddClassified" xml:space="preserve">
+    <value>AddClassified</value>
+  </data>
+  <data name="Deleteallreaded" xml:space="preserve">
+    <value>Delete all readed</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Errors</value>
+  </data>
+  <data name="Markallasreaded" xml:space="preserve">
+    <value>Mark all as readed</value>
+  </data>
+  <data name="SelectedSectionPath" xml:space="preserve">
+    <value>Selected section path</value>
+  </data>
+  <data name="SelectSection" xml:space="preserve">
+    <value>Select section</value>
+  </data>
 </root>

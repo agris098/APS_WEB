@@ -6,7 +6,7 @@
 <div class="row" style="margin-top:20px;">
     @foreach (var item in Model)
     {
-        <div class="col-md-3 m-section">
+        <div class="col-md-3 col-sm-4 col-xs-6 m-section">
             <dl>
                 <dt>
                     @{
@@ -46,8 +46,8 @@
                     <i class="fa @icon"></i>
 
                     <span class="main-title">
-                        <a href="@Url.Action(item.MainSection.Child,"classifields")">
-                            <span class="title">@item.MainSection.Child</span>
+                        <a href="@Url.Action(item.MainSection.Child , "classifields")">
+                            <span class="title">@APS.Resources.Sections.ResourceManager.GetString(item.MainSection.Child.Replace("-",""))</span>
                             <span class="count">(@item.MainSection.Count)</span>
                         </a>
                     </span>
@@ -61,7 +61,7 @@
                             {
                                 <li>
                                     <a href="@Url.Action(subitem.Parent + "/" + subitem.Child,"classifields")">
-                                        <span class="title">@subitem.Child</span>
+                                        <span class="title">@APS.Resources.Sections.ResourceManager.GetString(subitem.Child.Replace("-", ""))</span>
                                         <span class="count">(@subitem.Count)</span>
                                     </a>
                                 </li>

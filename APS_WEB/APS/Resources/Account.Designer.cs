@@ -61,6 +61,15 @@ namespace APS.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accept the terms of use.
+        /// </summary>
+        public static string Acceptthetermsofuse {
+            get {
+                return ResourceManager.GetString("Acceptthetermsofuse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {

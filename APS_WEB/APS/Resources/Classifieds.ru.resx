@@ -117,25 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Acceptthetermsofuse" xml:space="preserve">
-    <value>Piekrist lietošanas noteikumiem</value>
+  <data name="Approve" xml:space="preserve">
+    <value>Одобрить</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-pasts</value>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
   </data>
-  <data name="Forg" xml:space="preserve">
-    <value>Aizmirsi paroli?</value>
+  <data name="Information" xml:space="preserve">
+    <value>Информация</value>
   </data>
-  <data name="LogIn" xml:space="preserve">
-    <value>Pieslēgties</value>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
   </data>
-  <data name="Pass" xml:space="preserve">
-    <value>Parole</value>
+  <data name="NoassignedTasks" xml:space="preserve">
+    <value>Объявление не найдено.</value>
   </data>
-  <data name="Reg" xml:space="preserve">
-    <value>Reģistrēt jaunu lietotāju?</value>
+  <data name="OVERWATCH" xml:space="preserve">
+    <value>Патруля</value>
   </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Atceries mani</value>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Oтклонять</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Bидео</value>
   </data>
 </root>

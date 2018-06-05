@@ -12,7 +12,7 @@
             $.each(data, function () {
                 console.log(this.Path);
                 var tpath = this.Path === "" || this.Path === undefined ? this.Child : this.Path + "/" + this.Child;
-                selector.append("<option value='" + this.Child + "' data-section-path='" + tpath + "'>" + this.Child + "</option>");
+                selector.append("<option value='" + this.Child + "' data-section-path='" + tpath + "'>" + Resources[this.Child.replace("-","")] + "</option>");
             });
         },
         error: function (data) {
@@ -57,8 +57,8 @@ $(document).on("change", ".section-selector-container select", function (e) {
                     path = "";
                     pathToForm = "";
 
-                sections.each(function () {
-                    path += "<i class='fa fa-chevron-right arrow'></i>" + $(this).val();
+                    sections.each(function () {
+                        path += "<i class='fa fa-chevron-right arrow'></i>" + Resources[$(this).val().replace("-","")];
                     pathToForm += "/" + $(this).val();
                 });
 

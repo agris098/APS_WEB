@@ -49,6 +49,12 @@ namespace APS.Controllers
         {
             return Ok(objds.GetSections());
         }
+        [Route("check/{id}")]
+        [HttpGet]
+        public IHttpActionResult Check(string id)
+        {
+            return Ok(objds.CheckSectionForClassifieds(id));
+        }
 
         [Route("delete/{id}")]
         [HttpDelete]

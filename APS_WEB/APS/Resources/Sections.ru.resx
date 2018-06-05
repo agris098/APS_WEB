@@ -117,25 +117,154 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Acceptthetermsofuse" xml:space="preserve">
-    <value>Piekrist lietošanas noteikumiem</value>
+  <data name="all_school" xml:space="preserve">
+    <value>Все школы</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-pasts</value>
+  <data name="clothing" xml:space="preserve">
+    <value>Одежда</value>
   </data>
-  <data name="Forg" xml:space="preserve">
-    <value>Aizmirsi paroli?</value>
+  <data name="c_glasses" xml:space="preserve">
+    <value>Очки</value>
   </data>
-  <data name="LogIn" xml:space="preserve">
-    <value>Pieslēgties</value>
+  <data name="c_gloves" xml:space="preserve">
+    <value>перчатки</value>
   </data>
-  <data name="Pass" xml:space="preserve">
-    <value>Parole</value>
+  <data name="c_other" xml:space="preserve">
+    <value>Другие</value>
   </data>
-  <data name="Reg" xml:space="preserve">
-    <value>Reģistrēt jaunu lietotāju?</value>
+  <data name="electronics" xml:space="preserve">
+    <value>электроника</value>
   </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Atceries mani</value>
+  <data name="e_audio" xml:space="preserve">
+    <value>аудио</value>
+  </data>
+  <data name="e_battery" xml:space="preserve">
+    <value>аккумулятор</value>
+  </data>
+  <data name="e_meet" xml:space="preserve">
+    <value>Встретить</value>
+  </data>
+  <data name="fa_books" xml:space="preserve">
+    <value>книги</value>
+  </data>
+  <data name="fa_pens" xml:space="preserve">
+    <value>Ручки</value>
+  </data>
+  <data name="forchildren" xml:space="preserve">
+    <value>Для детей</value>
+  </data>
+  <data name="funrelax" xml:space="preserve">
+    <value>Развлечения, отдых</value>
+  </data>
+  <data name="f_music" xml:space="preserve">
+    <value>Музыка</value>
+  </data>
+  <data name="f_other" xml:space="preserve">
+    <value>Другие</value>
+  </data>
+  <data name="health" xml:space="preserve">
+    <value>Здоровье</value>
+  </data>
+  <data name="hh_cosmetics" xml:space="preserve">
+    <value>Косметика</value>
+  </data>
+  <data name="hh_other" xml:space="preserve">
+    <value>Другие</value>
+  </data>
+  <data name="homegarden" xml:space="preserve">
+    <value>Дом и Сад</value>
+  </data>
+  <data name="h_other" xml:space="preserve">
+    <value>Другие</value>
+  </data>
+  <data name="h_plants" xml:space="preserve">
+    <value>растения</value>
+  </data>
+  <data name="realestate" xml:space="preserve">
+    <value>Недвижимость</value>
+  </data>
+  <data name="r_books" xml:space="preserve">
+    <value>книги</value>
+  </data>
+  <data name="toys" xml:space="preserve">
+    <value>игрушки</value>
+  </data>
+  <data name="transport" xml:space="preserve">
+    <value>Транспорт</value>
+  </data>
+  <data name="tt_audi" xml:space="preserve">
+    <value>Audi</value>
+  </data>
+  <data name="tt_bmw" xml:space="preserve">
+    <value>BMW</value>
+  </data>
+  <data name="tt_change" xml:space="preserve">
+    <value>обмен</value>
+  </data>
+  <data name="tt_nissan" xml:space="preserve">
+    <value>Nissan</value>
+  </data>
+  <data name="tt_other" xml:space="preserve">
+    <value>Другие</value>
+  </data>
+  <data name="t_bike" xml:space="preserve">
+    <value>Велосипед</value>
+  </data>
+  <data name="t_cars" xml:space="preserve">
+    <value>Легковые автомобили</value>
+  </data>
+  <data name="work" xml:space="preserve">
+    <value>Работа</value>
+  </data>
+  <data name="w_courses" xml:space="preserve">
+    <value>курсы</value>
+  </data>
+  <data name="w_translate" xml:space="preserve">
+    <value>Переведите</value>
+  </data>
+  <data name="fr_other" xml:space="preserve">
+    <value>Другие</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="classifields" xml:space="preserve">
+    <value>Oбъявления</value>
+  </data>
+  <data name="S_condition" xml:space="preserve">
+    <value>Состояние</value>
+  </data>
+  <data name="S_data" xml:space="preserve">
+    <value>Данные</value>
+  </data>
+  <data name="S_description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="S_location" xml:space="preserve">
+    <value>Место нахождения</value>
+  </data>
+  <data name="S_manufacture" xml:space="preserve">
+    <value>Производство</value>
+  </data>
+  <data name="S_model" xml:space="preserve">
+    <value>Модель</value>
+  </data>
+  <data name="S_mpicture" xml:space="preserve">
+    <value>изображение</value>
+  </data>
+  <data name="S_price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="S_size" xml:space="preserve">
+    <value>Размер</value>
+  </data>
+  <data name="S_type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="S_video" xml:space="preserve">
+    <value>видео</value>
+  </data>
+  <data name="S_year" xml:space="preserve">
+    <value>Year</value>
   </data>
 </root>

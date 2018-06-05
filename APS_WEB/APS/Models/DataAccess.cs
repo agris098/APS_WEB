@@ -162,6 +162,19 @@ namespace APS.Models
             }
             Remove(section.Id);
         }
+        public bool CheckSectionForClassifieds(string id) {
+            var Response = false;
+            try
+            {
+                var section = GetSection(ObjectId.Parse(id));
+                var count = ClassifieldCountByPath(section.Path + "/"+ section.Child);
+                if (count > 0) {
+                    Response = true;
+                }
+            }
+            catch { }
+            return Response;
+        }
         #endregion
         #region Classifieds  ------------------------------------------------------------------------------------------------------------------
         public void DeleteClassified(string id)

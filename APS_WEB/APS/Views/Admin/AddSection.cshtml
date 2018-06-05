@@ -1,18 +1,22 @@
-﻿
+﻿@using System.Collections
+@using System.Globalization
+@using System.Resources
 @{
     ViewBag.Title = "ADD SECTION";
+    ResourceSet resourceSet =
+    APS.Resources.Sections.ResourceManager.GetResourceSet
+    (CultureInfo.CurrentUICulture, true, true);
 }
 
-<h3>ADD SECTION</h3>
+<h3>@APS.Resources.Main.AddSection</h3>
 <div id="treeContainer" class="row">
     <hr />
     @Html.Hidden("sectionId")
     @Html.Hidden("sectionValue")
     <div class="row tree-head">
         <div class="col-xs-12">
-            <button type="button" class="btn t-btn" collapse-sections>Collapse all</button>
-            <button type="button" class="btn t-btn" expand-sections>Expend all</button>
-
+            <button type="button" class="btn t-btn" collapse-sections>@APS.Resources.Main.Collapseall</button>
+            <button type="button" class="btn t-btn" expand-sections>@APS.Resources.Main.ExpandAll</button>
         </div>
     </div>
     <div class="row">
@@ -32,7 +36,7 @@
     <div class="row">
         <div class="col-md-2 col-md-offset-5">
             <button confirm-section type="button" class="btn btn-primary">
-                Confirm
+                @APS.Resources.Main.Confirm
             </button>
         </div>
     </div>
@@ -166,5 +170,14 @@
         }
 </style>
 @section scripts{
+    <script>
+            var Resources = {};
+            @foreach (DictionaryEntry res in resourceSet)
+            {
+                // Create a property on the javascript object for each text resource
+                @:Resources.@res.Key = "@Html.Raw(
+                    HttpUtility.JavaScriptStringEncode(res.Value.ToString()))";
+            }
+    </script>
     <script src="@Url.Content("~/Scripts/Classifields/section.js")"></script>
 }

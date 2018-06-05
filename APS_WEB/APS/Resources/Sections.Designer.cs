@@ -59,5 +59,455 @@ namespace APS.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All school.
+        /// </summary>
+        public static string all_school {
+            get {
+                return ResourceManager.GetString("all_school", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Glasses.
+        /// </summary>
+        public static string c_glasses {
+            get {
+                return ResourceManager.GetString("c_glasses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gloves.
+        /// </summary>
+        public static string c_gloves {
+            get {
+                return ResourceManager.GetString("c_gloves", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string c_other {
+            get {
+                return ResourceManager.GetString("c_other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classifieds.
+        /// </summary>
+        public static string classifields {
+            get {
+                return ResourceManager.GetString("classifields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clothing.
+        /// </summary>
+        public static string clothing {
+            get {
+                return ResourceManager.GetString("clothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio.
+        /// </summary>
+        public static string e_audio {
+            get {
+                return ResourceManager.GetString("e_audio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery.
+        /// </summary>
+        public static string e_battery {
+            get {
+                return ResourceManager.GetString("e_battery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meet.
+        /// </summary>
+        public static string e_meet {
+            get {
+                return ResourceManager.GetString("e_meet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Electronics.
+        /// </summary>
+        public static string electronics {
+            get {
+                return ResourceManager.GetString("electronics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Music.
+        /// </summary>
+        public static string f_music {
+            get {
+                return ResourceManager.GetString("f_music", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string f_other {
+            get {
+                return ResourceManager.GetString("f_other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string fa_books {
+            get {
+                return ResourceManager.GetString("fa_books", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pens.
+        /// </summary>
+        public static string fa_pens {
+            get {
+                return ResourceManager.GetString("fa_pens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For kids.
+        /// </summary>
+        public static string forchildren {
+            get {
+                return ResourceManager.GetString("forchildren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string fr_other {
+            get {
+                return ResourceManager.GetString("fr_other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fun, relax.
+        /// </summary>
+        public static string funrelax {
+            get {
+                return ResourceManager.GetString("funrelax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string h_other {
+            get {
+                return ResourceManager.GetString("h_other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plants.
+        /// </summary>
+        public static string h_plants {
+            get {
+                return ResourceManager.GetString("h_plants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Health.
+        /// </summary>
+        public static string health {
+            get {
+                return ResourceManager.GetString("health", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cosmetics.
+        /// </summary>
+        public static string hh_cosmetics {
+            get {
+                return ResourceManager.GetString("hh_cosmetics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string hh_other {
+            get {
+                return ResourceManager.GetString("hh_other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string home {
+            get {
+                return ResourceManager.GetString("home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home, garden.
+        /// </summary>
+        public static string homegarden {
+            get {
+                return ResourceManager.GetString("homegarden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string r_books {
+            get {
+                return ResourceManager.GetString("r_books", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealEstate.
+        /// </summary>
+        public static string realestate {
+            get {
+                return ResourceManager.GetString("realestate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Condition.
+        /// </summary>
+        public static string S_condition {
+            get {
+                return ResourceManager.GetString("S_condition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string S_data {
+            get {
+                return ResourceManager.GetString("S_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string S_description {
+            get {
+                return ResourceManager.GetString("S_description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string S_location {
+            get {
+                return ResourceManager.GetString("S_location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manufacture.
+        /// </summary>
+        public static string S_manufacture {
+            get {
+                return ResourceManager.GetString("S_manufacture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model.
+        /// </summary>
+        public static string S_model {
+            get {
+                return ResourceManager.GetString("S_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string S_mpicture {
+            get {
+                return ResourceManager.GetString("S_mpicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string S_price {
+            get {
+                return ResourceManager.GetString("S_price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        public static string S_size {
+            get {
+                return ResourceManager.GetString("S_size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string S_type {
+            get {
+                return ResourceManager.GetString("S_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Video.
+        /// </summary>
+        public static string S_video {
+            get {
+                return ResourceManager.GetString("S_video", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        public static string S_year {
+            get {
+                return ResourceManager.GetString("S_year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bike.
+        /// </summary>
+        public static string t_bike {
+            get {
+                return ResourceManager.GetString("t_bike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cars.
+        /// </summary>
+        public static string t_cars {
+            get {
+                return ResourceManager.GetString("t_cars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toys.
+        /// </summary>
+        public static string toys {
+            get {
+                return ResourceManager.GetString("toys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transport.
+        /// </summary>
+        public static string transport {
+            get {
+                return ResourceManager.GetString("transport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audi.
+        /// </summary>
+        public static string tt_audi {
+            get {
+                return ResourceManager.GetString("tt_audi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BMW.
+        /// </summary>
+        public static string tt_bmw {
+            get {
+                return ResourceManager.GetString("tt_bmw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exchange.
+        /// </summary>
+        public static string tt_change {
+            get {
+                return ResourceManager.GetString("tt_change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nissan.
+        /// </summary>
+        public static string tt_nissan {
+            get {
+                return ResourceManager.GetString("tt_nissan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string tt_other {
+            get {
+                return ResourceManager.GetString("tt_other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Courses.
+        /// </summary>
+        public static string w_courses {
+            get {
+                return ResourceManager.GetString("w_courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translate.
+        /// </summary>
+        public static string w_translate {
+            get {
+                return ResourceManager.GetString("w_translate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work.
+        /// </summary>
+        public static string work {
+            get {
+                return ResourceManager.GetString("work", resourceCulture);
+            }
+        }
     }
 }

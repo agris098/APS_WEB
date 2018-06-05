@@ -69,7 +69,7 @@
             
             var treeSections = _tree.find("li[data-child]");
             treeSections.each(function () {
-                $(this).prepend("<span><i></i>" + $(this).attr("data-child") + "</span>" +
+                $(this).prepend("<span><i></i>" + Resources[$(this).attr("data-child").replace("-", "")] + "<span style='color:grey; border:0;'>(" + $(this).attr("data-child")+ ")</span></span>" +
                     "<button class='fa fa-plus btn btn-success btn-xs' add-section></button>" +
                     "<button class='fa fa-minus btn btn-danger btn-xs' delete-section></button>");
             });
@@ -128,17 +128,34 @@
             _tree.on("click", "button[delete-section]", function () {
                 var section = $(this).closest("li");
                 function deleteSection() {
-                    var uri = "/api/section/delete/" + section.attr("data-id");
+                    var uri = "/api/section/check/" + section.attr("data-id");
                     $.ajax({
-                        method: "DELETE",
+                        method: "GET",
                         url: uri,
                         success: function (data) {
-                            updateTree();
+                            if (data !== true) {
+                                dSection();
+                            } else {
+                                alert("Denied");
+                            }      
                         },
                         error: function (data) {
                             alert("false");
                         }
                     });
+                    function dSection(){
+                        var uri = "/api/section/delete/" + section.attr("data-id");
+                        $.ajax({
+                            method: "DELETE",
+                            url: uri,
+                            success: function (data) {
+                                updateTree();
+                            },
+                            error: function (data) {
+                                alert("false");
+                            }
+                        });
+                    }
                 }
                 deleteSection();
             });
@@ -200,7 +217,7 @@
     function FillStaticData() {
 
         function newCheckBox(value) {
-            return $("<div class='checkbox'><label><input type='checkbox' value=" + value + ">" + value + "</label></div >");
+            return $("<div class='checkbox'><label><input type='checkbox' value=" + value + ">" + Resources[value] + "</label></div >");
         }
 
         function getStaticData() {

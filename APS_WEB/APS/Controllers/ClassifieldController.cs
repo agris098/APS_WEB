@@ -102,29 +102,10 @@ namespace APS.Controllers
                                 // Convert byte[] to Base64 String
                                 thePictureDataAsString = Convert.ToBase64String(imageBytes);
                             }
-                            //using (var binary = new BinaryReader(img.InputStream))
-                            //{
-                            //    imageData = binary.ReadBytes(img.ContentLength);
-                            //}
-
-                            //  thePictureDataAsString = Convert.ToBase64String(imageData);
                             images.Add(thePictureDataAsString);
-                        }
-                       
+                        }    
                     }
                 }
-
-                // _objds.UpdateUserDetails(userId, thePictureDataAsString, model);
-                //ClassifieldModel c = new ClassifieldModel()
-                //{
-                //    S_userId = User.Identity.GetUserId(),
-                //    S_dateCreated = DateTime.Now,
-                //    S_description = model.S_description,
-                //    S_price = c.S_price,
-                //    S_condition = c.S_condition,
-                //    SectionId = objds.GetSectionByPath(c.Path).ID,
-                //    Status = Status.Draft
-                //};
                 model.S_userId = userId;
                 model.S_pictures = images.ToArray();
                 model.S_mpicture = images.FirstOrDefault();

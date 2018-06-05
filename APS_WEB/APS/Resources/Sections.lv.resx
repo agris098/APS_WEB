@@ -117,25 +117,154 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Acceptthetermsofuse" xml:space="preserve">
-    <value>Piekrist lietošanas noteikumiem</value>
+  <data name="all_school" xml:space="preserve">
+    <value>Viss skolai</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-pasts</value>
+  <data name="clothing" xml:space="preserve">
+    <value>Drēbes</value>
   </data>
-  <data name="Forg" xml:space="preserve">
-    <value>Aizmirsi paroli?</value>
+  <data name="c_glasses" xml:space="preserve">
+    <value>Brilles</value>
   </data>
-  <data name="LogIn" xml:space="preserve">
-    <value>Pieslēgties</value>
+  <data name="c_gloves" xml:space="preserve">
+    <value>Cimdi</value>
   </data>
-  <data name="Pass" xml:space="preserve">
-    <value>Parole</value>
+  <data name="c_other" xml:space="preserve">
+    <value>Cits</value>
   </data>
-  <data name="Reg" xml:space="preserve">
-    <value>Reģistrēt jaunu lietotāju?</value>
+  <data name="electronics" xml:space="preserve">
+    <value>Elektronika</value>
   </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Atceries mani</value>
+  <data name="e_audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="e_battery" xml:space="preserve">
+    <value>Baterijas</value>
+  </data>
+  <data name="e_meet" xml:space="preserve">
+    <value>Iepazīties</value>
+  </data>
+  <data name="fa_books" xml:space="preserve">
+    <value>Grāmatas</value>
+  </data>
+  <data name="fa_pens" xml:space="preserve">
+    <value>Pildspalvas</value>
+  </data>
+  <data name="forchildren" xml:space="preserve">
+    <value>Priekš bērniem</value>
+  </data>
+  <data name="funrelax" xml:space="preserve">
+    <value>Izklaide, atpūta</value>
+  </data>
+  <data name="f_music" xml:space="preserve">
+    <value>Mūzika</value>
+  </data>
+  <data name="f_other" xml:space="preserve">
+    <value>Cits</value>
+  </data>
+  <data name="health" xml:space="preserve">
+    <value>Veselība</value>
+  </data>
+  <data name="hh_cosmetics" xml:space="preserve">
+    <value>Kosmētika</value>
+  </data>
+  <data name="hh_other" xml:space="preserve">
+    <value>Cits</value>
+  </data>
+  <data name="homegarden" xml:space="preserve">
+    <value>Mājai, dārzam</value>
+  </data>
+  <data name="h_other" xml:space="preserve">
+    <value>Cits</value>
+  </data>
+  <data name="h_plants" xml:space="preserve">
+    <value>Stādi</value>
+  </data>
+  <data name="realestate" xml:space="preserve">
+    <value>Privātīpašums</value>
+  </data>
+  <data name="r_books" xml:space="preserve">
+    <value>Grāmatas</value>
+  </data>
+  <data name="toys" xml:space="preserve">
+    <value>Rotaļlietas</value>
+  </data>
+  <data name="transport" xml:space="preserve">
+    <value>Transports</value>
+  </data>
+  <data name="t_bike" xml:space="preserve">
+    <value>Riteņi</value>
+  </data>
+  <data name="t_cars" xml:space="preserve">
+    <value>Mašīnas</value>
+  </data>
+  <data name="work" xml:space="preserve">
+    <value>Darbs</value>
+  </data>
+  <data name="w_courses" xml:space="preserve">
+    <value>Kursi</value>
+  </data>
+  <data name="w_translate" xml:space="preserve">
+    <value>Tulkojumi</value>
+  </data>
+  <data name="fr_other" xml:space="preserve">
+    <value>Citi</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Galvene</value>
+  </data>
+  <data name="tt_audi" xml:space="preserve">
+    <value>Audi</value>
+  </data>
+  <data name="tt_bmw" xml:space="preserve">
+    <value>BMW</value>
+  </data>
+  <data name="tt_change" xml:space="preserve">
+    <value>Maiņa</value>
+  </data>
+  <data name="tt_nissan" xml:space="preserve">
+    <value>Nissan</value>
+  </data>
+  <data name="tt_other" xml:space="preserve">
+    <value>Cits</value>
+  </data>
+  <data name="classifields" xml:space="preserve">
+    <value>Sludinājumi</value>
+  </data>
+  <data name="S_condition" xml:space="preserve">
+    <value>Stāvoklis</value>
+  </data>
+  <data name="S_data" xml:space="preserve">
+    <value>Dati</value>
+  </data>
+  <data name="S_description" xml:space="preserve">
+    <value>Apraksts</value>
+  </data>
+  <data name="S_location" xml:space="preserve">
+    <value>Lokācija</value>
+  </data>
+  <data name="S_manufacture" xml:space="preserve">
+    <value>Ražotājs</value>
+  </data>
+  <data name="S_model" xml:space="preserve">
+    <value>Modelis</value>
+  </data>
+  <data name="S_mpicture" xml:space="preserve">
+    <value>Bilde</value>
+  </data>
+  <data name="S_price" xml:space="preserve">
+    <value>Cena</value>
+  </data>
+  <data name="S_size" xml:space="preserve">
+    <value>Izmērs</value>
+  </data>
+  <data name="S_type" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+  <data name="S_video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="S_year" xml:space="preserve">
+    <value>Gads</value>
   </data>
 </root>

@@ -180,4 +180,82 @@
   <data name="Send" xml:space="preserve">
     <value>Послать</value>
   </data>
+  <data name="AddSection" xml:space="preserve">
+    <value>Добавить раздел</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>утвержденный</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>приписывать</value>
+  </data>
+  <data name="AssignClassifieds" xml:space="preserve">
+    <value>Назначить Объявления</value>
+  </data>
+  <data name="Assigned" xml:space="preserve">
+    <value>Hазначение</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Classifiedcount" xml:space="preserve">
+    <value>Учет</value>
+  </data>
+  <data name="Classifieds" xml:space="preserve">
+    <value>Объявления</value>
+  </data>
+  <data name="classifiedstouser" xml:space="preserve">
+    <value>oбъявления для пользователя</value>
+  </data>
+  <data name="Collapseall" xml:space="preserve">
+    <value>Свернуть все</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>подтвердить</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Расширить все</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Не одобрено</value>
+  </data>
+  <data name="NotAssigned" xml:space="preserve">
+    <value>Не назначен</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Отчеты</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Раздел</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Работа</value>
+  </data>
+  <data name="AddClassified" xml:space="preserve">
+    <value>Добавить объявление</value>
+  </data>
+  <data name="Deleteallreaded" xml:space="preserve">
+    <value>Удалить все прочитанное</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Oшибки</value>
+  </data>
+  <data name="Markallasreaded" xml:space="preserve">
+    <value>Oтметить все как прочитанное</value>
+  </data>
+  <data name="SelectedSectionPath" xml:space="preserve">
+    <value>Выбранный путь раздела</value>
+  </data>
+  <data name="SelectSection" xml:space="preserve">
+    <value>Выберите раздел</value>
+  </data>
 </root>

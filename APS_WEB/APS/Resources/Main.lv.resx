@@ -180,4 +180,76 @@
   <data name="Send" xml:space="preserve">
     <value>Sūtīt</value>
   </data>
+  <data name="AddSection" xml:space="preserve">
+    <value>Pievienot sekciju</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Apstiprinātie</value>
+  </data>
+  <data name="Assign" xml:space="preserve">
+    <value>Piešķirt</value>
+  </data>
+  <data name="AssignClassifieds" xml:space="preserve">
+    <value>Piešķirt sludinājumus</value>
+  </data>
+  <data name="Assigned" xml:space="preserve">
+    <value>Piešķirtie</value>
+  </data>
+  <data name="Classifiedcount" xml:space="preserve">
+    <value>Sludinājumu skaits</value>
+  </data>
+  <data name="Classifieds" xml:space="preserve">
+    <value>Sludinājumi</value>
+  </data>
+  <data name="classifiedstouser" xml:space="preserve">
+    <value>sludinājumi lietotājam</value>
+  </data>
+  <data name="Collapseall" xml:space="preserve">
+    <value>Sakļaut visu</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Apstiprinat</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Apraksts</value>
+  </data>
+  <data name="ExpandAll" xml:space="preserve">
+    <value>Paplašināt visu</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Neapstiprinātie</value>
+  </data>
+  <data name="NotAssigned" xml:space="preserve">
+    <value>Nepiešķirtie</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Ziņojumi</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Sekcijas</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Lietotāji</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>Darbs</value>
+  </data>
+  <data name="AddClassified" xml:space="preserve">
+    <value>Pievienot sludinājumu</value>
+  </data>
+  <data name="Deleteallreaded" xml:space="preserve">
+    <value>Dzēst visas izlasītās</value>
+  </data>
+  <data name="Errors" xml:space="preserve">
+    <value>Kļūdas</value>
+  </data>
+  <data name="Markallasreaded" xml:space="preserve">
+    <value>Atzīmēt visas kā izlasītas</value>
+  </data>
+  <data name="SelectedSectionPath" xml:space="preserve">
+    <value>Izvēlētais sekcijas ceļš</value>
+  </data>
+  <data name="SelectSection" xml:space="preserve">
+    <value>Izvēlēties sekciju</value>
+  </data>
 </root>

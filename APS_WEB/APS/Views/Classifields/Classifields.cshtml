@@ -19,7 +19,7 @@
                 temp += '/' + op;
                 <i class="fa fa-chevron-right back-button"></i>
                 <span class="back-button">
-                    @Html.ActionLink(op, temp, "classifields")
+                    @Html.ActionLink(APS.Resources.Sections.ResourceManager.GetString(op.Replace("-","")), temp, "classifields")
                 </span>
             }
         }

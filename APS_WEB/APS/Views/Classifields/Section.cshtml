@@ -9,7 +9,7 @@
 <div class="row back-container">
     <div class="col-xs-12">
         <span class="back-button">
-            @Html.ActionLink("Home", "", "Home")
+            @Html.ActionLink(APS.Resources.Sections.ResourceManager.GetString("home"), "", "Home")
         </span>
         @if (_backOptions != null && _backOptions.Length > 0)
         {
@@ -20,14 +20,14 @@
                 temp += '/' + op;
                 <i class="fa fa-chevron-right back-button"></i>
                 <span class="back-button">
-                    @Html.ActionLink(op, temp, "classifields")
+                    @Html.ActionLink(APS.Resources.Sections.ResourceManager.GetString(op.Replace("-", "")), temp, "classifields")
                 </span>
             }
         }
 
     </div>
 </div>
-<h3 style="text-align:center;">@_pagetitle</h3>
+<h3 style="text-align:center;">@APS.Resources.Sections.ResourceManager.GetString(_pagetitle.Replace("-", ""))</h3>
 
 
 @foreach (var item in Model)
@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col">
             <a href="@Url.Action("Section", new { tags = item.Path +"/"+ item.Child })">
-                <span class="title">@item.Child</span>
+                <span class="title">@APS.Resources.Sections.ResourceManager.GetString(item.Child.Replace("-",""))</span>
                 <span class="count">(@item.Count.ToString())</span>
             </a>
         </div>

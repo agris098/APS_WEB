@@ -3,7 +3,7 @@
     ViewBag.Title = "Users";
 }
 
-<h3>Users</h3>
+<h3>@APS.Resources.Main.Users</h3>
 
 <table id="usersTable" class="display" style="width:100%">
     <thead>
@@ -23,7 +23,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLongTitle">User</h3>
+                <h3 class="modal-title" id="exampleModalLongTitle">@APS.Resources.Main.Users</h3>
             </div>
             <div class="modal-body">
                 <form>
@@ -44,7 +44,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="sendReport" type="button" onclick="editUser()" class="btn btn-primary">Send</button>
+                <button id="sendReport" type="button" onclick="editUser()" class="btn btn-primary">@APS.Resources.Main.Save</button>
             </div>
         </div>
     </div>
